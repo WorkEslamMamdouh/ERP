@@ -1,0 +1,546 @@
+﻿@using Inv.WebUI.Resources
+
+<!doctype html>
+<html id="body_img" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="~/images/newlogo.jpg">
+    <title>@SystemResource.App_Home</title>
+    @Styles.Render("~/Bundles/AppStyle2")
+    <link id="bootstrap_rtl" href="~/Style_design/bootstrap-rtl.css" rel="stylesheet" />
+    <link id="Style_Arabic" href="~/Style_design/Style_Arabic.css" rel="stylesheet" />
+    @*<script src="http://code.jquery.com/jquery-3.0.0.js"></script>*@
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Style_design/js/jquery-3.4.1.js"></script>
+    @Scripts.Render("~/Bundles/AppScript2")
+    <script src="~/Style_design/jquery.cookie.min.js"></script>
+    @Scripts.Render("~/Bundles/AppScript3")
+    <link href="~/Style_design/Stylelayout.css" rel="stylesheet" />
+</head>
+
+<body id="main-menu" class=" materialdesign">
+    <div class="card-body">
+    </div>
+    <input type="hidden" id="GetActionUrl" name="name" value="@Url.Action("GetActionUrl","ClientTools")" />
+    <input type="hidden" id="GetAPIUrl" name="name" value="@System.Configuration.ConfigurationManager.AppSettings["ServiceUrl"]" />
+    <div class="wrapper-pro">
+        <!-- Header top area start المنيو اللي في الجنب  -->
+        <div class="left-sidebar-pro  ">
+            <nav id="sidebar" class="scroll" style="">
+                <div class="sidebar-header">
+
+                    @*<a href="#">
+
+                            <img src="~/images/logokids.png" alt="" />
+                        </a>*@
+                    @*<a  href="#">
+                           <i hidden id="i_toolpar" class="glyphicon glyphicon-share-alt"></i>
+                        </a>*@
+                </div>
+                <script>
+
+
+                </script>
+                <div class="left-custom-menu-adp-wrap">
+                    <ul id="main_menu" name="main_menu" class="nav navbar-nav left-sidebar-menu-pro">
+                        <li class="liItem  nav-item">
+                            <a id="btnHome" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class=" liItem nav-link dropdown-toggle">  <i id="btnHome" class="glyphicon glyphicon-home"></i>    <span id="btnHome" class="mini-dn">@SystemResource.Men_Home</span></a>
+                        </li>
+                        <li class="liItem MED nav-item display_none " id="btnSales">
+                            <a id="lep1" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-equalizer"></i>  <span class="mini-dn">المبيعات </span><i id="span1" class="fa fa-caret-left float-left"></i></a>
+                            <div id=" " role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <ul id=" ">
+                                    <li class="liItem dropdown-item" id="btnSlsTrSales" key="SlsTrSales"><a id="btnSlsTrSales">المبيعات</a></li>
+                                    <li class="liItem dropdown-item" id="btnSlsTrReturn" key="SlsTrReturn"><a id="btnSlsTrReturn">مرتجع الفواتير</a></li>
+                                    <li class="liItem dropdown-item" id="btnSlsTrSalesManager" key="SlsTrSalesManager"><a id="btnSlsTrSalesManager">  الفواتير الالكترونيه</a></li>
+
+                                    
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="liItem MED nav-item display_none " id="btnPurchase">
+                            <a id="lep2" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-usd"></i>  <span class="mini-dn"> المشتريات </span><i id="span2" class="fa fa-caret-left float-left"></i></a>
+                            <div id="" role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <ul id=" ">
+                                    <li class="liItem dropdown-item" id="btnPurchases" key="Purchases"><a id="btnPurchases">المشتريات</a></li>
+                                    @*<li class="liItem dropdown-item" id="btnSlsTrReturn" key="SlsTrReturn"><a id="btnSlsTrReturn">مرتجع الفواتير</a></li>*@
+
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="liItem MED nav-item display_none " id="btnservicesystem">
+                            <a id="lep3" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-th-list	"></i>  <span class="mini-dn"> إعدادات عامة  </span><i id="span3" class="fa fa-caret-left float-left"></i></a>
+                            <div id="" role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <ul id=" ">
+                                    <li class="liItem dropdown-item" id="btnCatch_Receipt" key="Catch_Receipt"><a id="btnCatch_Receipt">سداد مديونيه</a></li> 
+                                    <li class="liItem dropdown-item" id="btnCUSTOMERS" key="CUSTOMERS"><a id="btnCUSTOMERS">العملاء</a></li> 
+                                    <li class="liItem dropdown-item" id="btnSupplier" key="Supplier"><a id="btnSupplier">الموردين</a></li>
+                                    <li class="liItem dropdown-item" id="btnUSERS" key="USERS"><a id="btnUSERS">الموظفين</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="liItem MED nav-item display_none " id="btnInventory">
+                            <a id="lep4" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-equalizer"></i>  <span class="mini-dn"> التقارير </span><i id="span4" class="fa fa-caret-left float-left"></i></a>
+                            <div id=" " role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <ul id=" ">
+
+                                    <li class="liItem dropdown-item" id="btnSalesinventory" key="Salesinventory"><a id="btnSalesinventory">جرد  المبيعات</a></li>
+                                    <li class="liItem dropdown-item" id="btnIncome_expenses" key="Income_expenses"><a id="btnIncome_expenses">كشف حساب</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="liItem MED nav-item display_none " id="btnCashBoxDefinitions">
+                            <a id="lep5" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-hourglass"></i>  <span class="mini-dn">إدارة المخازن </span><i id="span5" class="fa fa-caret-left float-left"></i></a>
+                            <div id="" role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                <ul id=" ">
+                                    <li class="liItem dropdown-item" id="btnfamilly_Cat" key="familly_Cat"><a id="btnfamilly_Cat"> انواع الفئات</a></li>
+                                    <li class="liItem dropdown-item" id="btnCategories" key="Categories"><a id="btnCategories">الفئات</a></li>
+                                    <li class="liItem dropdown-item" id="btnItems" key="Items"><a id="btnItems">الاصناف</a></li>
+
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="liItem MED nav-item display_none " id="btnCash">
+                            <a id="lep6" href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"> <i class="glyphicon glyphicon-equalizer"></i>  <span class="mini-dn">الخزينة </span><i id="span6" class="fa fa-caret-left float-left"></i></a>
+                            <div id=" " role="menu" class="dropdown-menu left-menu-dropdown animated flipInX" style=" background: linear-gradient(to right, rgb(0 0 0 / 0%) 0%, #054f5b9c 100%) !important; color:white; width: 100%;">
+                                <ul>
+
+                                    <li class="liItem dropdown-item" id=" " key=" ">
+
+
+                                        <div class="col-lg-12">
+                                            <div class="col-lg-3">
+
+                                            </div>
+                                            <label id="Balance" class="login2 pull-right pull-right-pro" style="color: #f50d0d;">المبلغ </label>
+                                        </div>
+                                        <div class="col-lg-4">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="login2 pull-right pull-right-pro" style="color: bisque;">الـوصـف</label>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <textarea id="id_Dasc_Name" class="form-control" style="height: 60px;background-color: #ffd8a5;" type="text" placeholder="الـوصـف"></textarea>
+                                        </div>
+
+                                    </li>
+                                    <li class="liItem dropdown-item" id=" " key=" ">
+
+                                        <div class="col-lg-4">
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <label class="login2 pull-right pull-right-pro" style="color: bisque;font-weight: bold;font-size: 21px;">السعـــر</label>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <input id="id_pirce" class="form-control" style="background-color: #d7ff99;" type="number" placeholder="السعـــر">
+                                        </div>
+
+                                    </li>
+
+                                    <li class="liItem dropdown-item" id=" " key=" ">
+                                        <div class="col-lg-1" style="width: 0px;">
+
+                                        </div>
+                                        <div class="col-lg-5">
+                                            <input id="But_Outlet" type="button" class="btn btn-info" style=" width: 118%; background: linear-gradient(to right, #652f08 0%, #c80000 100%);" value=" Out ">
+                                        </div>
+
+
+                                        <div class="col-lg-5">
+                                            <input id="But_Input" type="button" class="btn btn-info" style="width: 118%; " value="Push">
+                                        </div>
+                                        <div class="col-lg-1">
+
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- Header top area start المنيو اللي فوق  -->
+        <div id="headertop2" class="content-inner-all fixed-header-top " style=" cursor: pointer!important">
+            <div class="header-top-area">
+                <div class="fixed-header-top">
+                    <div id="clortest" class="container-fluid">
+                        <div class="row" style="margin-top: 0.5% !important; cursor: pointer">
+                            <div class="col-lg-12" style="text-align: center;cursor: pointer;">
+                                @*<label id="Add_New" class="col-lg-1 w6 p-0" style="cursor:pointer;color:#0b6ba2">  @SystemResource.App_new <span class="glyphicon glyphicon-plus"></span></label>
+                                    <label id="btnEdit" class="col-lg-1 w6 p-0" style="cursor:pointer;color:#ff6a00">  @SystemResource.App_Update <span class="fa fa-edit"></span></label>
+                                    <label id="btnsave" class="col-lg-1 w6 p-0" style="cursor:pointer;color:#0bb614">  @SystemResource.App_save  <span class="glyphicon glyphicon-floppy-saved"></span></label>
+                                    <label id="btnDelete" class="col-lg-1 w6 p-0" style="cursor:pointer;color:#f30a1f">  حذف  <span class="glyphicon glyphicon-trash"></span></label>*@
+                                @*  <label  id="btnback" class="col-lg-1 w6 p-0" style="cursor:pointer;color:#176380">  @SystemResource.App_back  <span class="fa fa-mail-reply"></span></label>
+
+                                    <label class="col-lg-2 w7 p-0" style="cursor:pointer;color:#0e0af3">   اعادة تهيئة  <span class="glyphicon glyphicon-refresh"> </span></label>
+                                     <label class="col-lg-1 w7 p-0" style="cursor:pointer;color:#0dad12">استعرض <span class=" fa fa-play-circle-o"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#e50af3">   @SystemResource.App_Print  <span class="glyphicon glyphicon-print"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#171414">   الدفتر  <span class="glyphicon glyphicon-book"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#3d6ef9">   بحث  <span class="glyphicon glyphicon-search"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#1ec709">  فحص <span class="glyphicon glyphicon-check"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#f97a3d">تحميل <span class=" fa fa-cogs"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#555"> ادوات <span class=" fa fa-cogs"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:#03a9f4 ">ترحيل  <span class=" fa fa-clipboard"></span></label>
+                                     <label class="col-lg-1 w6 p-0" style="cursor:pointer;color:red"> اغلاق <span class=" fa fa-stop-circle-o	"></span></label>
+                                     <div class="col-lg-3 w11 p-0 " style="cursor:pointer;color:#3d6ef9">
+                                         <span class=" fa fa-angle-double-right stylenext	"></span>
+                                         <span class=" fa fa-angle-right	stylenext"></span>
+                                         <span class="">1</span>
+                                         <span class="">من</span>
+                                         <span class=" ">60</span>
+                                         <span class=" fa fa-angle-left	stylenext"></span>
+                                         <span class=" fa fa-angle-double-left	stylenext"></span>
+                                     </div>
+                                     <label onclick="openFullscreen()" class="col-lg-1 p-0" style="width:1%"> <span class=" fa fa-tv"></span></label>
+                                     <label onclick="closeFullscreen()" class="col-lg-1 p-0" style="width:2%"><span class=" fa fa-tablet"></span></label>*@
+
+                            </div>
+                            @*<div class="col-lg-5 p-0 ">
+                                    <div class="col-lg-3 p-0 ">
+                                        <span class=" fa fa-angle-double-right stylenext	"></span>
+                                        <span class=" fa fa-angle-right	stylenext"></span>
+                                        <span class="">1</span>
+                                        <span class="">من</span>
+                                        <span class=" ">60</span>
+                                        <span class=" fa fa-angle-left	stylenext"></span>
+                                        <span class=" fa fa-angle-double-left	stylenext"></span>
+                                    </div>
+
+                                    <div class="col-lg-9 p-0 ">
+                                        <label class="col-lg-2 pr-0">  فحص <span class="glyphicon glyphicon-check"></span></label>
+                                        <label class="col-lg-2 pr-0">تحميل <span class=" fa fa-cogs"></span></label>
+                                        <label class="col-lg-2 pr-0"> ادوات <span class=" fa fa-cogs"></span></label>
+                                        <label class="col-lg-2 pr-0">ترحيل  <span class=" fa fa-clipboard"></span></label>
+                                        <label class="col-lg-2 pr-0"> اغلاق <span class=" gglyphicon glyphicon-off	"></span></label>
+
+                                    </div>
+
+                                </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="content-inner-all fixed-header-top">
+            <div class="header-top-area">
+                <div class="fixed-header-top">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 sidebarCollapse margin-right_5">
+                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn   navbar-btn">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                    <i class="fa fa-question-circle styleHelp" alt="Help" id="btnHelpRep" data-toggle="modal" data-target="#myModal">  </i>
+                                </div>
+                                <button type="button" id="sidebarCollapse2" class="btn bar-button-pro header-drl-controller-btn  navbar-btn btn_toolpar">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                            </div>
+                            <div class="  col-lg-2 col-md-2 col-sm-3 col-xs-3  posation_titel_top_par">
+                                <div class="header-top-menu tabl-d-n">
+                                    <label id="Screen_name" class="pading_titelpag"></label>
+                                    <label id="TitleSpan" class="pading_titelpag"></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-4 pl-0 pr-0">
+                                <div class="header-top-menu tabl-d-n">
+                                    <label id="camp_name" class="pading_titelpag"></label>
+                                    <label id="TitleSpan" class="pading_titelpag"></label>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12 posation_control posation_  top29 ">
+                                <div class="header-right-info">
+                                    <ul class="col-lg-12 nav naposation_  vbar-nav mai-top-nav header-right-menu pading_top_15px classright208 ">
+                                        <li class="liItem" key="tol_Dashboard" id="tol_Dashboard">
+                                            <img class="charimg" src="~/images/chart.png" title="DashBoard" />
+                                        </li>
+                                        <li class="liItem nav-item dropdown " key="tol_messagestoppar" id="tol_messagestoppar">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-chat-pro"></span><span class="indicator-nt"></span>@*<span class="indicator-ms"></span>*@</a>
+                                            <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+                                                <ul class="nav nav-tabs custon-set-tab">
+                                                    <li class="active">
+                                                        <a data-toggle="tab" href="#Notes">  @SystemResource.tol_Notifications</a>
+                                                    </li>
+                                                    <li>
+                                                        <a data-toggle="tab" href="#Projects"> @SystemResource.tol_messages </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    @*____________________  اشعارات ____________________*@
+                                                    <div id="Notes" class="tab-pane fade in active">
+                                                        <div class="notes-area-wrap">
+                                                            <div class="note-heading-indicate">
+                                                                <h2>
+                                                                    <i class="fa fa-bell-o">
+                                                                    </i>
+                                                                </h2>
+                                                            </div>
+                                                            <div class="notes-list-area notes-menu-scrollbar">
+                                                                <ul class="notes-menu-list" id="creatnotesmassg"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @*______________رسائل  ____________________*@
+                                                    <div id="Projects" class="tab-pane fade rtl-menu">
+                                                        <div class="projects-settings-wrap">
+                                                            <div class="note-heading-indicate">
+                                                                <i class="adminpro-icon adminpro-chat-pro" style="color:#fff;font-weight: bold;font-size: 20px;">
+                                                                </i>
+                                                            </div>
+                                                            <div class="project-st-list-area project-st-menu-scrollbar">
+                                                                <ul class="projects-st-menu-list" id="creatmassg"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="liItem nav-item " id="tol_allnotification" key="tol_allnotification">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                            @*<div role="menu" class="notification-author dropdown-menu animated flipInX">
+                                                    <div class="notification-single-top">
+                                                        <h1 style="color:white!important">@SystemResource.tol_Notifications</h1>
+                                                    </div>
+                                                    <div class="notifcations" id="notification">
+                                                        <div class="notic_triangle"></div>
+                                                        <ul class="list-unstyled" id="notificationUL"></ul>
+                                                    </div>
+                                                </div>*@
+                                        </li>
+                                        <li class="liItem nav-item" id="tol_Userstoppar">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
+                                                <span id="Admin_name" class="admin-name"></span>
+                                                <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
+                                            </a>
+                                            <ul role="menu" class="liItem dropdown-header-top author-log dropdown-menu animated flipInX">
+                                                <li>
+                                                    <a class="liItem" href="#" id="LanguageButtonHome"> <span id="LanguageButtonHome" class="adminpro-icon adminpro-money author-log-ic"></span> </a>
+                                                </li>
+                                                <li>
+                                                    <a class="liItem" href="#" id="btnUsers" data-toggle="modal" data-target="#user_setting"> @SystemResource.tol_change_Password<span id="btn_G_User" class="adminpro-icon adminpro-locked author-log-ic"></span>  </a>
+                                                </li>
+                                                <li>
+                                                    <a class="liItem" id="btn_loguotuser" href="#">  تسجيل الخروج @*@SystemResource.l_Log_Out*@<span class="adminpro-icon adminpro-reload author-log-ic"></span></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="liItem nav-item nav-setting-open MED display_none" id="btnClose" style=" ">
+                                            <div class=" " style="margin-right:2%;">
+                                                <button type="button" id="Close" title="Close Day" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn" style="margin-top: -69%;background-color: #c40303; ">
+                                                    <i class="fa fa-power-off"></i>
+                                                </button>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header top area end-->
+            <!-- Mobile Menu start  موبيل منيو -->
+            <!-- Mobile Menu end -->
+            <!-- Breadcome End-->
+            <div id="divtest" class="style_divnot display_none">
+                <div class="notifcations" id="notification">
+                    <ul class="notes-menu-list" id="notificationUL" style="color:#eee ;">
+                        <li>   <span></span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="cont" class="divcont">
+            @RenderBody()
+        </div>
+    </div>
+    <!--..............................user setting..................................................-->
+    <div class="modal fade" id="user_setting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@SystemResource.App_UserSetting </h4>
+                </div>
+                <div class="user_2">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">@SystemResource.App_OldPassword </label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="txtOldPassword">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label"> @SystemResource.App_NewPassword</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="txtNewPassword">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" id="btnChangePassword" class="btn btn-danger">@SystemResource.App_Confirm </button>
+                        <button type="button" class="btn btn-primary btn_back">@SystemResource.App_Return</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">@SystemResource.App_Close </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="glyphicon glyphicon-arrow-up	"></i></a>
+    <input type="hidden" id="GetActionUrl" name="name" value="@Url.Action("GetActionUrl","ClientTools")" />
+    <input type="hidden" id="ModelPreview" name="name" value="" />
+    <input type="hidden" id="SearchControlName" name="name" value="" />
+    <div class="modal fade messagealert" id="MessageBoxDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="MessageBoxTitle">حذف!!</h4>
+                </div>
+                <div class="modal-body" style="max-height:200px; overflow:auto;">
+                    <div class="col-xs-7"> <h3 id="MessageBoxMessage">هل تريد حقا الحذف ؟</h3></div>
+                    <div class="col-xs-5 text-center">
+                        <i class="glyphicon btn-danger"></i>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="MessageBoxOk" class="btn btn-danger">@SystemResource.App_Confirm</button>
+                    <button type="button" id="MessageBoxCancel" class="btn btn-warning" data-dismiss="modal">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="help-pop modal fade in" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@SystemResource.App_Help</h4>
+                </div>
+                <div class="modal-body content content-8" id="modalHelpRep">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">@SystemResource.App_Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SearchBox" class=" fade styleserch" style="display:none;z-index:999999999;">
+        <div style="background-color:#03a9f4!important; position:absolute;top:0px;left:0px;width:100%;height:40px;cursor:move;border-top-right-radius: 13px!important;border-top-left-radius: 13px!important;">
+            <input type="button" onclick="$('#SearchBox').modal('hide');" id="btnCloseSearch" name="name" value="x" class="btn colose_lay_btn btn-danger" style="height: 40px;
+              width: 38px;font-size: 20px;float: left;border-color: #ef6603!important;background-color: #03a9f4!important;" />
+            <h4 id="searchTitle" class="col-xs-3" style="color: #fff;line-height: 36px;text-align:right"></h4>
+        </div>
+        <div style="overflow-x:scroll;overflow-y:scroll;padding-left: 1%; margin-top:20px;width:100%;left:0px;left: 0px; position: absolute; width: 100%; height: 85%;">
+            <div id="tableDiv" class="table table-bordered table-hover" style="width:100%;"></div>
+        </div>
+    </div>
+    <div id="caret_script" style="display:none!important">
+    </div>
+    @*<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    @Scripts.Render("~/Bundles/AppScript4")
+    <script>
+        $('#sidebarCollapse').on('click', function () {
+            $('#cont').toggleClass('colapsdivcont');
+        });
+        $('#chinng_languag').on('click', function () {
+            $('#main-menu').toggleClass('rtl-menu');
+        });
+
+
+        var elem = document.documentElement;
+        function openFullscreen() {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function closeFullscreen() {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebarCollapse').toggleClass('stylebtnmenu');
+            $('#sidebarCollapse').toggleClass('bla');
+
+            $('#cont').toggleClass('colapsdivcont');
+
+        });
+
+        $('#chinng_languag').on('click', function () {
+            $('#main-menu').toggleClass('rtl-menu');
+        });
+
+
+        $(document).ready(function () {
+
+            $("#btnclosefooter").click(function () {
+                $("#displaydiv").removeClass("display_none");
+                $("#btnclosefooter").addClass("display_none");
+                $("#chevron2").removeClass("display_none");
+                $("#footer").animate({ width: '500px', opacity: '0.8' }, "slow");
+
+                $("#chevron").toggleClass("glyphicon-hand-right");
+                $("#chevron").toggleClass("glyphicon-chevron-left");
+
+
+            });
+
+            $('#tol_allnotification').on('click', function () {
+                $('#divtest').toggleClass('display_none');
+            });
+
+            $("#chevron2").click(function () {
+                $("#displaydiv").addClass("display_none");
+                $("#btnclosefooter").removeClass("display_none");
+                $("#footer").animate({ width: '0px', opacity: '0' }, "slow");
+
+                $("#chevron").toggleClass("glyphicon-hand-right");
+                $("#chevron").toggleClass("glyphicon-chevron-left");
+
+
+            });
+
+        });
+    </script>
+
+    <script src="~/Style_design/messages_Script.js"></script>
+</body>
+</html>

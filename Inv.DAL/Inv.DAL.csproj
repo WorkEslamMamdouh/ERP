@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A500666-7D24-47E3-A374-2F4A28CB26B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Inv.DAL</RootNamespace>
+    <AssemblyName>Inv.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\all_The_Gard_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Catch_Receipt.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CATEGRE.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\CUSTOMER.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\EMPLOYEE.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Enter_Money.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\familly_Cat.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Get_Settings_Report_and_Parameter_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Get_Settings_Report_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFunc_GetPrivilageOld_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFunc_GetPrivilageRole_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFunc_GetPrivilageUM_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFunc_GetPrivilage_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFun_Companies_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GFun_UserCompanyBranch_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_GetUserBarnchAccess.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_GetUserBranch.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_GetUserModule.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_GetUserRole.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_GetUsers.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_Notifications.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\GQ_ReportWebSetting.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_AlertControl.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_AlertLog.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_AlertType.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_BRANCH.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_Codes.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_COMPANY.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_CONTROL.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_Currency.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_ModuleHelp.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_MODULES.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_Noteifications.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_NotificationCompany.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_PaperSize.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_REGION.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_REGION_BRANCH.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_Role.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_RoleModule.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_RoleUsers.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_SearchForm.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_SearchFormModule.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_SearchFormSetting.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_SUB_SYSTEMS.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_SYSTEM.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_TransCounter.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_TransCounterSetting.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_USERS.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_USER_BRANCH.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_USER_COMPANY.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\G_USER_LOG.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\HIJRA_CONVERT.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\InvEntities.cs" />
+    <Compile Include="Domain\InvModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\InvModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\InvModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\IQ_Catch_Receipt.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\IQ_Outlet.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\IQ_Purchases_Details.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\IQ_Purchases_Master.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\I_Control.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\I_VW_GetCompStatus.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ORDER_DELIVERY.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Outlet.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\PartialClass.cs" />
+    <Compile Include="Domain\PRODUCT.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Purchases_Details.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Purchases_Master.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Report_Parameters.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ReviewSalesItemInfo.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\ReviewSalesMaster.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Settings_Report.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Stok_ORDER_DELIVERY.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Stord_Get_Outlet_Result.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Supplier.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\Table_two_days.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain\The_Gard.cs">
+      <DependentUpon>InvModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GenericRepository.cs" />
+    <Compile Include="Repository\IGenericRepository.cs" />
+    <Compile Include="Repository\IUnitOfWork.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Domain\InvModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InvModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Domain\InvModel.edmx.diagram">
+      <DependentUpon>InvModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Domain\InvModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InvModel.edmx</DependentUpon>
+      <LastGenOutput>InvModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Domain\InvModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InvModel.edmx</DependentUpon>
+      <LastGenOutput>InvModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

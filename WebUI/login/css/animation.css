@@ -1,0 +1,150 @@
+@font-face
+{
+    font-family: 'rsail-bold';
+    src: url('https://www.fontstatic.com/fonts/rsail-bold/rsail-bold.eot?#iefix');
+    src: local('رسايل ثقيل'), local('rsail-bold'), url('https://www.fontstatic.com/fonts/rsail-bold/rsail-bold.woff') format('woff');
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+section{
+    
+    width: 100%;
+    height: 100%;
+/*    background: radial-gradient(#333,#000);*/
+    z-index: -99999;
+    background-image: url(../images/backlogin2.jpg);
+    background-size: 100% 100%;
+}
+.set{
+  
+    position: absolute;
+       width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+}
+.set div{
+    position: absolute;
+    display: block;
+    
+}
+.set div:nth-child(1){
+    left:20%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+.set div:nth-child(2){
+    left:40%;
+     animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+.set div:nth-child(3){
+    left:60%;
+     animation: animate 14s linear infinite;
+      animation-delay: -5s;
+}
+.set div:nth-child(4){
+    left:70%;
+     animation: animate 20s linear infinite;
+    animation-delay: -10s;
+}
+.set div:nth-child(5){
+    left:90%;
+     animation: animate 10s linear infinite;
+}
+.set div:nth-child(6){
+    left:0%;
+     animation: animate 9s linear infinite;
+}
+.set div:nth-child(7){
+    left:15%;
+     animation: animate 12s linear infinite;
+}
+.set div:nth-child(8){
+    left:85%;
+     animation: animate 20s linear infinite;
+}
+.set div:nth-child(9){
+    left:35%;
+     animation: animate 10s linear infinite;
+}
+@keyframes animate{
+    
+    0%{
+        opacity: 0;
+        top:-100%;
+        
+        
+    }
+    10%{
+        
+        opacity: 1;
+    }
+      20%{
+        
+        transform: translateX(-20px) rotate(45deg);
+    }
+       40%{
+        
+        transform: translateX(-20px) rotate(45deg);
+    }
+       60%{
+        
+        transform: translateX(20px) rotate(90deg);
+    }
+       80%{
+        
+        transform: translateX(-20px) rotate(135deg);
+    }
+    100%{
+        opacity: 1;
+        top:100%;
+    }
+}
+
+
+.set2{
+    
+    
+    transform: scale(.6) rotateY(180deg);
+    filter:blur(2px);
+}
+.set3{
+    
+    
+    transform: scale(0.8) rotatex(180deg);
+    filter:blur(5px);
+}
+.ml2
+{
+	font-family: "rsail-bold";
+	position: absolute;
+	top: 50%;
+	z-index: 99999;
+	transform: translateY(-50%);
+	width: 100%;
+	text-align: center;
+	color: #FFFFFF;
+	margin: 0;
+	padding: 0;
+	font-size: 14em;
+	background: rgba(20, 12, 12, 0.726);
+}
+
+ .x{
+    
+    font-size: 2em;
+     top: 60%;
+}
+
+
+#ul_clock{
+       position: absolute;
+ 
+    z-index: 999999;
+
+    
+}

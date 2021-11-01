@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://softexsmsws.azurewebsites.net/ClientServices/MiniClient.asmx?wsdl" docRef="http://softexsmsws.azurewebsites.net/ClientServices/MiniClient.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://softexsmsws.azurewebsites.net/ClientServices/MiniClient.asmx" xmlns:q1="http://smsws.softexsw.info/ClientServices/" binding="q1:MiniClientSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://softexsmsws.azurewebsites.net/ClientServices/MiniClient.asmx" xmlns:q2="http://smsws.softexsw.info/ClientServices/" binding="q2:MiniClientSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

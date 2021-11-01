@@ -1,0 +1,144 @@
+.menu{
+    height: 38px;
+    position:relative;
+    top: 1px;
+    right:10px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* float: left; */
+    /* text-align: left; */
+    margin-left:20px;
+}
+@media screen and (max-width: 1024px){
+}
+.item{
+    position:relative;
+	background-color:transparent;
+	border:none;
+	min-width:37px !important;
+
+display:inline-block;
+    width:37px;
+    margin:0px 5px;
+    height:37px;
+   -moz-border-radius:30px;
+    -webkit-border-radius:30px;
+    border-radius:30px;
+   
+    cursor:pointer;
+    overflow:hidden;
+}
+
+.link{
+    background-size: 100% 100%;
+    right:2px;
+    top:2px;
+    position:absolute;
+    width: 29px;
+    height: 29px;
+    transition:.5s;
+}
+.add_main{
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -webkit-transform: rotate(360deg); /* Chrome, Safari, Opera */
+    transform: rotate(360deg);
+}
+.icon_add{
+    background:transparent url(../images/add.png) no-repeat top left;
+}
+.icon_img{
+    background:transparent url(../images/img.png) no-repeat top left;
+}
+.icon_home{
+    background:transparent url(../images/home_icon.png) no-repeat top left;
+}
+.icon_delete{
+    background:transparent url(../images/deletee.png) no-repeat top left;
+}
+.icon_perview{
+	outline:none;
+    background:transparent url(../images/perview_icon.png) no-repeat top left;
+}
+.icon_print{
+    background:transparent url(../images/print_icon.png) no-repeat top left;
+}
+.icon_refresh{
+    background:transparent url(../images/refresh_icon.png) no-repeat top left;
+}
+.icon_find{
+    background:transparent url(../images/find.png) no-repeat top left;
+}
+
+.icon_edite{
+    background:transparent url(../images/edite_icon.png) no-repeat top left;
+}
+
+.icon_save{
+    background:transparent url(../images/save_icon.png) no-repeat top left;
+}
+.icon_undo{
+    background:transparent url(../images/undo_icon.png) no-repeat top left;
+}
+.icon_sheet{
+    background:transparent url(../images/sheet_icon.png) no-repeat top left;
+}
+.icon_que{
+    background:transparent url(../images/que_icon.png) no-repeat top left;
+}
+.icon_pic{
+	 background:transparent url(../images/camera_icon.png) no-repeat top left;
+}
+
+.item_content{
+    position:absolute;
+    height:40px;
+    width:80px;
+    overflow:hidden;
+    right:36.5px;
+    top:11px;
+    background:transparent;
+    display:none;
+	display:inline-block;
+}
+
+.item_content h2{
+    color:#fff;
+    background-color:transparent;
+    font-size:14px;
+	margin-top:2px;
+}
+.item_content a{
+    background-color:transparent;
+    float:left;
+    margin-right:7px;
+    margin-top:3px;
+    color:#bbb;
+    text-shadow: 1px 1px 1px #fff;
+    text-decoration:none;
+    font-size:12px;
+}
+.item_content a:hover{
+    color:#0b965b;
+}
+.item_content p {
+    background-color:transparent;
+    display:none;
+}
+.item_content p input{
+   border: 1px solid #ccc;
+padding: 1px;
+width: 80px;
+float: left;
+height: 25px;
+margin-left: 5px;
+margin-top: -30px;
+}
+/*.search{
+	width:150px !important;
+}
+.search_item{
+	width:100px !important;
+}*/

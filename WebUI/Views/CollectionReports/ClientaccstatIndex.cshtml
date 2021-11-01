@@ -1,0 +1,201 @@
+﻿@using Inv.WebUI.Resources
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    .st_border {
+        border: solid 1px #3c8dbc;
+        border-radius: 20px;
+    }
+    .display_none {
+        display: none;
+    }
+    .padeing_0px {
+        padding: 9px 16px 0px 0px !important;
+    }
+    .padeing_0px2 {
+        padding: 5px 30px 0px 0px !important;
+    }
+    .padeing_0px3 {
+        padding: 5px 15px 0px 0px !important;
+    }
+    .padeing_0px4 {
+        padding: 5px 16px 0px 0px !important;
+    }
+    .padeing_0px5 {
+        padding: 5px 0px 0px 0px !important;
+    }
+    .padeing_0pxredeo {
+        padding: 9px 0px 0px 0px !important;
+    }
+    .padeing_0pxredeo2 {
+        padding: 9px 36px 0px 0px !important;
+    }
+    .padeing_0pxredeo3 {
+        padding: 9px 17px 0px 0px !important;
+    }
+    .colorBakc {
+        border: solid 1px #aeaeae;
+        border-radius: 23px;
+        background-color: rgb(227, 240, 246) !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .colorBakc1 {
+        border: solid 1px #aeaeae;
+        border-radius: 23px;
+        background-color: rgba(60, 141, 188, 0.45) !important;
+    }
+    .font {
+        font-size: larger;
+    }
+    .font2 {
+        font-size: 25px;
+    }
+    .datatable-dashv1-list {
+        padding-right: 0px;
+    }
+    #divMeals {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    #btnMeals:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+    #btnOtherservices:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+    #btnSubjects:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+    .text-center {
+        text-align: center !important;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        // Initialize select2
+        // $("#ddlStateType").select2();
+        //$("#txt_ID_APP_Category").select2();
+        $("#txt_ID_APP_Group").select2();
+        $("#ddlSalesman").select2();
+        $("#ddlCustomer").select2();
+        // Read selected option
+        $('#but_read').click(function () {
+            var userid = $('#txt_ID_APP_Category').val(); var username = $('#txt_ID_APP_Category option:selected').text();
+            var userid = $('#txt_ID_APP_Group').val(); var username = $('#txt_ID_APP_Group option:selected').text();
+            var userid = $('#ddlSalesman').val(); var username = $('#ddlSalesman option:selected').text();
+            var userid = $('#ddlCustomer').val(); var username = $('#ddlCustomer option:selected').text();
+            $('#result').html("id : " + userid + ", name : " + username);
+        });
+    });
+</script>
+
+<div id="content_report" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred  borderred ">
+    <div id="informtionReserved" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <label for="txtFromDate" class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2"> @SystemResource.App_FromDate </label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <input type="date" class="input-sm form-control  text-center" name="txtFromDate" id="txtFromDate">
+            </div>
+            <label for="txtToDate" class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2 textcentr_Clientaccstat"> @SystemResource.App_ToDate  </label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <input type="date" class="input-sm  form-control text-center" name="txtToDate" id="txtToDate">
+            </div>
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2 textcentr_Clientaccstat">@SystemResource.App_report_type</label>
+
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 p-0" style="color:green;font-weight:bold">
+                    <input class="form-control col-xs-3"  type="radio" id="Rd_detail" name="details" value="1"> 
+                    <label class="col-lg-9 col-md-9 col-sm-9 col-xl-9 col-xs-9 pading_lep  pading_2  ">@SystemResource.Summary</label>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 p-0" style="color:#1cb3f9;font-weight:bold">
+                    <input class="form-control col-xs-3" type="radio" id="Rd_sum" name="details" value="2"> 
+                    <label class="col-lg-9 col-md-9 col-sm-9 col-xl-9 col-xs-9 pading_lep  pading_2  ">@SystemResource.Detailed</label>
+                </div>
+            </div>
+            <div class="col-lg-1 hidden-md hidden-sm hidden-xs  p-0 ">
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2  "> @SystemResource.APP_Category  </label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <select id="txt_ID_APP_Category" name="" class="form-control col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12  input-sm text_Display">
+                    <option value="Null"> @SystemResource.choose_Cat </option>
+                </select>
+            </div>
+
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2 textcentr_Clientaccstat">@SystemResource.App_Group</label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <select style="width:100%!important" id="txt_ID_APP_Group" name="" class="form-control input-sm text_Display">
+                    <option value="Null">@SystemResource.Choose_group</option>
+                </select>
+            </div>
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2 textcentr_Clientaccstat">@SystemResource.App_Status</label>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                <select id="txt_ID_APP_Type" name="" class="form-control input-sm text_Display">
+                    <option value="1">@SystemResource.prepared</option>
+                    <option value="0">@SystemResource.App_All</option>
+                </select>
+            </div>
+        </div>
+        <div class=" col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2  ">@SystemResource.Men_AccDefSalesmen </label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <select  style="width:100%!important" id="ddlSalesman" name="" class="form-control input-sm text_Display">
+                    <option value="Null"> @SystemResource.Choose_sales </option>
+                </select>
+            </div>
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2 textcentr_Clientaccstat ">@SystemResource.App_Cutomer</label>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                <select id="ddlCustomer" style="width:100%!important" name="" class="form-control input-sm text_Display w-100">
+                    <option value="Null"> @SystemResource.Choosecustomer</option>
+                </select>
+            </div>
+            <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_lep  pading_2 textcentr_Clientaccstat">@SystemResource.App_indebtedness</label>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                <select id="txt_indebtedness" name="" class="form-control input-sm text_Display">
+                    <option value="All">@SystemResource.App_All</option>
+                    <option value=">">@SystemResource.App_He_Owes_Him</option>
+                    <option value="<">@SystemResource.App_an_indebtedness</option>
+                    <option value="=">@SystemResource.App_Zero</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id=" " class=" col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred">
+    <div class=" col-md-12 col-sm-12 col-xl-12 col-xs-12">
+        <div class="col-lg-1 hidden-md hidden-sm hidden-xs ">  </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xl-10 col-xs-10 borderred" style="right: 3%;">
+            <div class="col-lg-1 hidden-md hidden-sm hidden-xs "></div>
+            <button id="btnReset" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl  ">  @SystemResource.new_search <span class="glyphicon glyphicon-search "></span> </button>
+            <button id="btnviewresult" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl  " style="margin-right: 1%;display:none"><span class="adminpro-icon adminpro-paint-roller"></span>   @SystemResource.Preview_results  </button>
+            <div class="col-lg-1 hidden-md hidden-sm hidden-xs "></div>
+            <button id="btnPrintTrview" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-airplay"></span>@SystemResource.Print_Report</button>
+            <button id="btnPrintTrPDF" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>@SystemResource.Download_PDF</button>
+            <button id="btnPrintTrEXEL" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>@SystemResource.Download_EXCEL</button>
+            <button id="btnPrint" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span> @SystemResource.App_Print</button>
+        </div>
+    </div>
+</div>
+<script src="~/ClientApp/CollectionReports/Clientaccstat.js"></script>
+<script>
+    function myclaer() {
+        $("#ShiftName option:selected").prop("selected", false);
+        $("#ShiftName option:first").prop("selected", "selected");
+
+        $("#PeriodName option:selected").prop("selected", false);
+        $("#PeriodName option:first").prop("selected", "selected");
+
+        $("#SrvTypeName").value = "";
+        $("#SrvTypeCode").value = "";
+        $("#ShiftCode").value = "";
+        $("#PeriodCode").value = "";
+    }
+</script>

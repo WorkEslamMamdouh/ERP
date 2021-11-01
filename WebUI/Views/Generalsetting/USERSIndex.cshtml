@@ -1,0 +1,426 @@
+﻿
+@{
+    ViewBag.Title = "الموردين";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    .class_btn_drop {
+        background-color: #c8c8c8;
+        padding: 6px 10px 2px 10px;
+    }
+
+    .dropdown-item:hover {
+        cursor: pointer !important;
+        background-color: #c8c8c8 !important;
+    }
+
+    .pading_3 {
+        padding: 0px 50px 0px !important
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    .textalign {
+        text-align: center
+    }
+
+    .textcentr_pading {
+        padding-right: 29px !important;
+    }
+
+    .src-btn {
+        border-radius: 18px !important;
+    }
+
+    .dropdown-menu {
+        border-radius: 11px;
+    }
+
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    .panel-body {
+        background-color: #f6e30040;
+    }
+
+    .Div_Uesr {
+        border: solid 5px black;
+        border-radius: 15px;
+        width: 37% !important;
+        height: 272px;
+        overflow-y: scroll; /* Add the ability to scroll */
+        background-color: goldenrod;
+    }
+
+        .Div_Uesr::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        .Div_Uesr::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            background-color: black;
+            /*border-radius: 16px;*/
+            border-top-left-radius: 24px;
+            border-bottom-left-radius: 24px;
+        }
+
+        /* Handle */
+        .Div_Uesr::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 16px;
+        }
+
+            /* Handle on hover */
+            .Div_Uesr::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        // Initialize select2
+        $("#txt_ID_APP_Category").select2();
+
+        $("#txt_ID_APP_Group").select2();
+
+        $("#txt_ID_APP_Type").select2();
+
+
+
+        // Read selected option
+        $('#but_read').click(function () {
+            var username = $('#txt_ID_APP_Category option:selected').text();
+            var userid = $('#txt_ID_APP_Category').val();
+
+            var username = $('#txt_ID_APP_Group option:selected').text();
+            var userid = $('#txt_ID_APP_Group').val();
+
+            var username = $('#txt_ID_APP_Type option:selected').text();
+            var userid = $('#txt_ID_APP_Type').val();
+
+
+            $('#result').html("id : " + userid + ", name : " + username);
+        });
+    });
+</script>
+
+@*<link href="~/Style_design/Stylecheckbox.css" rel="stylesheet" />*@
+
+
+<div class="panel panel-default">
+    @*<label id="lepReserved" class="col-lg-12 labeltitel "><span id="spanlepReserved" class="ifontowsam fa fa-caret-left"></span>     </label>*@
+    <div class="panel-heading panel_me">
+        <i class="glyphicon glyphicon-pencil icon_panel"></i><label class="span_item">الموظفين </label><label class="span_item"></label>
+    </div>
+    <div class="panel-body">
+
+
+        <div id="id_div_Add">
+            <div class="col-lg-12">
+
+
+                <label class="col-lg-1 col-xs-4   pading_2  ">المستخدم</label>
+                <div class="col-lg-3 col-xs-8">
+                    <select id="ddlUserMaster" name="" class="form-control" style='width: 100%;border-radius: 30px;'></select>
+                </div>
+                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">النشاط</label>
+                <div class="col-lg-2 col-xs-8">
+                    <select id="txt_Active" name="" type="text" class="form-control  text_Display">
+                        <option value="2">الجميع</option>
+                        <option value="1">فعال</option>
+                        <option value="0">غير فعال</option>
+
+                    </select>
+                </div>
+                <div class="col-lg-2 col-xs-8">
+
+                </div>
+
+                <div class="col-lg-2 col-xs-8">
+                    <button type="button" class="btn btn-primary" id="btnShow">
+                        <span class="glyphicon "></span>عرض
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btnAdd">
+                        <span class="glyphicon"></span>اضافة
+                    </button>
+                </div>
+
+
+
+            </div>
+            <div id="id_ReportGrid" class="col-lg-12  margingred  borderred " style="display: none;">
+                <div class="col-lg-3 col-xs-8" style="margin-bottom: 4px;margin-right: 27px;margin-top: 9px;">
+                    <input id="searchbutmemreport" name="" type="text" class="form-control  text_Display" placeholder="بحث برقم الهاتف">
+                </div>
+                <div class="col-lg-15 ">
+                    <table id="ReportGrid"></table>
+
+                </div>
+                <h4 style="text-align: center;font-weight: bold;color: #0088c7;">انقر مرتين للعرض</h4>
+            </div>
+        </div>
+        <div id="DivMassage" class="col-lg-12  margingred  borderred display_none">
+
+            <h4 id="Text_Massage" style=""> رساله </h4>
+
+        </div>
+        <div id="Div_control" class="col-lg-12 margingred  borderred" style=" margin-bottom: 19px;margin-top: 20px;display: none;">
+
+
+
+            <div class="col-lg-12 " style="padding-top: 3px;margin-top: 13px;">
+
+                <div class="col-lg-12 " style=" ">
+
+                    <label class="col-lg-1 col-xs-4      pading_2"> كود الموظف </label>
+
+                    <div class="col-lg-2 col-xs-8">
+                        <input id="txtID_Code" name="DepartmentName" disabled type="number" class="form-control input-sm text_Display">
+                    </div>
+
+                    <div class="col-lg-3 col-xs-8">
+                    </div>
+                    <div class="col-lg-1 col-xs-8">
+                    </div>
+
+                    <div class="col-lg-2">
+
+                        <button type="button" class="btn btn-warning display_none" id="btnback">
+                            <span class="glyphicon glyphicon-backward"></span>رجوع
+                        </button>
+
+                        <button id="btnsave" type="button" class="btn btn-success display_none">
+                            <span class="glyphicon glyphicon-save"></span>حفظ
+                        </button>
+
+                    </div>
+                    <div class="col-lg-1 col-xs-8">
+                        <button type="button" class="btn btn-primary" id="btnedite">
+                            <span class="glyphicon glyphicon-edit"></span>تعديل
+                        </button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button type="button" class="btn btn-warning-bg display_none" id="btnDelet" style="background-color: #e70000;color: wheat;">
+                            <span class="glyphicon glyphicon-remove"></span>حذف
+                        </button>
+                        <button type="button" class="btn btn-warning" id="btnprint">
+                            تقرير    <span class="glyphicon glyphicon-print"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group" id="divdataa">
+                    <div class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4      pading_2">إسم الموظف  </label>
+
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txtUSER_NAME" name="USER_NAME" disabled type="text" class="form-control input-sm text_Display">
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2 textcentr_pading">القسم</label>
+                        
+                        <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading">فعال</label>
+                        <div class="col-lg-1 col-xs-8 ckeck" style="left: 6.5%;margin-top: -6px;">
+                            <input id="chk_IsActive" disabled type="checkbox" class="form-control text_Display" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4      pading_2">الوظيفة</label>
+                        <div class="col-lg-2 col-xs-8"> 
+                            <select id="txtJobTitle" disabled name="USER_TYPE" class="form-control">
+                                <option value="Null">اختر الوظيفة</option>
+                                <option value="1">مندوب</option>
+                                <option value="0">مستخدم</option> 
+                            </select>
+
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2 textcentr_pading">الموبيل</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txtMobile" name="Mobile" disabled type="text" class="form-control input-sm text_Display">
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2 textcentr_pading">المرتب</label>
+                        <div class="col-lg-1 col-xs-8">
+                            <input id="txtsalary" name="salary" disabled type="number" class="form-control input-sm text_Display">
+                        </div>
+
+                        <div class="col-lg-1 col-xs-8">
+
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2">عدد ايام الحضور</label>
+
+                        <div class="col-lg-1 col-xs-8">
+                            <input id="txtUSER_Attendance" name="Num_Attendance" disabled type="number" class="form-control input-sm text_Display">
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4      pading_2 LEPEL_padingright">العنوان</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txtAddress" name="Address" disabled type="text" class="form-control input-sm text_Display">
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2 LEPEL_padingright">عدد ايام العمل</label>
+                        <div class="col-lg-1 ">
+                            <input id="txtday_num" name="day_num" disabled type="number" class="form-control input-sm text_Display">
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <label class="col-lg-1 col-xs-4      pading_2 LEPEL_padingright">عدد ايام الاجازه</label>
+                        <div class="col-lg-1 ">
+                            <input id="txtDay_Off" name="Day_Off" disabled type="text" class="form-control input-sm text_Display">
+                        </div>
+                        <label class="col-lg-1 col-xs-4      pading_2 LEPEL_padingright">عدد ساعات العمل</label>
+                        <div class="col-lg-1 ">
+                            <input id="txthour_num" name="hour_num" disabled type="text" class="form-control input-sm text_Display">
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="col-lg-7" style="width: 61%;">
+
+                    </div>
+
+
+
+                    <div class="col-lg-12">
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="col-lg-5 Div_Uesr" style="">
+
+
+                <div class="col-lg-12">
+                    <label class="col-lg-4 col-xs-3 pading_2 LEPEL_padingright2" style="margin-right: 159px;">المهمة</label>
+                    <label class="col-lg-3 col-xs-4 pading_2 ">منح الصلاحية؟ </label>
+
+                </div>
+
+
+
+
+                <div class="col-lg-12 " id="div_Data">
+
+                </div>
+
+
+            </div>
+
+            <div class="col-lg-2 ">
+                <div class="col-lg-12 col-xs-8">
+                    <br />
+                </div>
+                <div class="col-lg-12 col-xs-8">
+                    <br />
+                </div>
+                <div class="col-lg-12 col-xs-8">
+                    <button id="btnGive_assignments" disabled type="button" class=" btn btn-custon-four btn-success">  منح جميع الصلاحيات  <i class="glyphicon glyphicon-check"></i> </button>
+
+                </div>
+                <div class="col-lg-12 col-xs-8">
+                    <br />
+                </div>
+                <div class="col-lg-12 col-xs-8">
+                    <button id="btnBlock_permissions" disabled type="button" class="btn btn-custon-four btn-danger">  منع جميع الصلاحيات  <i class="glyphicon glyphicon-lock"></i> </button>
+
+                </div>
+
+                <div class="col-lg-12 col-xs-8">
+                    <br />
+                </div>
+
+                <div class="col-lg-12 col-xs-8">
+                    <button id="btnLoadRoles" type="button" disabled class=" btn btn-custon-four btn-primary " style="width: 92%;"> تحميل جميع المهام  <i class="glyphicon glyphicon-download"></i> </button>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 " style="border: solid 5px black;border-radius:15px; background-color: lightblue;bottom: -35px;">
+                <div class="col-lg-12 ">
+                    <label class="col-lg-3 col-xs-4      pading_2">   إسم المستخدم </label>
+                    <div class="col-lg-8 col-xs-8">
+                        <input id="txtUSER_CODE" name="USER_CODE" disabled type="text" class="form-control input-sm text_Display">
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-12 ">
+
+                    <label class="col-lg-3 col-xs-4      pading_2 LEPEL_padingright">كلمة السر </label>
+                    <div class="col-lg-8 col-xs-8">
+                        <input id="txtUSER_PASSWORD" name="USER_PASSWORD" disabled type="password" class="form-control input-sm text_Display">
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 ">
+
+                    <label class="col-lg-3 col-xs-4      pading_2 LEPEL_padingright">تأكيد كلمة السر </label>
+                    <div class="col-lg-8 col-xs-8">
+                        <input id="txtUSER_PASSWORD_confirm" name="USER_PASSWORD2" disabled type="password" class="form-control input-sm text_Display">
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 ">
+
+                </div>
+                <div class="col-lg-12 ">
+
+                    <label class="col-lg-3 col-xs-4      pading_2">تاريخ اول دخول </label>
+                    <div class="col-lg-8 col-xs-8">
+                        <input id="txtFirstLogin" name="FirstLogin" disabled type="text" class="form-control input-sm text_Display">
+                    </div>
+                </div>
+                <div class="col-lg-12 ">
+
+                    <label class="col-lg-3 col-xs-4      pading_2">تاريخ اخر دخول  </label>
+                    <div class="col-lg-8 col-xs-8">
+                        <input id="txtLastLogin" name="LastLogin" disabled type="text" class="form-control input-sm text_Display">
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-lg-12 col-xs-12" style="right: 2%;" id="div_plassAddDetails">
+
+                <span id="btnAddDetails" class="glyphicon glyphicon-plus-sign display_none" style="font-size: 36px;"></span>
+
+            </div>
+            <div class="col-lg-12 ">
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+</div>
+
+@Scripts.Render("~/Bundles/ClientApp")
+<script src="~/ClientApp/JsGrid.js"></script>
+<script src="~/ClientApp/Generalsetting/USERS.js"></script>

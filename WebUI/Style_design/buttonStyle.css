@@ -1,0 +1,143 @@
+﻿
+
+
+.btn-back {
+    background-color: #eef0e9!important;
+    color: black!important;
+    border-radius: 10px!important;
+}
+
+.btn-back:hover {
+    background-color: #e56c4b!important;
+    
+}
+
+.btn-save {
+    background-color: #eef0e9;
+    color: black;
+    border-radius: 10px;
+}
+.btn-save:hover {
+    background-color: #4be839;
+    
+}
+.btn-edite {
+    background-color: #eef0e9;
+    color: black;
+    border-radius: 10px;
+}
+.btn-edite:hover {
+    background-color: #5f92d0;
+   
+}
+
+.btn-1 {
+    background-color: #dee5e3;
+    color:black;
+    border-radius:10px;
+}
+.btn-1:hover {
+    background-color: #c0c1c0;
+    
+}
+
+.btn-2 {
+    background-color: #e9f0eb;
+    color: black;
+    border-radius: 10px;
+}
+.btn-2:hover {
+    background-color: #c0c1c0;
+}
+
+
+.btn-3 {
+    background-color: #ebf0e9;
+    color: black;
+    border-radius: 10px;
+}
+.btn-3:hover {
+    background-color: #c0c1c0;
+}
+
+
+
+.btn-4 {
+    background-color: #eef0e9;
+    color: black;
+    border-radius: 10px;
+}
+.btn-4:hover {
+    background-color: #c0c1c0;
+}
+
+
+
+.btn-5 {
+    background-color: #f0eee9;
+    color: black;
+    border-radius: 10px;
+}
+.btn-5:hover {
+    background-color: #c0c1c0;
+}
+
+
+
+.btn-6 {
+    background-color: #ece6e4;
+    color: black;
+    border-radius: 10px;
+}
+.btn-6:hover {
+    background-color: #c0c1c0;
+}
+
+
+
+ 
+
+.btnDownloadsimeg {
+    margin: 5px 0px 0px 42px;
+}
+
+.positionbtndiv {
+    margin-top: -3%;
+}
+.textsherch {
+    float: right;
+    margin-bottom: 7px;
+    margin-bottom: 7px;
+    margin-right: 2px;
+    width: 20%;
+}
+
+.scoroltop {
+    display:none;
+    float: right;
+    margin: 5px 12px;
+    width: 5%;
+}
+
+.chekbox_sherch {
+    
+    padding: 5px 10px 0px 0px;
+    text-align: right;
+    float: right;
+}
+
+.fontitm {
+    float: right;
+    margin: -30px -15px 0 0;
+    font-size: 23px;
+
+}
+.plusserves {
+    background-color: #8aff99 !important
+}
+
+.plusserves:hover {
+    background-color: #179408 !important;
+    color:#ece6e4!important;
+        
+}

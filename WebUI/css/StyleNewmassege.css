@@ -1,0 +1,86 @@
+﻿#NewsPopupDialog .btnpopup {
+    background-color: #93e78b;
+    width: 17%;
+    height: 43px;
+    border-radius: 21px;
+    position: relative;
+    right: 40%;
+    bottom: 10px;
+    margin-top: 23px;
+}
+
+.titel {
+    background-color: #a1d2f9;
+    width: 35%;
+    height: 40px;
+    border-radius: 12px;
+    position: relative;
+    right: 32%;
+    bottom: 10px;
+    margin-bottom: -20px;
+    opacity: 1;
+    padding: 12px 97px 0px 0px;
+    transition: opacity 0.6s;
+}
+
+.alert {
+    border-radius: 20px;
+    position: center;
+    width: 98%;
+    padding: 20px;
+    background-color: #f44336;
+    color: black;
+    opacity: 1;
+    transition: opacity 0.6s;
+    right: 1%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+    .alert.success {
+        background-color: #adedb0;
+    }
+
+    .alert.info {
+        background-color: #aed7f7;
+    }
+
+    .alert.warning {
+        background-color: #fed395;
+    }
+
+    .alert.Error {
+        background-color: #fbafaa;
+    }
+
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .closebtn:hover {
+        color: black;
+    }
+
+#NewsPopupDialog .modal-content {
+    border-radius: 26px;
+    width: 60%;
+    position: relative;
+    right: 25%;
+    margin-top: 7%;
+}
+#NewsPopupDialog .modal.in .modal-dialog {
+    margin-top: 2%;
+    width: 50% !important;
+}
+div.ex3 {
+    width: 99%;
+    height: 300px;
+    overflow: auto;
+}

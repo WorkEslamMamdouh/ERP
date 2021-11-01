@@ -1,0 +1,298 @@
+﻿@using Inv.WebUI.Resources
+@{
+    ViewBag.Title = @SystemResource.Men_AccDefCustomer;
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    .class_btn_drop {
+        background-color: #c8c8c8;
+        padding: 6px 10px 2px 10px;
+    }
+
+    .dropdown-item:hover {
+        cursor: pointer !important;
+        background-color: #c8c8c8 !important;
+    }
+
+    .pading_3 {
+        padding: 0px 50px 0px !important
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    .textalign {
+        text-align: center
+    }
+
+
+
+    .src-btn {
+        border-radius: 18px !important;
+    }
+
+    .dropdown-menu {
+        border-radius: 11px;
+    }
+
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+</style>
+
+<script>
+   
+</script>
+
+
+
+<div class="col-lg-12 margingred  borderred">
+    @*<label id="lepReserved" class="col-lg-12 labeltitel "><span id="spanlepReserved" class="ifontowsam fa fa-caret-left"></span>     </label>*@
+    <div class="container-fluid">
+        <div class="row">
+            <div id="informtionReserved" class="col-lg-12 margingred" style="margin-bottom: 15px;">
+
+
+                <div id="id_div_Add">
+                    <div class="col-lg-12">
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer textcentr_pading">@SystemResource.App_indebtedness</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <select id="txt_indebtedness" name="" class="form-control  text_Display"> 
+                                <option value="All">@SystemResource.App_All</option>
+                                @*<option value=">"> @SystemResource.App_an_indebtedness </option>*@
+                                <option value=">">@SystemResource.App_He_Owes_Him </option> 
+                                @*<option value="=">@SystemResource.App_Zero </option>*@
+                            </select>
+                        </div>
+                      
+ 
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer textcentr_pading">@SystemResource.App_Type</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <select id="txt_ID_APP_Type" name="" class="form-control  text_Display">
+                                <option value="Null">  @SystemResource.App_Type </option>                                
+                                <option value="1">@SystemResource.App_Cash</option>
+                                <option value="0">@SystemResource.App_Doubted</option> 
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-xs-8">
+
+                        </div>
+
+                            <div class="col-lg-3 col-xs-8">
+                                <button type="button" class="btn btn-info" id="btnShow">
+                                    @SystemResource.App_Show   <span class="glyphicon glyphicon-save "></span>
+                                </button>
+                                <button type="button" class="btn btn-success" id="btnAdd">
+                                    @SystemResource.App_Add  <span class="glyphicon glyphicon-plus-sign"></span>
+                                </button>
+
+                                <div class="btn-group">
+                                    <label type="button" class="btn btn-warning">@SystemResource.App_Print</label>
+                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-hand-down"></span>
+                                    </button>
+                                    <div class="dropdown-menu" role="menu" style="border-radius:15px">
+                                        <div class="col-lg-12">
+                                            <button style="width:100%" id="btnPrint" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span>           @SystemResource.App_Print    </button>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button style="width:100%" id="btnPrintTrview" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span>  @SystemResource.Print_Report      </button>
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <button style="width:100%" id="btnPrintTrPDF" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>   @SystemResource.Download_PDF     </button>
+                                        </div>
+
+                                        <div class="col-lg-12">
+                                            <button style="width:100%" id="btnPrintTrEXEL" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span> @SystemResource.Download_EXCEL   </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    <div class="col-lg-12"> 
+                       
+                    </div>
+                    <div id="id_ReportGrid" class="col-lg-12  margingred  borderred " style="display: none;">
+                        <div class="col-lg-3 col-xs-8" style="margin-bottom: 4px;margin-right: 27px;margin-top: 9px;">
+                            <input id="searchbutmemreport" name="" type="text" class="form-control  text_Display" placeholder="@SystemResource.App_SearchbyNumPh ">
+                        </div>
+                        <div class="col-lg-15 ">
+                            <table id="ReportGrid"></table>
+
+                        </div>
+                        <h4 style="text-align: center;font-weight: bold;color: #0088c7;"><i class="glyphicon glyphicon-hand-up"></i> @SystemResource.App_DoubleDisplay <i class="glyphicon glyphicon-hand-up"></i></h4>
+                    </div>
+                </div>
+                <div id="DivMassage" class="col-lg-12  margingred  borderred display_none">
+
+                    <h4 id="Text_Massage" style=""> رساله </h4>
+
+                </div>
+                <div id="Div_control" class="col-lg-12 margingred  borderred display_none" style=" ">
+
+
+
+                    <div class="col-lg-12 " style="padding-top: 3px;margin-top: 13px;">
+
+                        <div class="col-lg-12 " style="margin-bottom: -37px">
+
+                            <div class="col-lg-9 col-xs-8">
+                            </div>
+                            <div class="col-lg-2">
+
+                                <button type="button" class="btn btn-warning display_none" id="btnback">
+                                    <span class="glyphicon glyphicon-backward"></span> @SystemResource.App_back
+                                </button>
+
+                                <button id="btnsave" type="button" class="btn btn-success display_none">
+                                    @SystemResource.App_save   <span class="glyphicon glyphicon-floppy-saved"></span>
+                                </button>
+
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn btn-primary" id="btnedite">
+                                    <span class="glyphicon glyphicon-edit"></span> @SystemResource.App_Update
+                                </button>
+                            </div>
+                        </div>
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer">@SystemResource.App_CustomerCODE</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_CustomerCODE" disabled name="CustomerCODE" type="number" class="form-control  text_Display" placeholder="@SystemResource.App_CustomerCODE">
+                        </div>
+                        <div class="col-lg-1 col-xs-8">
+                        </div>
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer2 ">@SystemResource.App_Type</label>
+
+                        <div class="col-lg-2 col-xs-8">
+                            <select id="txt_Cust_Type" disabled name="" class="form-control  text_Display">
+                                <option value="Null">  @SystemResource.App_Type </option>
+                                <option value="1">@SystemResource.App_Cash</option>
+                                <option value="0">@SystemResource.App_Doubted</option>
+                            </select>
+                        </div>
+
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer text-end">@SystemResource.App_Certified</label>
+
+                        <div class="col-xs-1">
+                            <input type="checkbox" class="checkbox" id="id_chkcustom6" disabled name="" />
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer">@SystemResource.Name_Arabic </label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txt_NAME" disabled name="CUSTOMER_NAME" type="text" class="form-control  text_Display" placeholder="@SystemResource.Name_Arabic">
+                        </div>
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer2">@SystemResource.Name_English</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txt_NAMEE" disabled name="NAMEE" type="text" class="form-control  text_Display" placeholder="@SystemResource.Name_English">
+                        </div>
+
+
+                    </div>
+
+                  
+
+                    <div class="col-lg-12 ">
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer ">@SystemResource.App_Mobile  </label>
+
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_MOBILE" disabled name="PHONE" type="number" class="form-control  text_Display" placeholder="@SystemResource.App_Mobile  ">
+                        </div>
+
+                        <div class="col-lg-1 col-xs-8">
+                        </div>
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer ">العنوان 1 </label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txtADDRES1" disabled name="CUSTOMER_ADDRES" type="text" class="form-control  text_Display" placeholder="العنوان 1 ">
+                        </div>
+                        
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer"> العنوان 2 </label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txtADDRES2" disabled name="CUSTOMER_ADDRES_2" type="text" class="form-control  text_Display" placeholder="العنوان 2">
+                        </div>
+ 
+                    </div>
+                    <div class="col-lg-12 ">
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer2">  @SystemResource.Email </label>
+                        <div class="col-lg-4 col-xs-8">
+                            <input id="txt_Email" name="EMAIL" disabled type="email" class="form-control  text_Display" placeholder="@SystemResource.Email ">
+                        </div>
+
+                        
+                    </div>
+                    <div class="col-lg-12">
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer">    @SystemResource.App_Notes </label>
+                        <div class="col-lg-6 col-xs-8">
+                            <textarea id="txt_note" disabled name="REMARKS" type="text" class="form-control   " placeholder="@SystemResource.App_Notes"></textarea>
+                        </div>
+                         
+
+                    </div>
+
+
+
+                    
+                    <div id="div_Balance" class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer ">   @SystemResource.App_openBalance </label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_Openbalance" disabled name="Openbalance" type="number" class="form-control  text_Display " placeholder=" @SystemResource.App_openBalance">
+                        </div>
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer text-center">  @SystemResource.App_Debtor   </label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_Debit" disabled name="Debit" type="number" class="form-control  text_Display" placeholder="@SystemResource.App_Debtor">
+                        </div>
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer text-end">@SystemResource.App_Creditor</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_DebitFC" disabled name="Credit" type="number" class="form-control  text_Display" placeholder="  @SystemResource.App_Creditor ">
+                        </div>
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer text-end">المبلغ المدفوع</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_balance" disabled name="CreditLimit" type="number" class="form-control  text_Display " placeholder="@SystemResource.App_Balanc">
+                        </div>
+
+                        <label class=" display_none col-lg-1 col-xs-4  marginstenig pading_lep  pading_2AccDefCustomer ">@SystemResource.App_CreditLimit</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_CreditLimit"  disabled name="" type="number" class="display_none form-control  text_Display" placeholder=" @SystemResource.App_CreditLimit ">
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+           
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#lepnotifications').on('click', function () {
+        $('#divnotifications').toggleClass('showdiv');
+        $('#spanlepnotifications').toggleClass('fa-caret-left');
+        $('#spanlepnotifications').toggleClass('fa-caret-down');
+
+    });
+
+</script> 
+<script src="~/ClientApp/Generalsetting/CUSTOMERS.js"></script>

@@ -1,0 +1,58 @@
+﻿
+body {
+}
+
+.btn1 {
+    background-color: #5AF23E;
+    margin-left: 12px;
+    display: block;
+    width: 100px;
+}
+
+.btn2 {
+    background-color: #3FE5F9;
+    margin-left: 26px;
+    display: block;
+    width: 100px;
+}
+
+.btn3 {
+    background-color: #d86e48;
+    margin-left: 26px;
+    display: block;
+    width: 112px;
+}
+
+.btn4 {
+    background-color: #d86e48;
+    margin: 0px;
+    display: block;
+    width: 122px;
+}
+
+.btn5 {
+    background-color: #d86e48;
+    margin: 0px;
+    display: block;
+    width: 122px;
+    padding-right: 7px;
+}
+
+.btn6 {
+    margin-right: 69px;
+}
+._two {
+    width: 80px;
+    margin-right:-5px;
+}
+
+.Name_two {
+    margin-right:-27px;
+}
+.txtExH {
+    margin-left: -5px
+}
+
+#btnRemoveDoneState{
+    margin-left:80px;
+}

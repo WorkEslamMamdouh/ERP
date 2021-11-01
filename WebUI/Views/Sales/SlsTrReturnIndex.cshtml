@@ -1,0 +1,360 @@
+﻿
+@{
+    ViewBag.Title = "مرتجع الفواتير";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    .textcentr_pading {
+        padding-right: 45px !important;
+    }
+
+    .btnplasandmines {
+        display: inline-block;
+        padding: 2px 4px;
+        height: 36px;
+        margin-bottom: 0;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1.428571;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+
+    .panel-body {
+        background-color: aliceblue;
+    }
+</style>
+
+<div class="panel panel-default">
+    <div class="panel-heading panel_me">
+        <i class="glyphicon glyphicon-pencil icon_panel"></i><label class="span_item">سجل الفواتير</label><label class="span_item"></label>
+    </div>
+    <div class="panel-body">
+
+        <div id="DivFilter" class="col-lg-12">
+            <div id="DivHederMaster" class="row  margingred ">
+                <div class="col-lg-12">
+                    <label class="col-lg-1 col-xs-4   pading_2  ">البائع</label>
+                    <div class="col-lg-3 col-xs-8">
+                        <select id="ddlUserMaster" name="" class="form-control" style='width: 100%;border-radius: 30px;'></select>
+                    </div>
+
+
+                    <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading ">من تاريخ</label>
+
+                    <div class="col-md-2 col-sm-5 col-xs-10">
+                        <input type="date" class="form-control input-sm addable editable" name="GosiJoinDate" id="txtFromDate">
+                    </div>
+
+                    <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading ">الي تاريخ</label>
+
+                    <div class="col-md-2 col-sm-5 col-xs-10">
+                        <input type="date" class="form-control input-sm addable editable" name="GosiJoinDate" id="txtToDate">
+                    </div>
+
+                    <div class="col-md-1 col-sm-5 col-xs-10">
+                        <button id="btnShow" type="button" class="btn btn-info"><span class="glyphicon glyphicon-save"></span>العرض</button>
+
+                    </div>
+                    <div class="col-md-1 col-sm-5 col-xs-10">
+                        @*<button id="btnadd" type="button" class="btn btn-success">
+                                <span class="glyphicon"></span> الاضافه
+                            </button>*@
+
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+
+                    <label class="col-lg-1 col-xs-4   pading_2  ">العميل</label>
+                    <div class="col-lg-3 col-xs-8">
+                        <select id="ddlCustomerMaster" name="" class="form-control" style='width: 100%;border-radius: 30px;'></select>
+                    </div>
+                    <div class="col-lg-5 col-xs-4 "></div>
+                    <div id="div_total" class="col-lg-6 col-xs-4 display_none">
+                        <label class="col-lg-3 col-xs-4   pading_2 textcentr_pading  ">اجمالى فواتير العميل</label>
+                        <div class="col-lg-2 col-xs-2">
+                            <input id="totalcustomer" class="form-control" type="number">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="divMasterGridiv" class="col-lg-12  margingred  borderred  display_none   " style="width: 99%;">
+                    <div class="col-lg-3 col-xs-8" style="margin-bottom: 4px;margin-right: 27px;margin-top: 9px;">
+                        <input id="searchbutmemreport" name="" type="text" class="form-control  text_Display" placeholder="بحث ">
+                    </div>
+                    <div class="col-lg-12 ">
+                        @*رقم الفاتورة	العميل	عدد الأصناف	عدد العبوات	الإجمالي	الضريبة	الصافي	العمولة	المطلوب سداده*@
+                        <table id="divMasterGrid"></table>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+        <div id="DivMassage" class="col-lg-12  margingred  borderred display_none">
+
+            <h4 id="Text_Massage" style=""> رساله </h4>
+
+        </div>
+        <div id="rowData" class=" col-lg-12  margingred  borderred  display_none ">
+
+            <div id="Data_heder">
+
+
+                <div id="div_Master_Hedr" class="col-lg-12 margingred  ">
+
+
+                    <br />
+                    <div id="div_Master" class="">
+                        <div class="col-lg-12">
+                            <label class="col-lg-1 col-xs-4   pading_2  ">  الرقم الفاتوره</label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" name="Namber_Order_Delivery" disabled id="txtNumber">
+                            </div>
+
+
+                            <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading "> التاريخ </label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" name="Date" disabled id="txtDate">
+                            </div>
+
+
+
+                            <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading  " style="padding-right:25px">الوقت</label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" disabled name="Date_Order_Delivery" id="txttimer">
+                            </div>
+
+
+
+
+
+                        </div>
+                        <div class="col-lg-12">
+
+
+                            <label class="col-lg-1 col-xs-4   pading_2   "> البائع </label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" name="EMPLOYEE_NAME" disabled id="txtEMPLOYEE_NAME">
+                            </div>
+
+                            <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading  ">    اسم العميل  </label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" disabled name="CUSTOMER_NAME" id="txtCUSTOMER_NAME">
+                            </div>
+
+                            <label class="col-lg-1 col-xs-4   pading_2 textcentr_pading  " style="padding-right:22px">  رقم تليفون </label>
+                            <div class="col-md-2 col-sm-5 col-xs-10">
+                                <input type="text" class="form-control input-sm addable editable" disabled name="PHONE" id="txtPHONE">
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-12">
+                            <label class="col-lg-1 col-xs-4   pading_2  ">ملاحظات  </label>
+
+                            <div class="col-md-8 col-sm-5 col-xs-10">
+                                <textarea type="text" class="form-control input-sm addable editable " disabled name="CUSTOMER_ADDRES" id="txtRemarks"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 ">
+
+                            <div class="col-lg-8" style="">
+
+                                <div class="col-lg-5">
+
+                                </div>
+                                <div class="col-lg-7">
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-xs-8">
+
+
+                                <button id="btnBack" type="button" class="btn btn-warning display_none"> تراجع <span class="glyphicon glyphicon-save"></span></button>
+                                <button id="btnSave" type="button" class="btn btn-success display_none" style="margin-right:9%"> حفظ <span class="glyphicon glyphicon-save"></span></button>
+
+                            </div>
+                            <div class="btn-group">
+                                <label type="button" class="btn btn-warning" style="background-color: #031665;">طباعة</label>
+                                <button type="button" class="btn btn-warning dropdown-toggle" style="background-color: #031665;" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-hand-down"></span>
+                                </button>
+                                <div class="dropdown-menu" role="menu" style="border-radius:15px">
+                                    <div class="col-lg-12">
+                                        <button style="width:100%;background-color: #031665;color:white" id="btnPrint" type="button" class=" display_none btn btn-custon-four  primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span>طباعة</button>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <button style="width:100%;background-color: #031665;color:white" id="btnPrintTrview" type="button" class="  btn btn-custon-four  primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span>عرض تقرير</button>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button style="width:100%;background-color: #031665;color:white" id="btnPrintTrPDF" type="button" class="marginbtn btn btn-custon-four  primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>تنزيل PDF</button>
+                                    </div>
+
+                                    <div class="col-lg-12">
+                                        <button style="width:100%;background-color: #031665;color:white" id="btnPrintTrEXEL" type="button" class="marginbtn btn btn-custon-four  primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>تنزيل EXCEL</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-5 col-xs-10">
+                                <button id="btnUpdate" type="button" class="btn btn-primary">  تعديل <span class="glyphicon glyphicon-edit"></span></button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="DivShow" class="col-lg-12 " style="border: solid 4px;border-radius: 44px;background: linear-gradient(to right, rgb(253 211 213) 0%, #8babed 100%); overflow:auto ;">
+                    <div id=" " class="col-lg-12 font_header" style="bottom: 5px;font-weight:bold!important">
+                        <br />
+                        <div class="col-lg-2" style="width: 14%;">
+
+                        </div>
+                        <div class="col-lg-2">
+                            <span style="padding-right: 1px;" class="">النوع</span>
+                        </div>
+                        <div class="col-lg-2">
+                            <span class="">الصنف</span>
+                        </div>
+                        <div class="col-lg-2" style="margin-right: -1%;width: 13%;">
+                            <span class="">السعر</span>
+
+                        </div>
+                        <div class="col-lg-1" style="width: 6%;">
+                            <span class="">الكمية </span>
+
+                        </div>
+                        <div class="col-lg-1" style="width: 13%;">
+                            <span class="">الكمية المرتجع </span>
+
+                        </div>
+                        <div class="col-lg-1">
+                            <span class="">الاجمالي</span>
+
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="row col-lg-12">
+                        <div class="">
+
+                            <div class="col-lg-12">
+                                <div class="row " id="div_Data">
+                                </div>
+                                <span id="btnAddDetails" class="glyphicon glyphicon-plus-sign display_none"></span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div id="divTotalSatistics" class="col-md-12 container-fluid margingred borderred  display_none ">
+
+            <div class="col-md-12 col-sm-5 col-xs-10">
+                <div class="col-lg-2 col-xs-8">
+
+                </div>
+                @*<label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading ">عدد العبوات	</label>*@
+                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2  "> عدد الأصناف</label>
+
+                <div class="col-lg-1 col-xs-8">
+                    @*<input type="text" class="form-control" disabled="" name="" id="txtPackageCount">*@
+                    <input type="text" class="form-control" disabled="" name="" id="txtItemCount">
+
+
+                </div>
+                <div class="col-md-2 col-sm-5 col-xs-10">
+                </div>
+
+                @*<label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">الضريبة</label>*@
+                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">الإجمالي</label>
+
+                <div class="col-md-2 col-sm-5 col-xs-10">
+                    @*<input type="text" class="form-control" disabled="" name="" id="txtTax">*@
+                    <input type="text" class="form-control" disabled="" name="Total_All" id="txtTotal">
+
+                </div>
+
+
+
+
+                @*<label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">الصافى</label>*@
+
+                <div class="col-md-2 col-sm-5 col-xs-10">
+                    @*<input type="text" class="form-control" disabled="" name="" id="txtNet">*@
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<link href="~/Style_design/Stylecheckbox.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+
+        // Initialize select2
+        $("#ddlUserMaster").select2();
+        $("#ddlCustomerMaster").select2();
+        //  $("#ddlStateType").select2();
+
+
+        // Read selected option
+        $('#but_read').click(function () {
+            var username = $('#ddlUserMaster option:selected').text();
+            var userid = $('#ddlUserMaster').val();
+
+            var username = $('#ddlCustomerMaster option:selected').text();
+            var userid = $('#ddlCustomerMaster').val();
+
+
+            $('#result').html("id : " + userid + ", name : " + username);
+        });
+    });
+</script>
+@Scripts.Render("~/Bundles/ClientApp")
+<script src="~/ClientApp/JsGrid.js"></script>
+@*<script src="~/ClientApp/Purchase/PurTrReceive.js"></script>*@
+<script src="~/ClientApp/Sales/SlsTrSalesReturn.js"></script>

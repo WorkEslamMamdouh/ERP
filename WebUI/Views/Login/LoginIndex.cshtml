@@ -1,0 +1,172 @@
+﻿@using Inv.WebUI.Resources
+@*//eslam 1 nov 2020*@
+@*Sales*@
+@{
+    ViewBag.Title = "LoginIndex";
+    Layout = "~/Views/Shared/LoginLayout.cshtml";
+}
+
+<link href="~/css/background.css" rel="stylesheet" />
+
+<input type="hidden" id="OnLogged" name="name" value="@Url.Action("OnLogged","Login")" />
+<input type="hidden" id="GetAPIUrl" name="name" value="@System.Configuration.ConfigurationManager.AppSettings["ServiceUrl"]" />
+
+<style>
+    .form-control {
+        margin: 10px;
+    }
+
+    .container2 .clock {
+        width: 100% !important;
+    }
+</style>
+
+
+<div class="intro">
+    <div class="container2">
+        <div class="clock">
+            <div id="Date"></div>
+
+            <ul id="ul_clock">
+                <li id="hours"> </li>
+                <li id="point">:</li>
+                <li id="min"> </li>
+                <li id="point">:</li>
+                <li id="sec"> </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<!--    .........................login...............-->
+
+<div class="container-fluid" style="padding:0%">
+    <div class="content">
+        <div id="large-header" class="large-header" style="height:797px;">
+            <div class="col-xs-12" id="center">
+
+                <div class="container_login" id="divLogin" style="position: fixed;top: 25%;z-index: 100;left:29%;">
+                    <div id="back_circle"></div>
+                    <div id="content_login">
+                        <div id="img_title">
+                            <h1> System login</h1>
+
+                        </div>
+                        <div id="padding">
+                            <div class="div_input"> <input type="text" class="login_input" id="txtUserName" placeholder="enter your Name"><span class="user"></span></div>
+                            <div class="div_input">  <input type="password" class="login_input" id="txtUserPassword" placeholder="enter your Password"><span class="pass"></span></div>
+                            <select id="cmbLanguage" style=" height: 25px; width: 271px;">
+                                <option value="ar">عربي</option>
+                                <option value="en">English</option>
+                            </select>
+                            <input type="hidden" class="login_input2" id="txtYear" placeholder="2018">
+
+                            <div class="clear"></div>
+                            <input type="checkbox" id="chkRemember">
+                            <label style="color:#ffffff">Remember me</label>
+                            <input type="button" class="login_btn" id="btnLogin" value="Login">
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="clear"></div>
+                    <div id="shadow"></div>
+
+
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="clear"></div>
+
+
+            <!--                    <canvas id="demo-canvas"></canvas>-->
+
+        </div>
+
+
+    </div>
+    <!-- Related demos -->
+
+
+</div><!-- /container -->
+<!--    ..............intro...............-->
+<!--    .........................login...............-->
+<div class="container_login flip" id="divCompanies" style="display: none;
+    position: fixed;
+        top: 25%;
+    z-index: 100;left:29%;">
+    <div id="back_circle"></div>
+    <div id="content_login">
+        <div id="img_title">
+            <h1 id="hLoggedName"></h1>
+            <span id="spnLoggedYear" class="date_login"> </span>
+
+
+        </div>
+        <div id="padding">
+            <select class="se_login" id="cmbCompany" style="margin-top:30px;" name="CompCode"></select>
+            <select class="se_login" id="cmbBranch" style="margin-top:15px;" name="Language"></select>
+            @*<select class="se_login" id="drlSemister" style="margin-top:15px;" name="Semister" ></select>*@
+
+            <div class="clear"></div>
+
+            <div style="width: 270px;float: right;">
+                <input type="button" class="login_btn_back" id="btnBack" value="back" style="margin-top:25px;float: left;">
+                <input type="submit" class="login_btn" id="btnOk" value="Enter" style="margin-top:25px;float: right;">
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="shadow"></div>
+    <div class="clear"></div>
+</div>
+
+<div class="modal message_popup fade" id="MessageBoxDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="MessageBoxTitle">حذف</h4>
+            </div>
+            <div class="modal-body" style="max-height:200px; overflow:auto; text-align: center;">
+                <div class="col-xs-12"> <h3 id="MessageBoxMessage">هل تريد الحذف حقا</h3></div>
+
+                <div class="col-xs-5 text-center">
+                    <i class="glyphicon btn-danger"></i>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="MessageBoxOk" class="btn btn-danger">موافق</button>
+                <button type="button" id="MessageBoxCancel" class="btn btn-warning" data-dismiss="modal">الغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal message_popup fade" id="MessageBoxDialogwithoutclick" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="MessageBoxTitlewithoutclick">حذف</h4>
+            </div>
+            <div class="modal-body" style="max-height:200px; overflow:auto; text-align: center;">
+                <div class="col-xs-12"> <h3 id="MessageBoxMessagewithoutclick"></h3></div>
+
+                <div class="col-xs-5 text-center">
+                    <i class="glyphicon btn-danger"></i>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/ClientApp/MessageBox.js"></script>
+ @*<script src="~/ClientApp/Pages/LoginComponent.js"></script>*@
+ 
+<script src="~/ClientApp/Pages/Login_.js"></script>
+

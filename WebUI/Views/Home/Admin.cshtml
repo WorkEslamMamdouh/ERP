@@ -1,0 +1,55 @@
+﻿@using Inv.WebUI.Resources
+
+@{
+    ViewBag.Title = "Admin";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<style>
+    .body {
+        background-image: url('../../images/Background/imgadmin.jpeg');
+    }
+</style>
+
+
+<input type="hidden" id="OnLogged" name="name" value="@Url.Action("AdminHome_","Home")" />
+<input type="hidden" id="GetAPIUrl" name="name" value="@System.Configuration.ConfigurationManager.AppSettings["ServiceUrl"]" />
+
+<link href="~/Style_design/StyleSheet1.css" rel="stylesheet" />
+
+<div class="container login-container">
+    <div class="row">
+        <div class="col-xs-3">
+
+        </div>
+        <div class="col-xs-6 p-0" style="background-color: #d2dbe0;border-radius: 5%;">
+
+            <div class="col-xs-10 p-0 login-form-2">
+                <form>
+                    <div class="form-group">
+                        <input id="txtUserName" type="text" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input id="txtUserPassword" type="password" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <button id="btnLogin" class="btnSubmit" value="Login">Login</button>
+                    </div>
+                    @*<div class="form-group">
+                            <a href="#" class="ForgetPwd" value="Login">Forget Password?</a>
+                        </div>*@
+                </form>
+            </div>
+
+        </div>
+        <div class="col-xs-3" style="font-weight: bold;position: absolute;top:33%;right: 52%;color: #ff8013;">
+            <h1>Orange Admin</h1>
+        </div>
+    </div>
+</div>
+<script>
+
+    $('#btnclosefooter').addClass("display_none");
+
+</script>
+<script src="~/ClientApp/Pages/LoginAdmin.js"></script>

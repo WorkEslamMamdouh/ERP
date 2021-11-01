@@ -1,0 +1,75 @@
+﻿/* -- quantity box -- */
+
+.quantity {
+    display: inline-block;
+    margin-top:3px!important;
+}
+
+    .quantity .input-text.qty {
+        width: 50px;
+        height: 29px;
+        padding: 0px;
+        text-align: center;
+        background-color: transparent;
+        border: 1px solid #efefef;
+    }
+
+    .quantity.buttons_added {
+        text-align: left;
+        position: relative;
+        white-space: nowrap;
+        vertical-align: top;
+        padding: 0px 1px 0px 0 !important;
+    }
+
+        .quantity.buttons_added input {
+            display: inline-block;
+            margin: -3px;
+            vertical-align: top;
+            box-shadow: none;
+        }
+
+
+        .quantity.buttons_added .minus,
+        .quantity.buttons_added .plus {
+            padding: 3px 1px 0px;
+            height: 28px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .quantity.buttons_added .minus {
+            border-right: 0;
+        }
+
+        .quantity.buttons_added .plus {
+            border-left: 0;
+        }
+
+            .quantity.buttons_added .minus:hover,
+            .quantity.buttons_added .plus:hover {
+                background: #ff6a00;
+            }
+
+    .quantity input::-webkit-outer-spin-button,
+    .quantity input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+    }
+
+    .quantity.buttons_added .minus:focus,
+    .quantity.buttons_added .plus:focus {
+        outline: none;
+    }
+    .quantity.buttons_added .minus {
+        background-color: #7a0f0f;
+        /*padding: 5px;*/
+    }
+
+    .quantity.buttons_added .plus {
+        background-color: #65a83f;
+    }
+    

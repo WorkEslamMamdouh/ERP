@@ -1,0 +1,269 @@
+﻿.modal-content {
+    width: 85% !important;
+    margin-right: 9%;
+    border-bottom-left-radius: 58px;
+    border-bottom-right-radius: 58px;
+    /*background-color:#4CAF50;*/
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#btmbtnNext, #passreset, #lblCount, #EndIndex, #StartIndex, #btnPrevious {
+    color: #40afd0 !important;
+    background-color: #f2f2f2;
+}
+
+#btnDownload {
+    background-color: #4CAF50;
+}
+
+#btnDelete {
+    background-color: #f44336;
+    color: black;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 51%;
+    border-radius: 12px !important;
+    min-height: 35px;
+    margin: 0px 93px 16px 0px;
+}
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        .navbar a:hover {
+            background: #f1f1f1;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+.main {
+    padding: 16px;
+    margin-bottom: 30px;
+}
+
+.redus {
+    border-radius: 15px !important;
+}
+
+.btn-group-justified {
+    width: 99%;
+}
+
+.upload-btn-wrapper .btn {
+    height: 36px !important;
+    background-color: #008CBA;
+    border: unset !important;
+}
+
+.file_report {
+    margin-right: 4% !important;
+}
+
+.stylecont {
+    height: 538px;
+    border-radius: 42px;
+    background-color: #f7f7f7;
+}
+
+toolbar > .btn-group, .btn-toolbar > .input-group {
+    margin-right: 3px;
+}
+
+.modal-footer {
+    padding-left: 140px;
+}
+div#MessageBoxDialog {
+    width: 59%!important;
+ 
+}
+
+/*.logoimage .upload-btn-wrapper input[type=file] {
+    font-size: 48px;
+    position: absolute;
+    right: -78px;
+    width: 41px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: -15px;
+    margin-right: 36px;
+    height: 37px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: -7px;
+}*/
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    display: inline;
+    margin-right: 127px;
+    width: 50%;
+}
+
+    .upload-btn-wrapper .btn {
+        /*border: 2px solid #990033;*/
+        color: #FFF;
+        /*background-color: #990033;*/
+        padding: 3px 0px;
+        border-radius: 0px;
+        width: 164px;
+        display: block;
+        margin: 7px 130px;
+        cursor: pointer;
+    }
+
+.logoimage .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: -15px;
+    margin-right: 0px;
+    height: 37px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: -7px;
+    width: 75px;
+}
+
+    .upload-btn-wrapper .btn {
+        cursor: pointer;
+    }
+      
+.logoimage .upload-btn-wrapper input[type=file] {
+    font-size: 48px;
+    position: absolute;
+    right: -78px;
+    width: 41px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: -15px;
+    margin-right: 36px;
+    height: 37px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: -7px;
+}
+ 
+.upload-btn-wrapper .btn {
+    /*border: 2px solid #990033;*/
+    color: #FFF;
+    /*background-color: #990033;*/
+    /*padding: 3px 0px;*/
+    border-radius: 0px;
+    width: 164px;
+    display: block;
+    margin: 7px 199px;
+    cursor: pointer;
+}
+
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    display: inline;
+    margin-right: 127px;
+    width: 50%;
+}
+ 
+.upload-btn-wrapper .btn {
+    border: unset;
+    color: #FFF;
+    background-color: transparent;
+    box-shadow: none;
+    padding: 3px 0px;
+    border-radius: unset;
+    /*font-size: 17px;*/
+    font-weight: bold;
+    width: 164px;
+    display: block;
+    height: 34px;
+    margin: 7px 199px;
+    cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    width: 163px;
+    height: 28px;
+    margin-left: 36px;
+    margin-right: 36px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: 10px;
+}
+
+.upload-btn-wrapper .btn {
+    cursor: pointer;
+}
+
+.logoimage .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: -15px;
+    margin-right: 36px;
+    height: 37px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: -7px;
+    width: 75px;
+}
+
+.upload-btn-wrapper .btn {
+    opacity: 1 !important;
+}
+.upload-btn-wrapper .btn {
+  
+    border-radius: 13px!important;
+    background-color:#008CBA!important;
+     
+}
+.logoimage .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0px;
+    top: 7px;
+    opacity: 0;
+    cursor: pointer;
+    margin-left: -15px;
+    margin-right: 0px;
+    height: 37px;
+    cursor: pointer;
+    z-index: 888888;
+    margin-top: -7px;
+    width: 75px;
+}

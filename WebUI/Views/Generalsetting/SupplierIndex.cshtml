@@ -1,0 +1,247 @@
+﻿
+@{
+    ViewBag.Title = "الموردين";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    .class_btn_drop {
+        background-color: #c8c8c8;
+        padding: 6px 10px 2px 10px;
+    }
+
+    .dropdown-item:hover {
+        cursor: pointer !important;
+        background-color: #c8c8c8 !important;
+    }
+
+    .pading_3 {
+        padding: 0px 50px 0px !important
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    .textalign {
+        text-align: center
+    }
+
+    .textcentr_pading {
+        padding-right: 29px !important;
+    }
+
+    .src-btn {
+        border-radius: 18px !important;
+    }
+
+    .dropdown-menu {
+        border-radius: 11px;
+    }
+
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+    .panel-body {
+        background-color: aliceblue;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+
+        // Initialize select2
+        $("#txt_ID_APP_Category").select2();
+
+        $("#txt_ID_APP_Group").select2();
+
+        $("#txt_ID_APP_Type").select2();
+
+
+
+        // Read selected option
+        $('#but_read').click(function () {
+            var username = $('#txt_ID_APP_Category option:selected').text();
+            var userid = $('#txt_ID_APP_Category').val();
+
+            var username = $('#txt_ID_APP_Group option:selected').text();
+            var userid = $('#txt_ID_APP_Group').val();
+
+            var username = $('#txt_ID_APP_Type option:selected').text();
+            var userid = $('#txt_ID_APP_Type').val();
+
+
+            $('#result').html("id : " + userid + ", name : " + username);
+        });
+    });
+</script>
+
+<link href="~/Style_design/Stylecheckbox.css" rel="stylesheet" />
+
+
+<div class="panel panel-default">
+    @*<label id="lepReserved" class="col-lg-12 labeltitel "><span id="spanlepReserved" class="ifontowsam fa fa-caret-left"></span>     </label>*@
+    <div class="panel-heading panel_me">
+        <i class="glyphicon glyphicon-pencil icon_panel"></i><label class="span_item">الموردين</label><label class="span_item"></label>
+    </div>
+    <div class="panel-body">
+
+
+        <div id="id_div_Add">
+            <div class="col-lg-12">
+
+
+                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading" style="top: 3px;right: 20px;">النوع</label>
+                <div class="col-lg-3 col-xs-8">
+                    <select id="txt_ID_APP_Category" name="" class="form-control  text_Display" style="border-color: #0000bd;border: solid 1px;"></select>
+                </div>
+                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">النشاط</label>
+                <div class="col-lg-2 col-xs-8">
+                    <select id="txt_Active" name="" type="text" class="form-control  text_Display">
+                        <option value="2">الجميع</option>
+                        <option value="1">فعال</option>
+                        <option value="0">غير فعال</option>
+
+                    </select>
+                </div>
+                <div class="col-lg-2 col-xs-8">
+
+                </div>
+                    
+                    <div class="col-lg-2 col-xs-8">
+                        <button type="button" class="btn btn-primary" id="btnShow">
+                            <span class="glyphicon "></span>عرض
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btnAdd">
+                            <span class="glyphicon"></span>اضافة
+                        </button>
+                    </div>
+
+
+
+                </div>
+            <div id="id_ReportGrid" class="col-lg-12  margingred  borderred " style="display: none;">
+                <div class="col-lg-3 col-xs-8" style="margin-bottom: 4px;margin-right: 27px;margin-top: 9px;">
+                    <input id="searchbutmemreport" name="" type="text" class="form-control  text_Display" placeholder="بحث برقم الهاتف">
+                </div>
+                <div class="col-lg-15 ">
+                    <table id="ReportGrid"></table>
+
+                </div>
+                <h4 style="text-align: center;font-weight: bold;color: #0088c7;">انقر مرتين للعرض</h4>
+            </div>
+        </div>
+        <div id="DivMassage" class="col-lg-12  margingred  borderred display_none">
+
+            <h4 id="Text_Massage" style=""> رساله </h4>
+
+        </div>
+        <div id="Div_control" class="col-lg-12 margingred  borderred" style="height: 389px;margin-bottom: 19px;margin-top: 20px;display: none;">
+
+
+
+            <div class="col-lg-12 " style="padding-top: 3px;margin-top: 13px;">
+
+                <div class="col-lg-12 " style=" ">
+
+                    <div class="col-lg-9 col-xs-8">
+                    </div>
+                    <div class="col-lg-2">
+
+                        <button type="button" class="btn btn-warning display_none" id="btnback">
+                            <span class="glyphicon glyphicon-backward"></span>رجوع
+                        </button>
+
+                        <button id="btnsave" type="button" class="btn btn-success display_none">
+                            <span class="glyphicon glyphicon-save"></span>حفظ
+                        </button>
+
+                    </div>
+                    <div class="col-lg-1">
+
+
+                        <button type="button" class="btn btn-primary" id="btnedite">
+                            <span class="glyphicon glyphicon-edit"></span>تعديل
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-12 " style=" ">
+
+                    <div class="col-lg-12 ">
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2">كود المورد</label>
+                        <div class="col-lg-2 col-xs-8">
+                            <input id="txt_ID_Supplier" disabled name="ID_Supplier" type="number" class="form-control  text_Display" placeholder="كود المورد">
+                        </div>
+                        <div class="col-lg-1 col-xs-8">
+                        </div>
+
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">النشاط</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <select id="txt_IS_Active" disabled name="" type="text" class="form-control  text_Display" >
+                                <option value="1">فعال</option>
+                                <option value="0">غير فعال</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 ">
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2">اسم المورد</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txt_NAME" disabled name="Name_Supplier" type="text" class="form-control  text_Display" placeholder="اسم المورد">
+                        </div>
+
+
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">نوع المورد</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txt_Type_Supplier" disabled name="Type_Supplier" type="text" class="form-control  text_Display" placeholder="نوع المورد">
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-12 " style="padding-top: 3px;">
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2">رقم الهاتف</label>
+                        <div class="col-lg-3 col-xs-8">
+                            <input id="txt_phone" disabled name="phone" type="text" class="form-control  text_Display" placeholder="رقم الهاتف">
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12 ">
+
+                        <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2  ">ملاحظات</label>
+                        <div class="col-lg-7 col-xs-8">
+                            @*<input id="txt_Notes" disabled name="Notes" type="text" class="form-control  text_Display" placeholder="ملاحظات">*@
+                            <textarea type="text" class="form-control input-sm addable editable " placeholder="ملاحظات" disabled name="Notes" id="txt_Notes" style="height: 105px;"></textarea>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<script>
+    $('#lepnotifications').on('click', function () {
+        $('#divnotifications').toggleClass('showdiv');
+        $('#spanlepnotifications').toggleClass('fa-caret-left');
+        $('#spanlepnotifications').toggleClass('fa-caret-down');
+
+    });
+
+</script>
+@Scripts.Render("~/Bundles/ClientApp")
+<script src="~/ClientApp/JsGrid.js"></script>
+<script src="~/ClientApp/Generalsetting/Supplier.js"></script>

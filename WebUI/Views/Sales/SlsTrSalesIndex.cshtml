@@ -1,0 +1,1153 @@
+﻿@using Inv.WebUI.Resources
+@{
+    ViewBag.Title = @SystemResource.Men_AccDefCustomer;
+    ViewBag.Title = "مبيعات";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<style>
+    .style_pading_lepel {
+        /*padding-top: 10px;*/
+        padding: 10px 29px 0 0;
+    }
+
+    .pading_ {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .pad_ {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    .inner tr td {
+        border-top: none !important;
+    }
+
+    .btn-info {
+        color: #fff;
+        background-color: #5bc0de;
+        border-color: #46b8da;
+        padding: 4px 10px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+
+    .fontitm3 {
+        float: right;
+        margin: 5px 21px 0px 0px !important;
+        font-size: 25px !important;
+    }
+
+    .style_pading {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .table_11 tr td:nth-child(3) {
+        width: 200px;
+    }
+
+    .table_11 tr th:nth-child(12), .table_11 tr td:nth-child(12) {
+        width: 120px;
+    }
+
+    .table_11 {
+        margin-bottom: 0px;
+    }
+
+    .auto-style1 {
+        background-color: #F5F5F5;
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    #btnAddDetails {
+        font-size: 40px;
+    }
+
+        #btnAddDetails:hover {
+            color: #24b414;
+        }
+
+    .glyphicon-remove-sign:hover {
+        color: red
+    }
+
+    .minus_btn {
+    }
+
+    .font_codenumber {
+        font-size: 19px;
+        font-weight: bold;
+    }
+
+    .style_border {
+        border-top: solid 1px;
+        padding: 10px 0px 4px 0px;
+    }
+
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    .textcentr_pading {
+        padding-right: 35px !important;
+    }
+    /*.autocomplete {
+        /*the container must be positioned relative:
+        position: relative;
+        display: inline-block;
+    }*/
+</style>
+<style type="text/css">
+    #uul ul li {
+        float: left;
+        margin-left: 1em;
+        margin-top: 1em;
+        border-radius: 35px;
+        display: inline-block;
+    }
+
+    /*#uul ul li input {*/
+    /*color: #ffffff;
+            /*background-color: #245a6e;*/
+    /*width: 150px;
+            height: 86px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 35px;*/
+    /*background: linear-gradient(to right, #245a6e 0%, #337ab7 100%);*/
+    /*background: linear-gradient(to right, #000000 0%, rgb(22, 124, 162) 100%);*/
+    /*background: linear-gradient(to right, #245a6e 0%, #337ab7 100%);*/
+    /* background-color: #245a6e; */
+    /* font-size: 20px; */
+    /* font-weight: bold; */
+    /*width: 50px;
+            height: 31px;
+            margin-bottom: -5px;
+            color: #ffffff;
+            border-radius: 35px;
+            background: linear-gradient(to right, #4b3a14 0%, #d76439 100%);
+            margin-left: -11px;*/
+
+    /*}*/
+
+
+    .input_vodafone {
+        color: #ffffff;
+        width: 77px;
+        height: 31px;
+        margin-bottom: -5px;
+        border-radius: 35px;
+        background: linear-gradient(to right, #403302 0%, #f90000 100%);
+        margin-left: -11px;
+        margin-right: 6px;
+        font-weight: bold;
+    }
+
+    .input_orange {
+        color: #ffffff;
+        width: 77px;
+        height: 31px;
+        margin-bottom: -5px;
+        border-radius: 35px;
+        background: linear-gradient(to right, #403302 0%, #f98a00 100%);
+        margin-left: -11px;
+        margin-right: 6px;
+        font-weight: bold;
+    }
+
+
+    .input_etisalat {
+        color: #ffffff;
+        width: 77px;
+        height: 31px;
+        margin-bottom: -5px;
+        border-radius: 35px;
+        background: linear-gradient(to right, #002a09 0%, #06bc24 100%);
+        margin-left: -11px;
+        margin-right: 6px;
+        font-weight: bold;
+    }
+
+
+    .input_we {
+        color: #ffffff;
+        width: 77px;
+        height: 31px;
+        margin-bottom: -5px;
+        border-radius: 35px;
+        background: linear-gradient(to right, #403302 0%, #a70074 100%);
+        margin-left: -11px;
+        margin-right: 6px;
+        font-weight: bold;
+    }
+
+    .input_blue {
+        color: #ffffff;
+        width: 77px;
+        height: 31px;
+        margin-bottom: -5px;
+        border-radius: 35px;
+        background: linear-gradient(to right, #002451 0%, #058db7 100%);
+        margin-left: -11px;
+        margin-right: 6px;
+        font-weight: bold;
+    }
+
+
+
+
+
+    .input_etisalat:hover {
+        background: linear-gradient(to right, #000000 0%, #000000 100%);
+        /*background: linear-gradient(to right, #00000069 0%, rgb(255 0 0 / 0%) 100%);*/
+        /*background: linear-gradient(to right, #e9b94c 0%, #d76439 100%);*/
+        font-size: 8px;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer !important
+    }
+
+    .input_orange:hover {
+        background: linear-gradient(to right, #000000 0%, #000000 100%);
+        /*background: linear-gradient(to right, #02800e8f 0%, #175901f2 100%);*/
+        /*background: linear-gradient(to right, #00000069 0%, rgb(255 0 0 / 0%) 100%);*/
+        /*background: linear-gradient(to right, #00ff37 0%, #09c00e 100%);*/
+        font-size: 8px;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer !important
+    }
+
+    .input_we:hover {
+        background: linear-gradient(to right, #000000 0%, #000000 100%);
+        /*background: linear-gradient(to right, #02800e8f 0%, #175901f2 100%);*/
+        /*background: linear-gradient(to right, #00000069 0%, rgb(255 0 0 / 0%) 100%);*/
+        /*background: linear-gradient(to right, #00ff37 0%, #09c00e 100%);*/
+        font-size: 8px;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer !important
+    }
+
+    .input_vodafone:hover {
+        background: linear-gradient(to right, #000000 0%, #000000 100%);
+        /*background: linear-gradient(to right, #02800e8f 0%, #175901f2 100%);*/
+        /*background: linear-gradient(to right, #00000069 0%, rgb(255 0 0 / 0%) 100%);*/
+        /*background: linear-gradient(to right, #00ff37 0%, #09c00e 100%);*/
+        font-size: 8px;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer !important
+    }
+
+    .input_blue:hover {
+        background: linear-gradient(to right, #000000 0%, #000000 100%);
+        /*background: linear-gradient(to right, #00000069 0%, rgb(255 0 0 / 0%) 100%);*/
+        /*background: linear-gradient(to right, #a5deff 0%, #00a2d3 100%);*/
+        font-size: 8px;
+        font-weight: bold;
+        color: #fff !important;
+        cursor: pointer !important
+    }
+
+
+    .input_etisalat:active {
+        background-color: #000000 !important;
+    }
+
+
+    .input_orange:active {
+        background-color: #000000 !important;
+    }
+
+    .input_we:active {
+        background-color: #000000 !important;
+    }
+
+    .input_vodafone:active {
+        background-color: #000000 !important;
+    }
+
+    .input_blue:active {
+        background-color: #000000 !important;
+    }
+
+    .fill {
+        top: 5px;
+        left: 5px;
+        cursor: pointer;
+    }
+
+
+
+    .empty {
+        display: inline-block;
+        height: 86px;
+        width: 150px;
+        margin: 10px;
+        color: #d50d0d;
+    }
+
+
+    .Remove {
+        text-align: left;
+        font-size: 10px;
+        padding: 4px;
+        /*background: #d50d0d;*/
+        background: linear-gradient(to right, rgb(255, 112, 56) 0%, rgb(175, 10, 10) 100%);
+        border-radius: 20px;
+        color: #fff;
+    }
+
+    .krkr {
+        width: 14%;
+        background-color: #000000;
+        z-index: 9999;
+        position: absolute;
+        /* top: 122px; */
+        border-radius: 16px;
+        text-align: center;
+        color: #f0cb87;
+        border: solid 1px;
+        padding: -2px 0px 0px 0;
+        /* margin-bottom: -7px; */
+        /*margin-top: 45px;*/
+        margin-right: -63px;
+        overflow-y: scroll; /* Add the ability to scroll */
+    }
+
+    #chat {
+        overflow-y: scroll;
+    }
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        #chat::-webkit-scrollbar {
+            display: none;
+        }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    /*.krkr {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }*/
+    .krkr::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    .krkr::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        background-color: black;
+        /*border-radius: 16px;*/
+        border-top-left-radius: 24px;
+        border-bottom-left-radius: 24px;
+    }
+
+    /* Handle */
+    .krkr::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 16px;
+    }
+
+        /* Handle on hover */
+        .krkr::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+    .List_MinUnitPrice_in_poup_pass {
+        display: block;
+        margin-top: -52%;
+        background-color: #014035;
+        border-radius: 16px;
+        width: 191%;
+        height: 146px;
+        overflow-y: scroll;
+    }
+
+        .List_MinUnitPrice_in_poup_pass::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Track */
+        .List_MinUnitPrice_in_poup_pass::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            background-color: #014035;
+            /*border-radius: 16px;*/
+            border-top-left-radius: 24px;
+            border-bottom-left-radius: 24px;
+        }
+
+        /* Handle */
+        .List_MinUnitPrice_in_poup_pass::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 16px;
+        }
+
+            /* Handle on hover */
+            .List_MinUnitPrice_in_poup_pass::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+
+    .st_border_li_List_MinUnitPrice {
+        width: 100% !important;
+        border-bottom: solid 1px !important;
+        padding: 2px 7px 3px 4px !important;
+        margin-left: 0px !important;
+        margin-top: 0px !important;
+        font-weight: bold !important;
+        font-size: 15px;
+    }
+
+    .st_border_li_inDiv {
+        width: 100% !important;
+        border-bottom: solid 1px !important;
+        padding: 20px 2px 7px 2px !important;
+        margin-left: 0px !important;
+        margin-top: 0px !important;
+        font-weight: bold !important;
+        font-size: 15px;
+    }
+
+        .st_border_li_inDiv:hover {
+            color: #fff !important;
+            zoom: 1.2 !important;
+            cursor: pointer !important
+        }
+</style>
+<style>
+    .test1 ul.test2 li.open .test3 {
+        opacity: 1 !important;
+        z-index: 9999 !important;
+        margin-right: -182px !important;
+        margin: 18% 0% 0% 0px 0% !important;
+        position: initial !important;
+    }
+
+    .test1 ul.test2 li a {
+        display: block !important;
+        padding: 10px 20px !important;
+        color: #fff !important;
+        transition: all .4s ease 0s !important;
+        border-bottom: solid 1px !important;
+    }
+
+    /*لون المنيو الصغيرة*/
+    .materialdesign .test1 ul.test2 li .test3 {
+        background: #177a9f !important;
+    }
+
+    .test1 ul.test2 li .test3 {
+        position: absolute !important;
+        left: 0px !important;
+        /*top: -350%;*/
+        opacity: 0 !important;
+        width: 180px !important;
+        border-radius: 0 !important;
+        border: 0px solid #fff !important;
+        box-shadow: none !important;
+        /*background: linear-gradient(to right, rgb(85, 121, 207) 0%, #0f63d8 100%) !important;*/
+        right: 100% !important;
+    }
+
+
+    .test1 ul.test2 li {
+        display: block !important;
+        float: none !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    .popu {
+        position: fixed;
+        /* top: 22%; */
+        /* height: 25%; */
+        width: 100%;
+        /* margin-right: 23%; */
+        border: solid 1px #f3f3f3 !important;
+        border-radius: 30px;
+        padding: 12px 11px;
+        /*background-color: #e3e3e3 !important;*/
+        box-shadow: 0px 4px 6px 0;
+        background: linear-gradient(to right, rgb(0 0 0) 0%, #054f5b9c 100%) !important;
+        color: white;
+        box-shadow: 5px 5px #454242;
+    }
+
+
+
+    .Basket {
+        position: fixed;
+        height: 47px;
+        width: 55px;
+        background: #000;
+        border-radius: 30px;
+        font-family: 'Glyphicons Halflings';
+        bottom: 70px;
+        right: 100px;
+        transition: all .4s ease 0s;
+        /* margin-bottom: 11%; */
+        /*top: 15%;*/
+        /*right: 93%;*/
+        text-align: center;
+    }
+
+
+    .Num_Basket {
+        width: 19px !important;
+        height: 3%;
+        /* margin-bottom: -27px !important; */
+        background-color: red !important;
+        top: 90%;
+    }
+
+    .Total_Basket {
+        width: 154px;
+        /*margin-right: 54px;*/
+        padding-top: 0.8%;
+        right: 10%;
+    }
+
+    .class_ex_liest_chate {
+        float: left !important;
+        z-index: 999 !important;
+        position: absolute;
+        float: left;
+        left: 0%;
+    }
+
+    /*#thing {
+        position: absolute;
+        z-index: 9;
+        background-color: #f1f1f1;
+        border: 1px solid #d3d3d3;
+        text-align: center;
+    }
+
+    #thingheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+        background-color: #2196F3;
+        color: #fff;
+    }*/
+    .Style_familly {
+        width: 110px;
+        margin-left: 5px;
+        margin-top: 3px;
+        /*background: linear-gradient(to right, #510000 0%, #ff7600 100%);*/
+        background: linear-gradient(to right, #2c3625 0%, #0c130b 100%);
+    }
+
+
+    .Style_Category {
+        width: 186px;
+        background-color: #1368d200;
+        margin-left: 15px;
+        margin-top: 4px;
+    }
+
+    .btn_reset_save {
+        height: 33px !important;
+        text-align: center !important;
+        font-size: 17px !important;
+        background-color: #449710 !important;
+        float: left !important;
+    }
+
+    .btn_reset_delete {
+        height: 33px !important;
+        text-align: center !important;
+        font-size: 20px !important;
+    }
+    /*.mCS_no_scrollbar{
+        height:293px!important
+    }*/
+
+    .chat-content .chat-scrollbar .mCustomScrollbar ._mCS_3 mCS-dir-rtl {
+        height: 293px !important
+    }
+
+    .Commission {
+        position: absolute;
+        border-radius: 19px;
+        width: 20%;
+        margin-top: 2%;
+        margin-right: 14%;
+        background-color: antiquewhite;
+        color: red;
+        text-align: center;
+    }
+
+    .header_1 {
+        margin-right: 8%;
+    }
+
+    #wrapper {
+        display: flex;
+        justify-content: center;
+    }
+
+        #wrapper .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 6px 16px;
+            font-family: sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 50%;
+            box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12);
+            transition: margin-top 650ms ease-out, box-shadow 120ms, transform 120ms;
+            will-change: margin-top, box-shadow, transform;
+            user-select: none;
+            cursor: pointer;
+            margin-left: 88%;
+        }
+
+            #wrapper .container:hover:not(:active) {
+                box-shadow: 0 5px 4px -4px rgba(0, 0, 0, 0.1), 0 2px 10px 0px rgba(0, 0, 0, 0.08), 0 0px 10px 0px rgba(0, 0, 0, 0.08);
+            }
+
+            #wrapper .container:active {
+                transform: scale(1.4) translateY(5px);
+                box-shadow: 0 9px 11px -5px rgba(0, 0, 0, 0.2), 0 18px 28px 2px rgba(0, 0,0, 0.14), 0 7px 34px 6px rgba(0, 0, 0, 0.12);
+            }
+</style>
+<script>
+    $(document).ready(function () {
+
+        // Initialize select2
+        $("#ddlUserMaster").select2();
+        //  $("#ddlStateType").select2();
+
+
+        // Read selected option
+        $('#but_read').click(function () {
+            var username = $('#ddlUserMaster option:selected').text();
+            var userid = $('#ddlUserMaster').val();
+
+
+
+            $('#result').html("id : " + userid + ", name : " + username);
+        });
+    });
+</script>
+<link href="~/Style_design/Stylecheckbox.css" rel="stylesheet" />
+
+<div id="Men_Sales_2" class="col-lg-12 margingred  borderred animated zoomInLeft" style="height: 595px;">
+    <div class="container-fluid" style="">
+
+        <div class="row">
+            <div id=" " class="col-lg-12">
+                <input type="text" id="txt_search" class="col-lg-2 form-control " placeholder="Scanr">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-2" id="Div_Servise"></div>
+                <div class="col-lg-2  ">
+                    <select id="ddlUserMaster" name="" class="   form-control" style='width: 100%;border-radius: 30px;'></select>
+                </div>
+                <input type="text" id="txt_search1" class="col-lg-2 form-control "  style="width: 0px;>
+               
+             
+            </div>
+            <div id="informtionReserved" class="col-lg-13 margingred ">
+
+
+                <div class="col-lg-12">
+                    <div class="col-lg-11">
+
+                    </div>
+                    <div id="" class="col-lg-1" style="top: 3px;left: -2%;width: 0%;">
+                        <div id="But_Cutomr" title="Customer" class="pull-right adminpro-icon adminpro-user-rounded header-riht-inf castmr-button">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-1">
+
+
+                </div>
+
+                <div id="div_familly" class="col-lg-10" style="border: solid 4px;border-radius: 44px;background: linear-gradient(to right, rgb(3 208 151) 0%, #173c00 100%);margin-top: -3%;">
+
+
+
+                </div>
+
+
+                <div id=" " class="col-lg-12" style="border: solid 4px;border-radius: 44px;background: linear-gradient(to right, rgb(87 86 85) 0%, #0092a9 100%);">
+                    <div class="col-lg-2">
+                        <button id="All_item" type="button" class="btn btn-info Style_Category" style="background: linear-gradient(to right, #671717 0%, #000000 100%);">
+                            الجميع <span class="glyphicon glyphicon-download-alt" style="margin-top: -27px;"></span>
+                        </button>
+                    </div>
+                    <div id="div_Category" class="col-lg-10">
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div id="contentContainer" class="col-lg-15" style="padding-left: 57px!important;">
+
+                    @*<%----------------------------------------------------------------Custmor----------------------------------------------------------------------------%>*@
+
+
+
+                    @*<%---------------------------------------------------------------------------------------------------------------------------------------------------------%>*@
+
+                    <ul id="uul" class="" style=" list-style: outside none none;margin: -1px;padding: 0px;">
+                        @*<%--__________________________________________________________________________________________________________________--%>*@
+
+
+
+
+
+
+                        @*<%--__________________________________________________________________________________________________________________--%>*@
+                        <li style="margin-bottom:15px"></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+        <br />
+
+    </div>
+
+</div>
+
+
+<div class="animated zoomIn krkr " id="thing" style="display:none;">
+    <div id="" style="display:block;" class="">
+        <ul id="ul_Menu"></ul>
+    </div>
+</div>
+
+@*--------------------------------------------------------Basket-------------------------------*@
+<div>
+
+    <div id="wrapper" class="chat-button ">
+        <span1>
+            <span data-toggle="collapse" id="Basket" data-target="" class=" Basket   animated zoomInLeft container">
+                <i id="" class="" style="background-color: black;color: antiquewhite;width: 51px;height: 36px;text-align: center;border-radius: 85px;">
+                    <i id="remo" class="fa fa-shopping-cart" style="margin-top: 4px;font-size: 29px;"></i>
+                </i>
+            </span>
+            <span data-toggle="collapse" id="CChat" data-target="" style="display: none;" class=" Basket Num_Basket animated zoomInDown">
+                <i id="x" class="" style="color: antiquewhite;">
+                    <i id="remo" class="fa" style="margin-top: 0px;font-size: 21px;">0</i>
+                </i>
+            </span>
+
+            <span data-toggle="collapse" id="Total_Basket" data-target="" style=" display: none; " class=" Basket Total_Basket animated zoomInRight">
+                <i id="" class="" style="color: antiquewhite; ">
+                    @*<i id="" class="fa fa-paperclip" style="font-weight: bold;"> </i>*@
+                    <i id="All_Total_Basket" class="" style="font-weight: bold;"> الاجمالي= 59</i>
+                </i>
+            </span>
+
+        </span1>
+
+    </div>
+
+    <div id="chat" class="collapse chat-box-wrap shadow-reset animated zoomInLeft" style="width: 28%;border-radius: 16px;">
+        <div class="chat-main-list">
+            <div class="chat-heading">
+                @*<input id="txtCommission_Basket" name="" value="0" type="number" style="" class="Commission">*@
+                <h2 id="Num_Item" style="font-weight: bold;border-top-left-radius: 13px;border-top-right-radius: 13px;">عدد الاصناف</h2>
+
+            </div>
+
+            <div id="mCSB_3_container" class="chat-content chat-scrollbar"></div>
+            <style type="text/css">
+                #txx .tx {
+                    float: left;
+                    /* margin-left: 1em; */
+                    margin-top: 1em;
+                    font-size: 16px;
+                    /* background: #1b7eab; */
+                    background: linear-gradient(to right, #00e173 0%, rgb(14, 24, 27) 100%);
+                    color: #fff;
+                    padding: 4px 20px;
+                    display: inline-block;
+                    margin-left: 59px;
+                    width: 148px;
+                    border-radius: 56px;
+                    text-align: center;
+                }
+            </style>
+
+
+
+            <div id="txx" class="view-mail-action col-lg-7 col-md-8 col-sm-8 col-xs-8 " style="right: 130px;">
+
+                @*<a id="Num_Order" class="contact-client-name" href="#">( 50 )</a>*@
+                <a class="compose-discard-bt btn_reset_delete col-lg-4" href="#" style="background: #bd0000;"><i id="remo" class="fa fa-trash-o"></i></a>
+                <a style="padding-top:5px!important;margin-left: -9px;" id="Finsh_Order" class="btn_reset_save col-lg-4 col-md-7 col-sm-4 col-xs-3 " href="#"> حفظ <i id="remo" class="glyphicon glyphicon-save"></i></a>
+                <a style="padding-top:5px!important;background-color: #d67714 !important;" id="Finsh_Order_Print" class="btn_reset_save col-lg-4 col-md-7 col-sm-4 col-xs-3 " href="#"> حفظ <i id="remo" class="glyphicon glyphicon-print"></i></a>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+@*--------------------------------------------------------Basket-------------------------------*@
+
+<div class="modal fade" id="PopupDialog" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div id="PopupBody" class=" modal-body col-lg-12 col-xs-12 ">
+                <div id="Men_popu" class="popu animated zoomIn" style="display:block;">
+                    <div class="col-lg-12">
+                        <h2 id="id_Labol" style="text-align: center;">الكميه المتاحه (10) من ابو فروه كيس صيني</h2>
+
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-3 col-xs-4">
+
+                        </div>
+                        <div class="col-lg-5 col-xs-12">
+                            <span class="" style="font-size: 22px;font-weight: bold;">الكمية</span>
+                        </div>
+                        <div class="col-lg-4 col-xs-12" style="">
+                            <span class="" style="font-size: 22px;font-weight: bold;">السعر</span>
+                        </div>
+
+                    </div>
+                    <div class="col-lg-12" style="">
+
+                        <div class="col-lg-1 col-xs-4">
+
+                        </div>
+                        <div class="col-lg-5 col-xs-4">
+                            <div class="input-group " style="">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: #4CAF50; " class="btn btn-default btn-number10" id="btnminus_Quantity" data-type="minus" data-field="quant[1]"><span class="glyphicon glyphicon-minus"></span></button>
+                                </span>
+                                <input type="text" style="height:36px;" id="txtQuantity" name="quant[1]" class="  form-control   font1" value="1" min="1" max="1000" step="1"><span class="input-group-btn"><button type="button" style="background-color: #f44336;" id="btnplus_Quantity" class="btn btn-default btn-number10" data-type="plus" data-field="quant[1]"><span class="glyphicon glyphicon-plus"></span></button></span>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-5 col-xs-4">
+
+
+                            <div class="input-group ">
+                                <span class="input-group-btn">
+                                    <button type="button" style="background-color: #4CAF50; " class="btn btn-default btn-number20" id="btnminus_price" data-type="minus" data-field="quant[2]"><span class="glyphicon glyphicon-minus"></span></button>
+                                </span>
+                                <input type="text" style="height: 37px;" id="txtPrice" name="quant[2]" class="  form-control   font1" value="0.5" min="0" max="1000" step="0.5"><span class="input-group-btn"><button type="button" style="background-color: #f44336;" id="btnplus_price" class="btn btn-default btn-number20" data-type="plus" data-field="quant[2]"><span class="glyphicon glyphicon-plus"></span></button></span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class=" col-lg-4 col-xs-4" style="margin-right: 10%;">
+
+                        </div>
+                        <div class=" col-lg-3 col-xs-4">
+                            <span class="" style="font-size: 19px;font-weight: bold;">
+                                <span class="">الاجمالي </span>
+                            </span>
+
+                        </div>
+                        @*<div class="col-lg-2 col-xs-3">
+                                <span class="" style="font-size: 15px;font-weight: bold;">
+                                    <span class="">الضريبه </span>
+                                </span>
+                            </div>
+                            <div class="col-lg-3 col-xs-3">
+                                <span class="" style="font-size: 15px;font-weight: bold;">الاجمالي بعد الضريبة</span>
+                            </div>*@
+                    </div>
+                    <div class="col-lg-12">
+
+                        <div class=" col-lg-4 col-xs-4">
+
+                        </div>
+                        <div class="col-lg-4 col-xs-3">
+                            <input id="txtTotal_Popu" type="text" disabled class="form-control">
+                        </div>
+                        @*<div class="col-lg-2 col-xs-3">
+                                <input id="txtTax_Popu" type="text" class="form-control">
+                            </div>
+                            <div class="col-lg-4 col-xs-3">
+                                <input id="txtTotAfterTax_Popu" type="text" class="form-control">
+                            </div>*@
+
+
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-4 col-xs-5">
+
+                        </div>
+                        <div class="col-lg-2 col-xs-2">
+                            <button id="btn_Edit_Basket" type="button" class="btn btn-success" style="display:none;">
+                                <span class="glyphicon glyphicon-edit"></span> تعديل
+                            </button>
+                            <button id="btn_Add_Basket" type="button" class="btn btn-info " style="display:block;">
+                                <span class="glyphicon glyphicon-download"></span> اضافه
+                            </button>
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+
+                        </div>
+                        <div class="col-lg-1 col-xs-2">
+                            <button id="btn_cancel_Popu" type="button" class="btn btn-info " style="background-color: brown;">
+                                <span class="glyphicon glyphicon-remove"></span> الغاء
+                            </button>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div class="modal fade" id="Popup_Passowrd" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div id="PopupBody" class=" modal-body col-lg-12 col-xs-12 ">
+                <div id="popu_Passowrd" class="popu animated zoomInLeft" style="display:block;">
+                    <div class="col-lg-12">
+                        <h2 id="id_Labol" style="text-align: center;">يجب ادخال الباسورد حتي تتم عملية البيع</h2>
+
+                    </div>
+
+
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-2 col-xs-4">
+
+                        </div>
+                        <div class="col-lg-5 col-xs-12">
+                            <span class="" style="font-size: 22px;font-weight: bold;">Password</span>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-12">
+
+                        <div class=" col-lg-1 col-xs-4">
+
+                        </div>
+
+
+                        <div class="col-lg-4 col-xs-3">
+                            <input id="txt_ApprovePass" type="password" class="form-control">
+                        </div>
+
+
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-1 col-xs-5">
+
+                        </div>
+                        <div class="col-lg-2 col-xs-2">
+                            <button id="btn_Approveprice" type="button" class="btn btn-info " style="display:block;">
+                                <span class="glyphicon glyphicon-download"></span> اعتماد
+                            </button>
+                        </div>
+                        <div class="col-lg-2 col-xs-2">
+                            <button id="btn_Exit_Approveprice" type="button" class="btn btn-info " style="background-color: brown;">
+                                <span class="glyphicon glyphicon-remove"></span> ألغاء
+                            </button>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="col-lg-5 col-xs-5">
+
+                        </div>
+                        <div class="col-lg-4 col-xs-5">
+                            <div id="" class="List_MinUnitPrice_in_poup_pass">
+                                <ul id="Ul_List_MinUnitPrice"><li id="li_List_MinUnitPrice0" class="st_border_li_List_MinUnitPrice">-( بخارة ابيض افريقي 5 ك فله ) السعر (9) الحد (0350)</li><li id="li_List_MinUnitPrice1" class="st_border_li_List_MinUnitPrice">-( كاكا لبناني وسط 2 دور ) السعر (7) الحد (02550)</li><li id="li_List_MinUnitPrice2" class="st_border_li_List_MinUnitPrice">-( تفاح احمر صندوق سوري ) السعر (8) الحد (01250)</li></ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="Popup_Custmor" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div id="PopupBody" class=" modal-body col-lg-12 col-xs-12 ">
+
+                <div id="div_cutomr" class=" chat-box-wrap shadow-reset animated zoomInLeft collapse " aria-expanded="true">
+
+                    <br />
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-2">
+                            <input id="Insert_But_Cust" class="btn btn-custon-rounded-two btn-success" type="button" value="أضافه" />
+                        </div>
+                        <div class="col-lg-1" style="width: 16%;">
+                            <input id="update_div_cust" class="btn  btn-primary" type="button" value="تعديل" style="width: 74px; background-color: #acac01" />
+                        </div>
+                        <div class="col-lg-4" style=" margin-top: -27px;width: 30%;">
+                            <span class="adminpro-icon adminpro-user-rounded header-riht-inf" style="font-size: 41px;color: #d7f2ff;margin-right: 70px;">
+                                Customer
+                            </span>
+                        </div>
+                        <div class="col-lg-5" style="width: 37%;">
+                            <input id="idCust" type="hidden" />
+                            <input id="cust_search_phone" class="form-control" type="text" placeholder="بحث" style="margin-top: 13px;">
+                        </div>
+
+                    </div>
+
+                    <div class="  col-lg-12" style="  ">
+
+
+                        <div class="col-lg-2">
+                            <label class="login2 pull-right pull-right-pro pading_2" style="color: bisque;">الاسم</label>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <input id="CUST_NAME" class="form-control" type="text" placeholder="الاسم">
+                        </div>
+
+                      
+                        <div class="col-lg-1">
+                            <label class="login2 pull-right pull-right-pro pading_2" style="color: bisque;">التليفون</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input id="CUST_Phone" class="form-control" type="text" placeholder="التليفون">
+                        </div>
+
+
+
+                    </div>
+
+                    <div class=" col-lg-12" style="display:none">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <label class="login2 pull-right pull-right-pro" style="color: bisque;">   علامة مميزة</label>
+                            </div>
+                            <div class="col-lg-8">
+                                <input id="CUST_ADDRES_2" class="form-control" type="text" placeholder="علامة مميزة">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="  col-lg-12" style="margin-left:-133px; margin-top:9px">
+                        <div class="col-lg-2">
+                            <label class="login2 pull-right pull-right-pro" style="color: bisque;">النوع</label>
+                        </div>
+                        <div class="col-lg-2 col-xs-5">
+                            <select id="txt_Cust_Type" name="" class="form-control  text_Display">
+                                <option value="Null">@SystemResource.App_Type</option>
+                                <option value="1">@SystemResource.App_Cash</option>
+                                <option value="0">@SystemResource.App_Doubted</option>
+                            </select>
+                        </div>
+                        <label class=" col-lg-1 pading_2 login2 pull-right pull-right-pro"  style="color: bisque;">مدين</label>
+                        <div class="col-lg-2">
+                            <input id="txt_debit" class="form-control"disabled="disabled" type="number" >
+                        </div>
+                        <div class="col-lg-2">
+                            <label class="pading_2 login2 pull-right pull-right-pro" style="color: bisque;">المبلغ المدفوع</label>
+                        </div>
+                        <div class="col-lg-3">
+                            <input id="txt_Amount" class="form-control" type="text" placeholder="المبلغ المدفوع">
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="  col-lg-12" style="margin-left:-133px;">
+
+                        <div class="col-lg-2">
+                            <label class="pading_2 login2 pull-right pull-right-pro" style="color: bisque;">ملاحظات</label>
+                        </div>
+                        <div class="col-lg-8">
+
+                            @*<%--<input id="CUST_ADDRES" class="form-control" type="text" placeholder="العنوان">--%>*@
+                            <textarea id="CUST_ADDRES" maxlength="300" style="width: 475px; height: 135px; background-color: #e7dfc1; font-size: 20px; margin-top: 3px; color: #1e63ff;"></textarea>
+                            @*<%--<asp:textbox id="textCUSTOMER_ADDRES" runat="server" class="form-control" type="text" placeholder="العنوان" name="CUSTOMER_ADDRES"></asp:textbox>--%>*@
+                        </div>
+
+                    </div>
+
+                    <div class="login-input-area col-lg-12">
+
+                        <div class="col-lg-1">
+                            @*<input id="Insert_But_Cust" class="btn btn-custon-rounded-two btn-success" type="button" value="Insert" />*@
+                        </div>
+                        <div class="col-lg-3">
+                            <input id="Remove_cust" class="btn  btn-primary" type="button" value="مسح" style="width: 105px;background-color: #8c0000;" />
+                        </div>
+                        <div class="col-lg-4">
+                            <input id="hid_div_Customr" class="btn  btn-primary" type="button" value="OK" style="width: 204px;" />
+
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        let el = document.querySelector('#wrapper .container');
+
+        setTimeout(() => (el.style.marginTop = '20px'), 500);
+    }, false);
+</script>
+
+@Scripts.Render("~/Bundles/ClientApp")
+<script src="~/ClientApp/JsGrid.js"></script>
+<script src="~/ClientApp/Sales/SlsTrSales.js"></script>
+

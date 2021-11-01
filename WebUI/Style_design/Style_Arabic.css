@@ -1,0 +1,1147 @@
+﻿
+.borderred {
+    border: solid 1px #f3f3f3 !important;
+    border-radius: 30px;
+    padding: 12px 11px;
+     margin-left: 0%;
+    background-color: #ceeffb !important;
+    box-shadow: 0px 4px 6px 0px #cabfbf;
+}
+
+input[class=checkbox]:after {
+    content: "Off";
+    position: absolute;
+    z-index: 1;
+    margin: -1.1em 0 0;
+    top: 42%;
+    display: inline-block;
+    background: #848181;
+    border: 1px solid gray;
+    padding: 0.5em 1em;
+    width: 65px;
+    border-radius: 1em;
+    box-shadow: inset 1px 1px 1px rgba(0,0,0,0.3);
+    color: #ffffff;
+    text-shadow: 1px 1px rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    font-size: 11px;
+    height: 25px;
+    text-align: left;
+}
+
+input[class=checkbox]:checked:after {
+    content: "On";
+    text-align: right;
+    background: #0b8b0e;
+    border: 1px solid #8a0000;
+    color: #fff;
+}
+
+input[class=checkbox]:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 24px;
+    height: 23px;
+    top: 38%;
+    margin-top: -0.8em;
+    background: #eee;
+    border-radius: 1em;
+    box-shadow: 0 1px 1px #999, inset 0 3px 4px #fff;
+    transition: right 0.05s linear;
+}
+
+input[class=checkbox]:checked:before {
+    right: 3em;
+}
+
+
+
+.form-control {
+    /*background-color: #f7e4e4;*/
+    background-image: none;
+    border: 1px solid #a5c1dd;
+    border-radius: 15px;
+    color: black;
+    display: block;
+    padding: 3px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    /*width: 100%;*/
+    text-align: right !important;
+}
+
+.mini-navbar_Arbec .fixed-header-top {
+    right: 6%;
+    transition: all 0.3s;
+}
+
+.left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li.open .left-menu-dropdown {
+    opacity: 1;
+    z-index: 9999;
+    margin-right: -182px;
+    margin: 18% 0% 0% 0px 0%;
+    position: initial;
+}
+
+.left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    transition: all .4s ease 0s;
+    border-bottom: solid 1px;
+}
+
+/*لون المنيو الصغيرة*/
+ 
+.mini-navbar_Arbec .content-inner-all {
+    margin-right: 80px;
+    transition: all 0.3s;
+}
+
+
+.content-inner-all {
+    margin-right: 14.6% !important;
+    margin-left: 0px;
+    transition: all 0.3s;
+}
+
+.fixed-header-top {
+    height: 50px;
+    position: fixed;
+    background: #1368d2;
+    z-index: 999;
+    left: -3%;
+    max-width: 100%;
+    top: 0;
+    margin: 0 auto;
+    transition: all 0.3s;
+    margin-left: 3%;
+}
+
+.mini-navbar .fixed-header-top {
+    left: 39px;
+    transition: all 0.3s;
+}
+
+#sidebar {
+    min-width: 200px;
+    /*background: linear-gradient(to right, rgb(9, 42, 121) 0%, #8babed 100%);*/
+    background: #ccc;
+    color: black;
+    position: fixed;
+    transition: all 0.3s;
+    z-index: 998 !important;
+    height: 100%;
+    font-size: 17px;
+    max-width: 5.7%;
+    top: 0px;
+    /* min-width: 1%; */
+}
+
+    #sidebar.active {
+        min-width: 6%;
+        min-width: 6%;
+        text-align: center;
+    }
+
+        #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
+            display: none;
+        }
+
+        #sidebar.active .sidebar-header strong {
+            display: block;
+        }
+
+        #sidebar.active ul li .sidebar-right-icon {
+            display: none;
+        }
+
+/*لون الف اللي في اللوجو*/
+.materialdesign #sidebar .sidebar-header {
+    background-color: rgba(0,0,0,0) !important;
+}
+
+.materialdesign .footer-copyright-area {
+    background: #03a9f4;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+
+}
+/*color manu lifte*/
+ 
+    .materialdesign .sidebar-header h3, .materialdesign #sidebar .sidebar-header strong, .materialdesign .sidebar-header p, .materialdesign .footer-copy-right p, .materialdesign .footer-copy-right a {
+        color: #fff;
+    }
+
+.divcont {
+    margin: 4.5% 15% 0% 1%;
+}
+
+.chekbox_sherch {
+    padding: 6px 0px 0px !important;
+}
+
+.btnDownloadsimeg {
+    margin: 0.5% 84.9% 0% 0% !important;
+}
+
+.colapsdivcont {
+    margin: 5% 7% 0% 1% !important
+}
+
+.left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li .left-menu-dropdown {
+    position: absolute;
+    left: 0px;
+    /*top: -350%;*/
+    opacity: 0;
+    width: 180px;
+    border-radius: 0;
+    border: 0px solid #fff;
+    box-shadow: none;
+    /*background: linear-gradient(to right, rgb(85, 121, 207) 0%, #0f63d8 100%) !important;*/
+    right: 100%;
+}
+
+
+.left-custom-menu-adp-wrap ul.left-sidebar-menu-pro li {
+    display: block;
+    float: none;
+    position: relative;
+    width: 100%;
+}
+
+/*.header-right-info ul.header-right-menu li .admintab-wrap.menu-setting-wrap.dropdown-menu { 
+    top: 112%; 
+    width: 400px;
+    box-shadow: 0px 2px 3px rgba(0,0,0,.175);
+    padding: 20px;
+    position: absolute;
+    right: 1px;
+    margin-right: -503%;
+}*/
+
+.marg_right1 {
+    margin-right: 1%;
+}
+
+
+.pading_0 {
+    padding: 0px !important;
+}
+
+.pading0px {
+    padding-left: 0px;
+}
+
+.pading_2 {
+    padding: 6px 20px 0px 0px !important;
+}
+
+.left {
+    left: 6%;
+}
+
+.left2 {
+    left: 3%;
+}
+
+.pading_5 {
+    padding: 14px 0px 0px 0px !important;
+}
+
+.pading_6 {
+    padding: 0 !important;
+    padding-top: 6px !important;
+    padding-right: 11px !important;
+}
+
+.pading_7 {
+    padding: 6px 32px 7px 0px !important
+}
+
+.pading_titelpag {
+    padding-top: 20px;
+    color: aliceblue;
+    font-style: italic;
+}
+
+.pading_lepel_notfction {
+    padding-right: 0px !important;
+    padding-top: 9px !important;
+}
+
+.pading_farest_div {
+    padding-right: 10px;
+
+}
+
+
+ 
+ 
+.hieght_formcontrol {
+    height: 26px;
+}
+
+.Basket {
+    position: fixed;
+    height: 47px;
+    width: 55px;
+    background: #000;
+    border-radius: 30px;
+    font-family: 'Glyphicons Halflings';
+    transition: all .4s ease 0s;
+    left: 2%;
+    text-align: center;
+    z-index: 999;
+    margin-top: -4%;
+}
+
+.notifcations {
+    background-color: rgb(95 189 207) !important;
+    width: 378px !important;
+    height: auto !important;
+    position: absolute !important;
+    top: 51px !important;
+    left: 152px !important;
+    padding: 7px 0px !important;
+    padding-bottom: 0px !important;
+    border-radius: 13px !important;
+}
+
+.chat-heading h2 {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0px !important;
+    padding: 10px 15px !important;
+    /* background: #000000; */
+    color: #ffffff !important;
+    float: left !important;
+    /*left: 50px !important;*/
+    margin-left: -1px !important;
+    width: 100%;
+    display: none;
+}
+#mCSB_3 {
+    max-height: 293px;
+    margin-top: 49px;
+}
+
+.textcentr_padingSlsTrSalesManager {
+    padding-right: 35px !important;
+}
+
+.textcentr_padingSlsTrReturn {
+    padding-right: 25px !important;
+}
+
+.Total_Basket {
+    width: 154px;
+    /* margin-right: 54px; */
+    padding-top: 0.8%;
+    right: 82%;
+}
+
+.text_alignend {
+    text-align: end
+}
+
+.textcenterSlsTrSalesReturn {
+    text-align: center
+}
+
+.right3SlsTrSalesReturn {
+    right: 3%;
+}
+
+.right_2 {
+    right: -2%;
+}
+
+.right_1 {
+    right: 1%;
+}
+
+.left_1 {
+    left: -2%;
+}
+
+.textcentr_padingPurTrReceive {
+    padding-right: 45px !important;
+}
+
+.textcentr_padingPurTrReceive2 {
+    padding-right: 26px !important;
+}
+
+.pading_2LnkTransVoucher {
+    padding: 6px 18px 0px 0px !important;
+}
+
+.LEPEL_padingrightLnkTransVoucher {
+    padding-right: 25px !important
+}
+
+.labelgridLnkTransVoucher {
+    left: -73.5%;
+}
+
+.fonLnkTransVoucher {
+    float: right;
+    margin: 1px -21px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+    .fonLnkTransVoucher:hover {
+        color: red !important
+    }
+
+.btnAddDetailsLnkTransVoucher {
+    font-size: 31px;
+    float: right;
+    margin: 5px -5px 0px 0px !important;
+}
+
+    .btnAddDetailsLnkTransVoucher:hover {
+        color: #24b414;
+    }
+
+.glyphicon-remove-sign:hover {
+    color: red
+}
+
+.pading_2 {
+    padding: 6px 16px 0px 0px !important;
+}
+
+.LEPEL_padingrightuser {
+    padding-right: 25px !important
+}
+
+.LEPEL_padingrightuser2 {
+    padding-right: 39px !important;
+}
+
+.fontitm3user {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+#div_plassAddDetails {
+    right: 2% !important;
+}
+
+
+.btnAddDetailsuser {
+    font-size: 31px;
+    float: right;
+    margin: 0px -31px 14px -4px !important;
+    position: absolute;
+    left: 99%;
+}
+
+    .btnAddDetailsuser:hover {
+        color: #24b414;
+    }
+
+.positionbtndiv {
+    direction: ltr !important
+}
+
+.textcentrProcesses {
+    padding-right: 50px !important;
+}
+
+.textcentrProcesses {
+    padding-right: 28px !important;
+}
+
+pading_2Processes {
+    padding: 6px 15px 0px 0px !important;
+}
+
+.pading_2Processes2 {
+    padding: 6px 0px 0px 0px !important;
+}
+
+.labeltitel {
+    text-align: right !important;
+    font-size: 18px !important;
+    color: #3c8dbc;
+    padding: 3px 9px 0px 10px;
+}
+
+.positiongridProcesses1 {
+    position: absolute !important;
+    left: -42.5% !important;
+}
+
+.fontitm4Processes {
+    float: right;
+    margin: 5px -19px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+    .fontitm4Processes:hover {
+        color: red
+    }
+
+.fontitm6Processes {
+    float: right;
+    margin: 5px -21px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+    .fontitm6Processes:hover {
+        color: red
+    }
+.fontitm7Processes {
+    float: right;
+    margin: 5px -21px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+    .fontitm7Processes:hover {
+        color: red
+    }
+.textcentr_PurOrder {
+    padding-right: 45px !important;
+}
+
+.textcentr_PurOrder2 {
+    padding-right: 26px !important;
+}
+
+.ckekPurOrder {
+    position: absolute;
+    left: 0px;
+    top: 104%;
+}
+
+.fontitm3PurOrder {
+    float: right;
+    margin: 5px -24px 0px 0px !important;
+    font-size: 25px !important;
+    z-index: 999 !important;
+    position: absolute;
+}
+
+.pading_remark {
+    padding: 14px 61px 0px 0px !important;
+}
+
+.textcentrAccTrInvReceipt {
+    padding-right: 35px !important;
+}
+
+.textcentrPurTrReturn {
+    padding-right: 31px !important;
+}
+
+.floatleftPurOrder {
+    float: left !important;
+}
+
+.position_DescEStkDefItems {
+    position: absolute;
+    right: 100%
+}
+
+.position_leStkDefItems {
+    position: absolute;
+    right: 100%
+}
+
+.bad_PurTrReceive {
+    padding-right: 90px !important;
+    padding-top: 6px !important;
+}
+
+.txtTotAddons {
+    position: absolute !important;
+    left: -1.1% !important;
+    top: 5% !important;
+}
+
+.txtTotal {
+    padding-right: 16px !important;
+    margin-left: 0px !important;
+ }
+
+.txtPrice {
+    width: 11% !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    margin-right: -11px;
+    margin-left: -1px;
+}
+
+.txtQuantityReturnValue {
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+    margin-left: 11px;
+}
+
+.txtQuantity {
+    padding-right: 16px !important;
+    padding-left: 4px !important;
+    margin-left: 0px;
+    margin-right: -25px;
+}
+
+.ddlItem {
+    left: 2%;
+}
+
+.ddlFamily {
+    padding-right: 0px !important;
+    left: 4% !important;
+    margin-left: -32px;
+}
+
+.fontitm3PurTrReceive {
+    float: right;
+    margin: 5px -10px 0px 0px !important;
+    font-size: 25px !important;
+    z-index: 999 !important;
+    position: absolute;
+}
+
+    .fontitm3PurTrReceive:hover {
+        color: red
+    }
+
+.lepTotAddons {
+    position: absolute;
+    left: 3%;
+    top: 35%;
+}
+
+.I_Additions {
+    right: 11px
+}
+
+.purchase_quantityPurTrReceive {
+    margin-right: -3%;
+}
+
+
+
+
+.App_serialPurTrReceive {
+    right: -100px
+}
+
+.App_addingPurTrReceive {
+    right: -31px
+}
+
+.add_typePurTrReceive {
+    right: 18px
+}
+
+.valuePurTrReceive {
+    right: 30px
+}
+
+.App_TaxTypePurTrReceive {
+    right: 47px
+}
+
+.App_TaxPurTrReceive {
+    right: 22px
+}
+
+.Value_after_taxPurTrReceive {
+    right: 0px
+}
+
+.Cash_creditPurTrReceive {
+    left: -18px
+}
+
+.App_InvoiceNumPurTrReceive {
+    left: 4%
+}
+
+.I_VendorPurTrReceive {
+    position: absolute;
+    left: -16%;
+    top: 37%;
+}
+
+.App_CashboxPurTrReceive {
+    position: absolute;
+    left: -32%;
+    top: 37%;
+}
+
+.fontitm4PurTrReceive {
+    float: right;
+    /*margin: 5px -27px 0px 0px !important;*/
+    margin: 5px -40px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+    z-index: 999 !important;
+}
+
+    .fontitm4PurTrReceive:hover {
+        color: red
+    }
+
+.gridPurTrReceive {
+    right: -2%;
+}
+
+.txtInvoiceDateCharge {
+    position: absolute;
+    left: -10.4%;
+}
+
+.txtVendorCharge {
+    position: absolute;
+    left: -27.1%;
+}
+
+.txt_D_CashBox {
+    position: absolute;
+    left: -43.5%;
+}
+
+.textcentr_DirectTransfer {
+    padding-right: 20px !important;
+}
+
+.textcentr_DirectTransfer2 {
+    padding-right: 7px !important;
+}
+
+.div_label {
+    right: 7%;
+}
+.div_labelPurOrder {
+    right: -3%;
+}
+
+.fontitm3DirectTransfer {
+    float: right;
+    margin: 5px -13px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+.textcentr_STKAdjust {
+    padding-right: 26px !important;
+    padding-top: 6px !important;
+}
+
+.textcentr_STKAdjust2 {
+    padding-right: 73px !important;
+    padding-top: 6px !important;
+}
+
+.fontitm3STKAdjust {
+    float: right;
+    margin: 5px -17px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+
+    .fontitm3STKAdjust:hover {
+        color: red
+    }
+
+
+.Itm_MainItemSTKAdjust {
+    margin-left: -8.5%;
+    left: 7px;
+}
+.Download_itemsSTKAdjust {
+    font-size: 15px;
+    position: initial;
+    margin: -10px 110px 0px 0px;
+}
+
+.textcentr_ReceiveTransfer {
+    padding-right: 20px !important;
+    padding-top: 6px !important;
+
+}
+.stylerightReceiveTransfer {
+    right: 2% !important
+}
+.fontitm3ReceiveTransfer {
+   
+    float: right;
+    margin: 5px -13px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+.fontitm3ReceiveTransfer :hover{
+    color:red!important;
+}
+.styelrightReceiveTransfer{
+    right:-5px}
+.textcentr_sendTransfer {
+    padding-right: 20px !important;
+}
+.fontitm3sendTransfer {
+    float: right;
+    margin: 5px -13px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+.stylerightsendTransfer {
+    right: -3%;
+}
+
+.Trns_Store {
+    padding: 6px 0px 0px 0px !important
+}
+.textcentr_Clientaccstat {
+    padding-right: 30px !important;
+}
+.pading_2Supplieraccsta {
+    padding: 6px 33px 0px 0px !important
+}
+.topSupplieraccsta {
+    margin-top: -9px;
+}
+.pading_2Supplieraccsta2 {
+    padding: 6px 22px 0px 0px !important
+}
+.pading_2DefStore {
+    padding: 6px 14px 0px 0px !important;
+}
+.contrnerAccDefsalesman1 {
+    border: 1px solid;
+    border-radius: 24px;
+    position: absolute;
+    left: 40%;
+    top: 11%;
+}
+.contrnerAccDefsalesman2 {
+    border: 1px solid;
+    border-radius: 24px;
+    position: absolute;
+    left: 5%;
+    top: 17%;
+    width: 34%;
+}
+.pading_2AccDefCustomer {
+    padding:6px 15px 0px 0px!important
+}
+.pading_2AccDefCustomer2 {
+    padding:6px 10px 0px 0px!important
+}
+.text-end {
+    text-align: end
+}
+.textcentr_pading {
+    padding-right: 29px !important;
+}
+.pading_2AccDefSalesmen {
+    padding: 6px 11px 0px 0px !important;
+}
+
+.fontitm3AccDefExpenses {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+}
+.glyphicon-remove-sign:hover {
+    color: red !important
+}
+.float_left_right {
+    float: left !important
+}
+.fontitm3SlsTrSalesManager {
+    position:absolute;
+    float: right;
+    margin: 5px -13px 0px 0px !important;
+    font-size: 25px !important;
+}
+.textcentr_AccDefVendor {
+    padding-right: 16px !important;
+
+}
+.textcentr_AccDefVendor2 {
+    padding-right: 25px !important;
+}
+.fontitm3AccDefBox {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+}
+#font_codenumber col-lg-1 {
+    padding-right: 20px!important;
+    width: 9.333333%!important;
+}
+
+#font_codenumber col-lg-2 {
+    padding-right: 20px!important;
+}
+.textcentr_GLDefAccount {
+    padding-right: 29px !important;
+}
+.textalignJournalVoucher {
+    padding-right: 29px !important
+}
+.hover1JournalVoucher {
+    font-size: 18px !important;
+    padding: 1px;
+}
+
+    .hover1JournalVoucher :hover {
+        color: red !important;
+        cursor: pointer;
+    }
+#div_Data .fa-search {
+     margin-left: -9px!important;
+}
+.pading_2USERS {
+    padding-right: 13px !important;
+}
+.fontitm3GendefCustomerGroup {
+    float: right;
+    margin: 5px -17px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+    /* right: -3px; */
+}
+.style_btton {
+    padding: 0px !important;
+    position: absolute !important;
+    left: 0% !important;
+    z-index: 100 !important;
+}
+.textcentr_AccTrReceiptNote {
+    padding-right: 29px !important;
+}
+.back-to-top.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.fontitm3SlsTrSales {
+    float: right !important;
+    margin: 5px 0px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+    right: -15px;
+}
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 200px;
+    bottom: 15px;
+    z-index: 999999999999999999;
+    background: #1173ef;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    transition: all 0.4s;
+}
+.right_SlsTrSalesManager {
+    left: 31px !important;
+}
+.margin-right44px {
+    margin-left: 0px;
+}
+.lifteSlsTrSales {
+    text-align: center;
+    left: 25px !important;
+}
+.stylecontenerfinancialreports {
+    border: 3px solid;
+    border-radius: 24px;
+    position: absolute;
+    left: 0px;
+
+}
+.chkview{left:29px!important}
+
+input[type=checkbox] {
+    margin: 4px 0 0 !important;
+
+ }
+.insert_restrictions {
+    border: solid 2px;
+    border-radius: 28px;
+    right: 25px;
+}
+.pading_2Accountbalances {
+    padding: 6px 37px 0px 0px !important
+}
+#div_Data .fa-search {
+    /* margin-left: 15px!important; */
+    margin: 0px -13px 0px -10px;
+}
+.fontitm3GenDefCustomerCat {
+    position:absolute;
+    float: right;
+    margin: 5px -17px 0px 0px !important;
+    font-size: 25px !important;
+}
+.font_codenumberGenDefCustomerCat {
+    font-size: 19px;
+    font-weight: bold;
+    right: 22px;
+}
+.fontitm3GenDefCustomerAdjust {
+    float: right;
+    margin: 6px -25px 0px -0px !important;
+    font-size: 25px !important;
+}
+
+.styleserch { 
+    
+    left: 6% !important;
+   
+ }
+.fontitm3GendefVendorGroup {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+}
+.fontitm3GenDefVendorCat {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+}
+
+.fontitm3Nationality {
+    float: right;
+    margin: 5px -15px 0px 0px !important;
+    font-size: 25px !important;
+}
+ .Refrash {
+        float:left!important;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 19px;
+ }
+
+.Div_Tree {
+    right: 1% !important
+}
+table.dataTable thead th, table.dataTable thead td {
+    padding: 2px 2px !important;
+}
+
+able.dataTable tbody th, table.dataTable tbody td {
+    padding: 2px 2px;
+}
+ 
+.txtTotAfterTax {
+    width: 11%;
+    position: absolute;
+    left: -29px;
+}
+.pading_ServiceCat {
+    padding: 6px 0px 0px 0px !important;
+}
+.fontitm3SlsTrSalesManager2 {
+    position: absolute;
+    float: right;
+    margin: 5px -21px 0px 0px !important;
+    font-size: 25px !important;
+}
+.btngrob {
+    right: 4%;
+}
+.style_btton2 {
+    padding: 0px !important;
+    position: absolute !important;
+    left: -2%;
+    z-index: 100 !important;
+    top: -19%;
+}
+.textcentr_pading {
+    padding-right: 35px !important;
+}
+
+
+.fontitm3ProcSalesMgr {
+    float: right;
+    margin: 5px -14px 0px 0px !important;
+    font-size: 25px !important;
+    position: absolute;
+ 
+}
+ 
+.styledown {
+    position: absolute;
+    margin: 8px -18px 0px 0px;
+    font-size: 19px;
+}
+.styleright2 {
+    right: 2%;
+}
+.styleright49 {
+    left: 5.5%;
+}
+.styleright7 {
+    left: 7%;
+}
+.style_btton22 {
+    padding: 0px !important;
+    position: absolute !important;
+    left: -3% !important;
+    z-index: 100 !important;
+}
+.positionSer_Return_Pur {
+    position: absolute;
+    right: 91%
+}
+.btn-search {
+    background-color: #ff7900 !important
+}
+.JournalVouchergred {
+    position: absolute;
+    right: 82%;
+}
+
+.JournalVouchergred2 {
+    position: absolute;
+    right: 68%;
+}
+
+.JournalVouchergred3 {
+    position: absolute;
+    right: 51.5%;
+}
+.styletextwid {
+    left: 4.3%;
+    width: 12.5%;
+}
+.textcentr_padingVatSetting {
+    padding-right: 24px !important
+}
+.fontitm3GenDefAdd {
+    float: right;
+    margin: -7px -27px 0px 0px !important;
+    font-size: 25px !important;
+    top: 12px;
+    position: absolute;
+    /* right: -3px; */
+}
+
+.topSupplieraccsta {
+   top: -13px;
+}
+.textcentr_Clientaccstat {
+    padding-right: 35px !important;
+}
+.fontitm3SlsTrShowPrice {
+    position: absolute;
+    float: right;
+    margin: 5px -22px 0px 0px !important;
+    font-size: 25px !important;
+}

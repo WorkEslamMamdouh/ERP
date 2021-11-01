@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var error = getParameterByName("err");
+            if (error != null) {
+                $("#divError").css("display", "");
+                $("#divError").text(error);
+            }
+        });
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+
+    <div id="divError" style="display:none;">
+
+    </div>
+</body>
+</html>

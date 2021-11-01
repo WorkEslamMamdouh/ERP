@@ -1,0 +1,264 @@
+﻿body {
+}
+.dashboard_info {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: -26px;
+}
+
+.dash_button {
+    position: fixed;
+    top: 330px;
+    right: 0px;
+}
+
+    .dash_button button {
+        border: 0px;
+        background-color: transparent;
+    }
+
+        .dash_button button i {
+            font-size: 33px;
+            color: #FFF;
+            background-color: #5083CC !important;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            line-height: 60px;
+            text-align: center;
+        }
+
+.dashboard_info .dashbaord_title {
+    width: 71%;
+}
+
+.dashboard_info .time_title {
+    height: 20px;
+    margin-top: 26px;
+}
+
+    .dashboard_info .time_title h4 {
+        display: inline-block;
+        margin-left: 19px;
+    }
+
+.dashbaord .dashbaord_title {
+    margin-top: 4px;
+    margin-bottom: 40px;
+    position: relative;
+    margin-left: 39px;
+}
+
+    .dashbaord .dashbaord_title h3 {
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        position: relative;
+    }
+
+        .dashbaord .dashbaord_title h3::after {
+            position: absolute;
+            content: "";
+            width: 150px;
+            left: 0px;
+            height: 2px;
+            top: 39px;
+            background-color: #D1A025;
+        }
+
+.monthly_static_info, .daily_static_info {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.stats_title {
+    width: 94%;
+}
+
+.box_settings {
+    width: 9%;
+    margin-top: 10px;
+    color: #97a0b3;
+}
+
+.dashboard_body {
+    background-color: #ECF0F5;
+    overflow-x: hidden;
+}
+
+.daily_static, .monthly_static {
+    background-color: #FFF;
+    height: auto;
+    margin-bottom: 4px;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+}
+
+.daily_static {
+    padding: 0px;
+}
+
+.monthly_static_info, .daily_static_info {
+    margin-bottom: 4px;
+    border-bottom: 1px solid #eee;
+    height: 38px;
+}
+
+.stats_title h4 {
+    padding-left: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+    .stats_title h4 i {
+        margin-right: 10px;
+    }
+
+.box_settings {
+    cursor: pointer;
+    padding-left: 23px;
+}
+
+    .box_settings button .fa-plus {
+        float: right;
+        margin-right: 25px;
+        margin-top: -28px;
+        display: none;
+    }
+
+.monthly_static {
+    border-top: 2px solid #00a65a;
+}
+
+.daily_static {
+    border-top: 2px solid #3c8dbc;
+}
+
+.yearly_stats {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+    .yearly_stats .stats_title {
+        width: 94%;
+    }
+
+    .yearly_stats .box_settings {
+        width: 6%;
+    }
+
+        .yearly_stats .box_settings i {
+            cursor: pointer;
+            margin-right: -38px;
+        }
+
+        .yearly_stats .box_settings .fa-plus {
+            margin-right: 13px;
+            margin-left: 19px;
+        }
+
+
+
+.yearly_income, .member_yearly {
+    background-color: #FFF;
+    height: auto;
+    border-top: 2px solid #3c8dbc;
+    border-radius: 1px;
+    margin-bottom: 26px;
+    border-radius: 2px;
+    -webkit-box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 0px 18px 0px rgba(0,0,0,0.75);
+}
+
+
+.horztrow {
+    background-color: #aaa;
+    height: 0.5px;
+    margin-top: 234px;
+    margin-bottom: 27px;
+    display: none;
+}
+
+.totlal_income {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+    .totlal_income span {
+        font-weight: bold;
+    }
+
+
+.totla_members {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.charts {
+    padding: 0px 29px;
+    margin-bottom: -18px;
+    margin-top: 9px;
+}
+
+.box_settings button {
+    border: 0px;
+    background-color: transparent;
+}
+
+.dily_content {
+    max-height: 465px;
+}
+
+    .dily_content hr {
+        margin-bottom: 12px !important;
+    }
+
+    .dily_content .col-md-6 {
+        margin-bottom: 12px;
+    }
+
+.chart_content {
+    height: 600px;
+}
+
+.upperchart {
+    border-bottom: 1px solid #aaa;
+    height: 226px;
+}
+
+.breadcrumbb {
+    width: 95.8%;
+    margin-left: 29px;
+    margin-bottom: -10px;
+}
+
+.breadcrumb {
+    background-color: #222D32 !important;
+    border-radius: 1px !important;
+}
+
+.breadcrumbb ul li a {
+    color: #FFF !important;
+}
+
+.breadcrumb > .active {
+    color: #D1A025;
+}
+
+.breadcrumb > li a {
+    color: #FFF;
+}
+
+.upperchart {
+    height: 221px;
+}
+
+.downchart {
+    height: 241px;
+}

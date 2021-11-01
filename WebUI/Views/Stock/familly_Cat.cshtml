@@ -1,0 +1,171 @@
+﻿
+@{
+    ViewBag.Title = "انواع الفئات";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+    .inner tr td {
+        border-top: none !important;
+    }
+
+    .btn-info {
+        color: #fff;
+        background-color: #5bc0de;
+        border-color: #46b8da;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+        border-radius: 6px;
+    }
+
+    .fontitm3 {
+        float: right;
+        margin: 5px -15px 0px 0px !important;
+        font-size: 25px !important;
+    }
+
+    .style_pading {
+        padding-left: 1px;
+        padding-right: 1px;
+    }
+
+    .table_11 tr td:nth-child(3) {
+        width: 200px;
+    }
+
+    .table_11 tr th:nth-child(12), .table_11 tr td:nth-child(12) {
+        width: 120px;
+    }
+
+    .table_11 {
+        margin-bottom: 0px;
+    }
+
+    .auto-style1 {
+        background-color: #F5F5F5;
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    #btnAddDetails {
+        font-size: 40px;
+    }
+
+        #btnAddDetails:hover {
+            color: #24b414;
+        }
+
+    .glyphicon-remove-sign:hover {
+        color: red
+    }
+
+    .minus_btn {
+    }
+
+    .font_codenumber {
+        font-size: 19px;
+        font-weight: bold;
+    }
+    .panel-body {
+        background-color: aliceblue;
+    }
+</style>
+<div class="panel panel-default">
+    <div class="panel-heading panel_me">
+        <i class="glyphicon glyphicon-pencil icon_panel"></i><label class="span_item">انواع الفئات</label><label class="span_item"></label>
+    </div>
+
+    <div class="panel-body" id="div_ContentData">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="col-lg-9">
+                </div>
+                <div class="col-lg-3">
+
+                    <button type="button" class="btn btn-warning display_none" id="btnback">
+                        <span class="glyphicon glyphicon-backward"></span> الرجوع
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btnedite">
+                        <span class="glyphicon glyphicon-edit"></span> تعديل
+                    </button>
+
+                    <button id="btnsave" type="button" class="btn btn-success display_none">
+                        <span class="glyphicon glyphicon-save"></span> حفظ
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div id=" " class="col-lg-8 font_codenumber">
+            <div class="col-lg-12">
+
+
+                <div class="col-lg-2">
+
+                </div>
+                <div class="col-lg-1">
+                    <div class="col-lg-11">
+
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="col-lg-5">
+                        <div class="col-lg-2">
+
+                        </div>
+                        <span style="    padding-right: 3px;" class="">الكود</span>
+
+                    </div>
+                </div>
+                <div class="col-lg-4" style="right:10px;margin-right: 4%;">
+                    <span class="">الوصف عربي</span>
+
+                </div>
+                <div class="col-lg-1">
+
+                </div>
+                
+
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-9">
+                    <div class="row " id="div_Data">
+                    </div>
+                    <span id="btnAddDetails" class="glyphicon glyphicon-plus-sign  display_none"></span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+
+</div>
+
+
+@Scripts.Render("~/Bundles/ClientApp")
+<script src="~/ClientApp/JsGrid.js"></script>
+<script src="~/ClientApp/stock/familly_Cat.js"></script>

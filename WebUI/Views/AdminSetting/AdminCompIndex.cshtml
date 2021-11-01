@@ -1,0 +1,601 @@
+﻿
+@using Inv.WebUI.Resources
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<style>
+
+    .disabledDiv {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+
+    .display_none {
+        display: none !important;
+    }
+
+    .pading_2 {
+        padding: 6px 0px 0px 0px !important;
+    }
+
+    .col-lg-5 {
+        width: 39.666667%;
+    }
+
+    #divcompinformtion .col-lg-1 {
+        width: 10.333333%;
+    }
+
+    #col-9 .col-lg-1 {
+        width: 9.333333%;
+    }
+
+    #col3 .col-lg-3 {
+        width: 23%;
+    }
+
+    #col3_ .col-lg-3 {
+        width: 23%;
+    }
+
+    .borderred {
+        margin-left: 0%;
+    }
+
+    input[type=checkbox] {
+        margin: 4% 0 0 !important;
+    }
+
+    #checkbox_ input[type=checkbox] {
+        margin: 5% 0 0 !important;
+    }
+
+    input[class=checkbox]:checked:before {
+        right: 2.9em;
+    }
+</style>
+<div id="DivMassage" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12  margingred  borderred display_none">
+    <h4 id="Text_Massage" style=""> رساله </h4>
+</div>
+
+<div id="divGrid" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred  borderred">
+    <label id="lepcompinformtion" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="spanlepcompinformtion" class="ifontowsam fa fa-caret-left"></span>بيانات الشركة  </label>
+
+    <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 float_left_right">
+
+        <button id="btnAdd" type="button" class="btn btn-success    ">
+            <span class="glyphicon glyphicon-plus"></span> @SystemResource.App_Add
+        </button>
+
+    </div>
+
+    <div class="display_none col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12" id="divShow">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+            <input id="searchbutmemreport" name="" type="text" class="form-control input-sm  text_Display" placeholder="@SystemResource.Search">
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+            <table id="divGridDetails"></table>
+        </div>
+    </div>
+</div>
+
+<div id="" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred  borderred">
+
+    <div id="divcompinformtion" class="col-lg-12  col-md-12 col-sm-12 col-xl-12 col-xs-12   ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont">
+
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">  رقم الشركة</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="text" class="form-control input-sm addable editable" name="COMP_CODE" id="txt_COMP_CODE">
+                </div>
+
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end"> نشط</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="checkbox" name="IsActive" id="chk_IsActive" class="checkbox" />
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 "> صورة الوجن</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                     <input type="text" class="form-control input-sm addable editable" name="LogoIcon" id="txt_LogoIcon">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">اسم الشركة A</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="NameA" id="txt_NameA">
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">اسم الشركة E</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="NameE" id="txt_NameE">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 "> رقم التليفون</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Tel" id="txt_Tel">
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 "> @SystemResource.Email</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Email" id="txt_Email">
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">اسم المسؤول</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="GMName" id="txt_GMName">
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 "> @SystemResource.App_address</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Address" id="txt_Address">
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">رقم المجموعة الضريبية</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="GroupVatNo" id="txt_GroupVatNo">
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">الرقم الضريبي</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="VATNO" id="txt_VATNO">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">  الرقم التعريفي  </label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="IDNo" id="txt_IDNo">
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">العملة	</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <select id="txt_Currency" class="form-control input-sm addable editable" name="Currencyid"></select>
+                </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">نوع المعرف	</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <select id="txt_IdType" class="form-control input-sm addable editable" name="VndIDTypeCode"></select>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4 float_left_right">
+                    <button id="btnSave" type="button" class="btn btn-success display_none  ">
+                        @SystemResource.App_save   <span class="glyphicon glyphicon-floppy-saved"></span>
+                    </button>
+                    <button id="btnBack" type="button" class="btn btn-warning  display_none ">
+                        <span class="glyphicon glyphicon-save"></span> @SystemResource.App_back
+                    </button>
+                    <button id="btnEdit" type="button" class="btn btn-primary    float_left_right">
+                        <span class="glyphicon glyphicon-save"></span> @SystemResource.App_Update
+                    </button>
+
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">صورة الخلفية الاولي</label>
+                <div class="col-lg-4 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="BkImage1" id="txt_BkImage1">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">صورة الخلفية الثانية</label>
+                <div class="col-lg-4 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="BkImage2" id="txt_BkImage2">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">الدولة	</label>
+                <div class="col-lg-5 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <select id="txt_Country" class="form-control input-sm addable editable" name="NationalityID"></select>
+                </div>
+
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">المنطقة</label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_Province" id="txt_Address_Province">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">المدينة </label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_City" id="txt_Address_City">
+                </div>
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الحي </label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_District" id="txt_Address_District">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الشارع  </label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <textarea rows="2" type="text" class="form-control input-sm addable editable" name="Address_Street" id="txt_Address_Street"></textarea>
+                </div>
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الشارع 2 </label>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5 col-xs-5">
+                    <textarea rows="2" type="text" class="form-control input-sm addable editable" name="Address_Str_Additional" id="txt_Address_Str_Additional"></textarea>
+                </div>
+            </div>
+            <div id="col3" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">رقم المبني  </label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_BuildingNo" id="txt_Address_BuildingNo">
+                </div>
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">2رقم المبني  </label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_Build_Additional" id="txt_Address_Build_Additional">
+                </div>
+                <label class="col-lg-1 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الرمز البريدي</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="Address_Postal" id="txt_Address_Postal">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="SecondDiv" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred  borderred">
+    <label id="lepnotifications" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="spanlepnotifications" class="ifontowsam fa fa-caret-left"></span>اعدادات الاشعارات</label>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4 float_left_right">
+        <button id="btnSave2" type="button" class="btn btn-success display_none  ">
+            @SystemResource.App_save   <span class="glyphicon glyphicon-floppy-saved"></span>
+        </button>
+        <button id="btnBack2" type="button" class="btn btn-warning  display_none ">
+            <span class="glyphicon glyphicon-save"></span> @SystemResource.App_back
+        </button>
+        <button id="btnEdit2" type="button" class="btn btn-primary    float_left_right">
+            <span class="glyphicon glyphicon-save"></span> @SystemResource.App_Update
+        </button>
+    </div>
+    <div id="divnotifications" class="col-lg-12  col-md-12 col-sm-12 col-xl-12 col-xs-12 p-0  ">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont">
+            <label id="" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="" class="ifontowsam fa fa-caret-left"></span>اعدادات الايميل</label>
+
+            @*<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                    <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">توصيل مشفر SSL</label>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                        <input type="checkbox" name="chk_EMAIL_SSL" id="chk_EMAIL_SSL" class="checkbox" />
+                    </div>
+                    <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end"> توثيق المرسل</label>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                        <input type="checkbox" name="EMAIL_Authentication" id="chk_EMAIL_Authentication" class="checkbox" />
+                    </div>
+                </div>*@
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">الايميل المرسل منه</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="EMAIL_Sender" id="txt_EMAIL_Sender">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">كلمة سر الايميل</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="EMAIL_SenderPassword" id="txt_EMAIL_SenderPassword">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">سيرفر الارسال</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="EMAIL_SenderSMTP" id="txt_EMAIL_SenderSMTP">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">بوابة الارسال</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="EMAIL_SendorPort" id="txt_EMAIL_SendorPort">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">توصيل مشفر SSL</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" name="chk_EMAIL_SSL" id="chk_EMAIL_SSL" class="checkbox" />
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end"> توثيق المرسل</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" name="EMAIL_Authentication" id="chk_EMAIL_Authentication" class="checkbox" />
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end"> اسم المرسل  </label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="EMAIL_SenderName" id="txt_EMAIL_SenderName">
+                </div>
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 text-end"> عدد الايميلات المسموح به يوميا  </label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="EmailMaxDaily" id="txt_EmailMaxDaily">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont">
+            <label id="" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="" class="ifontowsam fa fa-caret-left"></span>اعدادات رسائل الموبيل</label>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">اسم موفر الخدمة</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="SMS_Provider" id="txt_SMS_Provider">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end ">اسم المستخدم</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="SMS_UserName" id="txt_SMS_UserName">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end ">كلمة المرور</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="SMS_Password" id="txt_SMS_Password">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">اسم المرسل</label>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                    <input type="text" class="form-control input-sm addable editable" name="SMS_SenderName" id="txt_SMS_SenderName">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                @*<label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">الكود الدولي</label>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4">
+                        <input type="text" class="form-control input-sm addable editable" name="MobileNoPreFex" id="txt_MobileNoPreFex">
+                    </div>*@
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <br />
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div id="ThirdDiv" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 margingred  borderred">
+    <label id="lepsystem" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="spanlepsystem" class="ifontowsam fa fa-caret-left"></span>اعدادات النظام </label>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 col-xs-4 float_left_right">
+        <button id="btnSave3" type="button" class="btn btn-success display_none  ">
+            @SystemResource.App_save   <span class="glyphicon glyphicon-floppy-saved"></span>
+        </button>
+        <button id="btnBack3" type="button" class="btn btn-warning  display_none ">
+            <span class="glyphicon glyphicon-save"></span> @SystemResource.App_back
+        </button>
+        <button id="btnEdit3" type="button" class="btn btn-primary    float_left_right">
+            <span class="glyphicon glyphicon-save"></span> @SystemResource.App_Update
+        </button>
+    </div>
+    <div id="divsystem" class="col-lg-12  col-md-12 col-sm-12 col-xl-12 col-xs-12   ">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont">
+            <div id="col-9" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">ارسال ايميل</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" class="checkbox" id="chk_sendEmail" />
+                </div>i
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end"> ارسال ايميل تسويقي   </label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" class="checkbox" id="chk_sendshopEmail" />
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">ارسال رسالة نصية</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" class="checkbox" name="SendSMS" id="chk_SendSMS" />
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">رسال SMS تسويقية</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" class="checkbox" name="SendPublicSMS" id="chk_SendPublicSMS" />
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">عدد ارقام الموبيل</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="number" class="form-control input-sm addable editable" name="MobileLength" id="txt_MobileLength">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">عدد ارقام الهوية</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="text" class="form-control input-sm addable editable" name="IDLength" id="txt_IDLength">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الحد الأقصى للرسائل</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="text" class="form-control input-sm addable editable" name="MaxYearlyMSGs" id="txt_MaxYearlyMSGs">
+                </div>
+            </div>
+            <div id="col3_" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">عدد الرسائل المستعملة</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="text" class="form-control input-sm addable editable" name="UsedMSGs" id="txt_UsedMSGs">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">الثواني لتحديث الاشعار</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="number" class="form-control input-sm addable editable" name="NotePeriodinSec" id="txt_NotePeriodinSec">
+                </div>
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 "> الثواني لتحديث لوحة الإدارة</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="number" class="form-control input-sm addable editable" name="DashBoardPeriodinSec" id="txt_DashBoardPeriodinSec">
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">طول فترة الجلسة (دقائق)</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="number" class="form-control input-sm addable editable" name="SysTimeOut" id="txt_SysTimeOut">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 col-xs-6 border_gridCont ">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">ضريبة القيمة المضافة</label>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input type="checkbox" name="IsVat" id="chk_IsVat" class="checkbox" />
+                </div>
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">نوع الضريبة في المبيعات</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <select id="ddl_DefSlsVatType" class="form-control input-sm addable editable" name="DefSlsVatType"></select>
+                </div>
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">نوع الضريبة في المشتريات</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <select id="ddl_DefPurVatType" class="form-control input-sm addable editable" name="DefPurVatType"></select>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">تاريخ بداية الاشتراك</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="MembeshiptStartDate" id="txt_MembeshiptStartDate">
+                </div>
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">تاريخ نهاية الاشتراك</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="MembeshipEndDate" id="txt_MembeshipEndDate">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">مدة سريان الاشتراك الإضافية</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="MembershipAllanceDays" id="txt_MembershipAllanceDays">
+                </div>
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">مدة الدخول للاطلاع</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="MembershipreadOnlyDays" id="txt_MembershipreadOnlyDays">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">استخدام مركز التكلفة في القيود</label>
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3  p-0">
+                    <input type="radio" class="form-control input-sm addable editable col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2" name="GL_VoucherCCType" id="chk_GL_VoucherCCType">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">  </div>
+                    <label class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8 pading_2Processes2 ">غير مفعل</label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 p-0">
+                    <input type="radio" class="form-control input-sm addable editable col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2" name="GL_VoucherCCType" id="chk_incoming">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">  </div>
+                    <label class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8 pading_2Processes2 ">حسابات الدخل فقط </label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3  p-0">
+                    <input type="radio" class="form-control input-sm addable editable col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2" name="GL_VoucherCCType" id="chk_all">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">  </div>
+                    <label class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8 pading_2Processes2 ">مطلوب للجميع</label>
+                </div>
+
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">المراكز الفرعية</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3  p-0">
+                    <input type="radio" class="form-control input-sm addable editable col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2" name="GL_VoucherCCDT_Type" id="chk_GL_VoucherCCDT_Type">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">  </div>
+                    <label class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8 pading_2Processes2 ">نعم</label>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 p-0">
+                    <input type="radio" class="form-control input-sm addable editable col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2" name="GL_VoucherCCDT_Type" id="chk_GL_VoucherCCDT_Type2">
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">  </div>
+                    <label class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8 pading_2Processes2 ">لا </label>
+                </div>
+
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">تسلسل القيود  شهريا</label>
+                <div class="col-lg-3 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input name="GL_JournalMonthlyNo" id="txt_GL_JournalMonthlyNo" type="checkbox" class="checkbox" />
+                </div>
+                @*<div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                </div>*@
+                <label class="col-lg-3 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 ">عدد خانات التسلسل </label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <input type="text" class="form-control input-sm addable editable" name="GL_JournalMonthlyNoWidth" id="txt_GL_JournalMonthlyNoWidth">
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">هل يقبل حفظ القيود الغير متوازنة</label>
+                <div class="col-lg-3 col-md-1 col-sm-1 col-xl-1 col-xs-1">
+                    <input name="GL_JournalSaveUnbalanced" id="chk_GL_JournalSaveUnbalanced" type="checkbox" class="checkbox" />
+                </div>
+
+                <label class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3 pading_2Processes2 ">نوع القيد الافتتاحي</label>
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 col-xs-3">
+                    <select name="Gl_JournalOpenType" id="ddl_Gl_JournalOpenType" class="form-control input-sm addable editable"></select>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12 border_gridCont ">
+            <label id="" class="col-lg-8 col-md-8 col-sm-8 col-xl-8 col-xs-8  labeltitel "><span id="" class="ifontowsam fa fa-caret-left"></span> العملاء علي مستوي الفرع</label>
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 ">نوع الفاتورة	</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <select name="InvoiceTypeCode" id="ddl_InvoiceTypeCode" class="form-control input-sm addable editable"></select>
+                </div>
+                <label class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 pading_2Processes2 text-end ">نوع حركة الفاتورة	</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <select name="InvoiceTransCode" id="ddl_InvoiceTransCode" class="form-control input-sm addable editable"></select>
+                </div>
+                <label class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2 pading_2Processes2 text-end">كلمة سر السماح بالبيع بأقل من حد السعر</label>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <input type="text" class="form-control input-sm addable editable" name="ExceedMinPricePassword" id="txt_ExceedMinPricePassword">
+                </div>
+
+            </div>
+            <div id="checkbox_" class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">العملاء علي مستوي الفرع</label>
+                    <input type="checkbox" class="checkbox" name="IsLocalBranchCustomer" id="chk_IsLocalBranchCustomer" />
+                </div>
+
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">تعديل تاريخ الفاتورة</label>
+                    <input type="checkbox" class="checkbox" name="IvoiceDateEditable" id="chk_IvoiceDateEditable" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">اصدار فاتورة بدون عميل</label>
+                    <input type="checkbox" class="checkbox" name="InvoiceWithoutCust" id="chk_InvoiceWithoutCust" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-xs-8 pading_2Processes2 ">خصم علي الصنف في الفاتورة</label>
+                    <input type="checkbox" class="checkbox" name="InvoiceLineDiscount" id="chk_InvoiceLineDiscount" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-xs-8 pading_2Processes2 ">حسم علي الصنف في الفاتورة</label>
+                    <input type="checkbox" class="checkbox" name="InvoiceLineAllowance" id="chk_InvoiceLineAllowance" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">خصم علي الفاتورة</label>
+                    <input type="checkbox" class="checkbox" name="InvoiceTotalAllowance" id="chk_InvoiceTotalAllowance" />
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">إضافات علي الفاتورة</label>
+                    <input type="checkbox" class="checkbox" name="InvoiceTotalCharge" id="chk_InvoiceTotalCharge" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">السعر متضمن الضريبة في العمليات</label>
+                    <input type="checkbox" class="checkbox" name="OperationPriceWithVAT" id="chk_OperationPriceWithVAT" />
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 col-xs-2">
+                    <label class="col-lg-7 col-md-7 col-sm-7 col-xl-7 col-xs-7 pading_2Processes2 ">السعر متضمن الضريبة في الاصناف</label>
+                    <input type="checkbox" class="checkbox" name="SalesPriceWithVAT" id="chk_SalesPriceWithVAT" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12 col-xs-12">
+    <br />
+</div>
+<script src="~/ClientApp/Admin/AdminComp.js"></script>

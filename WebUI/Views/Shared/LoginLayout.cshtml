@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>SmartERP</title>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <link rel="shortcut icon" href="~/images/newlogo.jpg">
+    <link rel="stylesheet" type="text/css" href="~/login/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="~/login/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/login/css/login.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/login/css/component.css" />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200,400,800|Clicker+Script' rel='stylesheet' type='text/css'>
+    <link href="~/login/css/hover.css" rel="stylesheet" media="all">
+    <link type="text/css" rel="stylesheet" href="~/css/waitMe.css">
+    <link href="~/css/background.css" rel="stylesheet" />
+
+</head>
+<body>
+    <script src="~/ClientApp/App.js"></script>
+    <script src="~/ClientApp/SystemTools.js"></script>
+    <script src="~/ClientApp/Entities.js"></script>
+    <script src="~/ClientApp/Shared.js"></script>
+    <script src="~/ClientApp/AjaxCaller.js"></script>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="~/js/waitMe.js"></script>
+    <script type="text/javascript" src="~/login/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/login/js/login.js"></script>
+
+    <script>
+        $(document).ready(function (e) {
+            setTimeout(function () {
+                $(".container_login").removeClass("flip");
+                $(".container_login").addClass("flip_re");
+            });
+
+        });
+    </script>
+
+    <!--.............................clock...........................-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+            var newDate = new Date();
+            newDate.setDate(newDate.getDate());
+            $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+
+            setInterval(function () {
+                var seconds = new Date().getSeconds();
+                $("#sec").html((seconds < 10 ? "0" : "") + seconds);
+            }, 1000);
+
+            setInterval(function () {
+                var minutes = new Date().getMinutes();
+                $("#min").html((minutes < 10 ? "0" : "") + minutes);
+            }, 1000);
+
+            setInterval(function () {
+                var hours = new Date().getHours();
+                $("#hours").html((hours < 10 ? "0" : "") + hours);
+            }, 1000);
+
+        });
+    </script>
+
+    <script src="~/login/js/rAF.js"></script>
+    <script src="~/login/js/demo-2.js"></script>
+
+    <input type="hidden" id="GetActionUrl" name="name" value="@Url.Action("GetActionUrl","ClientTools")" />
+</body>
+</html>

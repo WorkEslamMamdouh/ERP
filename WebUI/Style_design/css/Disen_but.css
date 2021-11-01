@@ -1,0 +1,27 @@
+﻿
+.Css_but {
+    color: #ffffff;
+    /*background-color: #de5d02;*/
+    /*background: linear-gradient(to right, #000000 0%, rgb(22, 124, 162) 100%);*/
+    width: 150px;
+    height: 86px;
+    font-size: 20px;
+    border-radius: 35px;
+}
+
+#uul li {
+    float: left;
+    margin-left: 1em;
+    margin-top: 1em;
+    border-radius: 35px;
+}
+/*input*/
+
+    #uul li input {
+        color: #ffffff;
+        background-color: #00000024;
+        width: 150px;
+        height: 86px;
+        font-size: 20px;
+        border-radius: 35px;
+    }

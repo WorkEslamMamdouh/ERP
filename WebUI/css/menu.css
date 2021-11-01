@@ -1,0 +1,62 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+*{
+font-family: 'Droid Arabic Kufi', serif;}
+
+	body{
+		background-image:url(../../images/body_home.jpg);
+	}
+#container_home{
+	width:80%;
+	margin:0 auto;
+	position:relative;
+}
+#big_menu{
+	background-color: #4a4a4a;
+	width:100%;
+	margin:0 auto;
+}
+#logo_main{
+text-align:center;
+	height:134px;
+}
+
+.word_richy{
+	display:none;
+}
+  #demo {
+  width: 350px;
+  height:250px;
+  position:relative;
+  /* left:31.5%; */
+  margin-top:-30px;
+  margin: -30px auto 0px auto;
+  }
+  svg{
+  
+  
+	fill:#231f20;
+	style="fill:#231f20;fill-opacity:1;fill-rule:evenodd;
+  }
+  path{
+  
+	text-shadow:1px 5px 10px #000;
+  }
+  .logo_safe{
+	  position:absolute;
+	  right:10%;
+	  display:none;
+	  transition:.5s;
+bottom:50%; 
+
+ }
+ .word_safe{
+	  position:absolute;
+	  left:10%;
+	  display:none;
+	  transition:.5s;
+bottom:50%; 
+
+ }
+.pic {width:100%;margin:  0px auto;/* padding-bottom: 2px; */margin-bottom: 10px;/* text-align:center; */display: block;text-align:center;}

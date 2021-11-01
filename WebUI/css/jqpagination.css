@@ -1,0 +1,89 @@
+.pagination {
+  /* display: inline-block; */
+  border-radius: 3px;
+  direction:ltr;
+  }
+.gigantic.pagination
+{
+    background-color:#fff;
+}
+.pagination button {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  outline: none;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  font-family: Times, 'Times New Roman', Georgia, Palatino;
+  /* ATTN: need a better font stack */
+  background: #d86e48;
+  transition:1s;
+  border-radius:5px;
+  border:none;
+  }
+  
+  .pagination button.disabled, .pagination button.disabled:hover, .pagination button.disabled:focus, .pagination button.disabled:active {
+    background-color: #424242;
+       color: #848484;
+    cursor: default; }
+
+.pagination button:first-child {
+  border: none;
+/*  border-radius: 2px 0 0 2px;
+*/  
+   }
+.pagination button{
+	margin:0px 3px;
+}
+.pagination button:last-child {
+  border: none;
+  /*border-radius: 0 2px 2px 0;*/ }
+
+.pagination input {
+  margin: 0;
+  padding: 0;
+  width: 120px;
+  height: 20px;
+  outline: none;
+  border: none;
+  vertical-align: middle;
+  text-align: center;
+  display:inline-block;
+   }
+
+/* gigantic class for demo purposes */
+.gigantic.pagination {
+  margin: 5px 0; }
+
+.gigantic.pagination button {
+ height: 30px;
+width: 35px;
+font-size: 24px;
+line-height: 25px;
+ }
+
+.gigantic.pagination input {
+width: 170px;
+height: 33px;
+font-size: 20px;
+background: transparent;  
+  }
+
+/* log element for demo purposes */
+.log {
+  display: none;
+  background-color: #EDEDED;
+  border: 1px solid #B4B4B4;
+  height: 300px;
+  width: 524px;
+  overflow: auto;
+  margin-left: 0;
+  list-style: none;
+  padding: 10px; }
+  .log li {
+    margin-top: 0;
+    margin-bottom: 5px; }

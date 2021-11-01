@@ -1,0 +1,298 @@
+﻿
+@using Inv.WebUI.Resources
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<style>
+    .st_border {
+        border: solid 1px #3c8dbc;
+        border-radius: 20px;
+    }
+
+    .display_none {
+        display: none;
+    }
+
+    .padeing_0px {
+        padding: 9px 16px 0px 0px !important;
+    }
+
+    .padeing_0px2 {
+        padding: 5px 30px 0px 0px !important;
+    }
+
+    .padeing_0px3 {
+        padding: 5px 15px 0px 0px !important;
+    }
+
+    .padeing_0px4 {
+        padding: 5px 16px 0px 0px !important;
+    }
+
+    .padeing_0px5 {
+        padding: 5px 0px 0px 0px !important;
+    }
+
+    .padeing_0pxredeo {
+        padding: 9px 0px 0px 0px !important;
+    }
+
+    .padeing_0pxredeo2 {
+        padding: 9px 36px 0px 0px !important;
+    }
+
+    .padeing_0pxredeo3 {
+        padding: 9px 17px 0px 0px !important;
+    }
+
+    .colorBakc {
+        border: solid 1px #aeaeae;
+        border-radius: 23px;
+        background-color: rgb(227, 240, 246) !important;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .colorBakc1 {
+        border: solid 1px #aeaeae;
+        border-radius: 23px;
+        background-color: rgba(60, 141, 188, 0.45) !important;
+    }
+
+    .font {
+        font-size: larger;
+    }
+
+    .font2 {
+        font-size: 25px;
+    }
+
+    .datatable-dashv1-list {
+        padding-right: 0px;
+    }
+
+    #divMeals {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    #btnMeals:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+
+    #btnOtherservices:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+
+    #btnSubjects:hover i {
+        color: #3c8dbc !important;
+        font-size: 25px;
+    }
+
+    .margin_top_0px {
+        margin-top: 0px;
+    }
+
+    .padin_6 {
+        padding: 9px 48px 0px 0px !important;
+    }
+
+    .color1 {
+        color: #0075ff
+    }
+
+    .margin_right1 {
+        margin-right: 45px;
+        right: 18px;
+    }
+
+    .left18 {
+        left: 18px;
+    }
+
+    .left76 {
+        right: 76px;
+        font-size: 15px
+    }
+
+    .left-35 {
+        left: 30px
+    }
+
+    .left47 {
+        left: 47px;
+    }
+
+    .fontitm3 {
+        float: right;
+        margin: 5px -15px 0px 0px !important;
+        font-size: 25px !important;
+    }
+
+    .fontitm2 {
+        float: right;
+        margin: 2px -20px -14px 0px !important;
+        font-size: 35px !important;
+    }
+
+        .fontitm2:hover {
+            color: #05aa1b !important;
+        }
+
+    .btnplas {
+        margin-top: 9px;
+        margin-left: 6px;
+        margin-right: 9px;
+    }
+
+    .border_ {
+        border: solid 1px;
+        padding: 20px !important;
+        border-radius: 22px;
+    }
+
+    .padingtop {
+        padding-top: 7px;
+    }
+
+    .lapeltitelgred {
+        float: right;
+        font-size: 22px;
+        text-align: right;
+        box-shadow: -2px 2px 5px #b18d8d;
+        border-radius: 15px;
+    }
+
+    .right11 {
+        margin-right: 20px;
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+</style>
+<label for="rpTitle" style="display:none" id="rpTitle">@*@SystemResource.Rep_PayRecieptList*@</label>
+
+
+
+<div id="content_report" class="col-lg-12  margingred  borderred ">
+
+    <div class="col-lg-12">
+
+
+        <div class="row">
+            <div id="informtionReserved" class="col-lg-12 margingred" style="margin-bottom: 15px;">
+
+
+                <div id="id_div_Add">
+
+                    <div class="col-lg-12">
+                        <div class="col-lg-12">
+                            <label for="txtFromDate" class="col-lg-1 "> @SystemResource.App_FromDate </label>
+                            <div class="col-xs-3 ">
+
+                                <input type="date" class="input-sm    form-control  text-center" name="txtFromDate" id="txtFromDate" style="height: 33px;">
+                            </div>
+
+                            <label for="txtToDate" class="col-md-1 "> @SystemResource.App_ToDate  </label>
+                            <div class="col-xs-3 ">
+
+                                <input type="date" class="input-sm  form-control text-center" name="txtToDate" id="txtToDate" style="height: 33px;">
+                            </div>
+                           
+
+                            <div class=" ">
+
+                                <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading">   @SystemResource.App_Status</label>
+                                <div class="col-lg-3 col-xs-8">
+                                    <select id="txt_status" name="" class="form-control  text_Display ">
+                                        <option value="1">@SystemResource.prepared</option>
+                                        <option value="0">@SystemResource.App_All</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading"> @SystemResource.APP_Category  </label>
+                            <div class="col-lg-3 col-xs-8">
+                                <select id="drpPaymentType" name="" class="form-control  text_Display">
+                                    <option value="Null"> @SystemResource.choose_Cat </option>
+                                </select>
+                            </div>
+
+                            <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading"> @SystemResource.App_Type</label>
+                            <div class="col-lg-3 col-xs-8">
+                                <select id="drpitem_family" name="" class="form-control  text_Display"></select>
+                            </div>
+
+
+                            <label class="col-lg-1 col-xs-4  marginstenig pading_lep  pading_2 textcentr_pading ">@SystemResource.App_Item</label>
+                            <div class="col-lg-3 col-xs-8">
+                                <select id="txt_ID_APP_Type" name="" class="form-control  text_Display " disabled></select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <label for="" class="col-lg-1 col-md-3 col-xs-4  " style="top:10px"> @SystemResource.App_report_type </label>
+
+
+                            <div class="col-lg-4 col-xs-3" style="color:#1cb3f9;font-weight:bold;margin-right:8px;top:10px">
+                                <input type="radio" id="reptp1" name="reptp" value="1"> @SystemResource.by_cat
+                                <input type="radio" id="reptp2" name="reptp" value="2"> @SystemResource.by_type
+                                <input type="radio" id="reptp3" name="reptp" value="3"> @SystemResource.by_item
+                            </div>
+                        </div>
+                        <div id=" " class="col-lg-12 margingred">
+                            <div class="col-lg-12 ">
+                                <div class="col-lg-1 ">  </div>
+                                <div class="col-lg-10 borderred" style="right: 3%;top:10px;  ">
+                                    <div class="col-lg-1 "></div>
+                                    <button id="btnReset" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl" style="float: right;"><span class="adminpro-icon  search-choice-focus "></span>@SystemResource.new_search</button>
+                                    <button id="btnviewresult" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl" style="float: right;margin-right: 1%;display:none"><span class="adminpro-icon adminpro-paint-roller"></span>    @SystemResource.Preview_results   </button>
+                                    <div class="col-lg-1 "></div>
+                                    <button id="btnPrintTrview" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-airplay"></span>@SystemResource.Print_Report</button>
+                                    <button id="btnPrintTrPDF" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>@SystemResource.Download_PDF</button>
+                                    <button id="btnPrintTrEXEL" type="button" class="marginbtn btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-download-arrow"></span>  @SystemResource.Download_EXCEL</button>
+                                    <button id="btnPrint" type="button" class="  btn btn-custon-four btndefolt primary-btn-cl"><span class="adminpro-icon adminpro-paint-roller"></span>@SystemResource.App_Print</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+     
+</div>
+ 
+<script src="~/ClientApp/CollectionReports/Inventoryvalue.js"></script>
+
+<script>
+
+    function myclaer() {
+
+
+        $("#ShiftName option:selected").prop("selected", false);
+        $("#ShiftName option:first").prop("selected", "selected");
+
+        $("#PeriodName option:selected").prop("selected", false);
+        $("#PeriodName option:first").prop("selected", "selected");
+
+        $("#SrvTypeName").value = "";
+        $("#SrvTypeCode").value = "";
+        $("#ShiftCode").value = "";
+        $("#PeriodCode").value = "";
+
+
+
+    }
+
+</script>
+

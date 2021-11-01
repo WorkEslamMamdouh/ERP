@@ -1,0 +1,235 @@
+﻿@using Inv.WebUI.Resources
+<!DOCTYPE html>
+
+<html style="background-image:url(../../images/Background/imgadmin.jpeg)">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="John Doe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="~/images/logokids.png">
+    <title>@SystemResource.App_Home</title>
+    @Styles.Render("~/Bundles/AppStyle2")
+    <link id="bootstrap_rtl" href="~/Style_design/bootstrap-rtl.css" rel="stylesheet" />
+    <link id="Style_Arabic" href="~/Style_design/Style_Arabic.css" rel="stylesheet" />
+    @*<script src="http://code.jquery.com/jquery-3.0.0.js"></script>*@
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Style_design/js/jquery-3.4.1.js"></script>
+    @Scripts.Render("~/Bundles/AppScript2")
+    <script src="~/Style_design/jquery.cookie.min.js"></script>
+    @Scripts.Render("~/Bundles/AppScript3Admin")
+    <link href="~/Style_design/Stylelayout.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: unset;
+        }
+        .stfooter {
+            margin: -15px -12px;
+        }
+
+        #btnclosefooter {
+            margin: 16px -41px;
+        }
+
+        #btnclosefooter {
+            position: absolute;
+            z-index: 25;
+            cursor: pointer;
+            border-radius: 30px;
+            border: solid 2px;
+            background-color: #0b6ba2;
+            color: #fff;
+            left: 3%;
+        }
+
+        .stfooter {
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.7);
+            height: 44px;
+            /* width: 50%; */
+            display: block;
+            margin: 10px 0px 0px 16px;
+            border-radius: 20px;
+            z-index: 999;
+            color: white;
+            left: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div id="btnclosefooter">
+        <i id="chevron" style="font-size: 27px" class="glyphicon glyphicon-chevron-right"></i>
+        <i class=" glefbtnclosefooter" style="font-size: 25px"> اعدادات </i>
+
+    </div>
+    <div id="footer" class="stfooter">
+        <div  id="displaydiv" class="col-lg-12 display_none" style="top: 3px">
+                 </button>
+            <a href="/Home/AdminBarIndex">
+                <span class="glyphicon glyphicon-floppy-saved">
+                    <button id="" type="button" class="btn btn-success   ">
+                        اعدادات الفرع   <span class="glyphicon glyphicon-floppy-saved"></span>
+                    </button>
+                </span>
+            </a>
+            <a href="/Home/AdminCompIndex">
+                <span class="glyphicon glyphicon-floppy-saved">
+                    <button id="" type="button" class="btn btn-success   ">
+                        اعدادات الشركة   <span class="glyphicon glyphicon-floppy-saved"></span>
+                    </button>
+                </span>
+            </a>
+
+
+
+
+            <i id="chevron2" style="font-size: 30px;float:right" class="glyphicon glyphicon-hand-left display_none"></i>
+
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <div class="modal fade" id="user_setting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@SystemResource.App_UserSetting </h4>
+                </div>
+                <div class="user_2">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-3 control-label">@SystemResource.App_OldPassword </label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="txtOldPassword">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-3 control-label"> @SystemResource.App_NewPassword</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="txtNewPassword">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="modal-footer">
+                        <button type="button" id="btnChangePassword" class="btn btn-danger">@SystemResource.App_Confirm </button>
+                        <button type="button" class="btn btn-primary btn_back">@SystemResource.App_Return</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">@SystemResource.App_Close </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="glyphicon glyphicon-arrow-up	"></i></a>
+    <input type="hidden" id="GetActionUrl" name="name" value="@Url.Action("GetActionUrl","ClientTools")" />
+    <input type="hidden" id="ModelPreview" name="name" value="" />
+    <input type="hidden" id="SearchControlName" name="name" value="" />
+    <div class="modal fade messagealert" id="MessageBoxDialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="MessageBoxTitle">حذف!!</h4>
+                </div>
+                <div class="modal-body" style="max-height:200px; overflow:auto;">
+                    <div class="col-xs-7"> <h3 id="MessageBoxMessage">هل تريد حقا الحذف ؟</h3></div>
+                    <div class="col-xs-5 text-center">
+                        <i class="glyphicon btn-danger"></i>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="MessageBoxOk" class="btn btn-danger">@SystemResource.App_Confirm</button>
+                    <button type="button" id="MessageBoxCancel" class="btn btn-warning" data-dismiss="modal">إلغاء</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="help-pop modal fade in" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">@SystemResource.App_Help</h4>
+                </div>
+                <div class="modal-body content content-8" id="modalHelpRep">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">@SystemResource.App_Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="SearchBox" class=" fade styleserch" style="display:none;z-index:999999999;">
+        <div style="background-color:#ef6603!important; position:absolute;top:0px;left:0px;width:100%;height:40px;cursor:move;border-top-right-radius: 13px!important;border-top-left-radius: 13px!important;">
+            <input type="button" onclick="$('#SearchBox').modal('hide');" id="btnCloseSearch" name="name" value="x" class="btn colose_lay_btn btn-danger" style="height: 40px;
+              width: 38px;font-size: 20px;float: left;border-color: #ef6603!important;background-color: #ef6603!important;" />
+            <h4 id="searchTitle" class="col-xs-3" style="color: #fff;line-height: 36px;text-align:right"></h4>
+        </div>
+        <div style="overflow-x:scroll;overflow-y:scroll;padding-left: 1%; margin-top:20px;width:100%;left:0px;left: 0px; position: absolute; width: 100%; height: 85%;">
+            <div id="tableDiv" class="table table-bordered table-hover" style="width:100%;"></div>
+        </div>
+    </div>
+    <div id="caret_script" style="display:none!important">
+    </div>
+    @*<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+    <script src="~/Scripts/DataTables/jquery.dataTables.min.js"></script>
+    @Scripts.Render("~/Bundles/AppScript4")
+    <script>
+
+        $('#lepcompinformtion').on('click', function () {
+            $('#divcompinformtion').toggleClass('showdiv');
+            $('#spanlepcompinformtion').toggleClass('fa-caret-left');
+            $('#spanlepcompinformtion').toggleClass('fa-caret-down');
+        });
+        $('#lepnotifications').on('click', function () {
+            $('#divnotifications').toggleClass('showdiv');
+            $('#spanlepnotifications').toggleClass('fa-caret-left');
+            $('#spanlepnotifications').toggleClass('fa-caret-down');
+        });
+        $('#lepsystem').on('click', function () {
+            $('#divsystem').toggleClass('showdiv');
+            $('#spanlepsystem').toggleClass('fa-caret-left');
+            $('#spanlepsystem').toggleClass('fa-caret-down');
+        });
+        $(document).ready(function () {
+
+            $("#btnclosefooter").click(function () {
+                $("#displaydiv").removeClass("display_none");
+                $("#btnclosefooter").addClass("display_none");
+                $("#chevron2").removeClass("display_none");
+                $("#footer").animate({ width: '500px', opacity: '0.8' }, "slow");
+
+                $("#chevron").toggleClass("glyphicon-hand-right");
+                $("#chevron").toggleClass("glyphicon-chevron-left");
+
+
+            });
+
+            $("#chevron2").click(function () {
+                $("#displaydiv").addClass("display_none");
+                $("#btnclosefooter").removeClass("display_none");
+                $("#footer").animate({ width: '0px', opacity: '0' }, "slow");
+
+                $("#chevron").toggleClass("glyphicon-hand-right");
+                $("#chevron").toggleClass("glyphicon-chevron-left");
+
+
+            });
+
+        });
+    </script>
+</body>
+</html>

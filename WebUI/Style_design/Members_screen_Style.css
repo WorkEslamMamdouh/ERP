@@ -1,0 +1,157 @@
+﻿
+/*//Flag Updated To Handle Members Screen*/
+body {
+    font-size: 15px;
+    font: bold !important;
+    background-color: #ffffff !important;
+    scroll-behavior: smooth!important;
+}
+
+
+#Dash_Members a {
+    font-size: 19px !important;
+    color: white !important;
+    font: bold !important;
+}
+
+.nav > li > a:hover {
+    background-color: #11617f !important;
+}
+
+.inbox-email-menu-list {
+    width: 100% !important;
+    padding: 6px !important;
+}
+
+select option {
+    font-size: 15px !important;
+}
+
+.col-lg-10 {
+    float: right !important
+}
+
+.margintext {
+    margin-left: 13px;
+}
+
+.margin {
+    margin-top: 5%;
+}
+
+.marginstenig {
+    padding: 9px 0px 0px 0px;
+  text-align:right;
+}
+
+.padeinckecbox {
+    padding-right: 0px;
+}
+
+#inbox {
+    background-color: rgb(227, 240, 246) !important;
+}
+
+.viewmember {
+    background-color: #6e7fe5 !important;
+    color: whitesmoke !important;
+}
+
+.form-control {
+    text-align: right !important;
+}
+
+.margingender {
+    margin-left: -54%;
+}
+
+.text_align {
+    text-align: right;
+}
+
+tr {
+    text-align: right !important;
+}
+
+td {
+    text-align: right !important;
+}
+
+th {
+    text-align: right !important;
+}
+.margintopbox2 {
+    margin-top: -32px !important;
+    margin-right: 100px;
+    font-size: 18px;
+    top: 35px!important;
+}
+.margintopbox22 {
+     margin-right: 100px;
+    font-size: 18px;
+ }
+.margin_ntofcation {
+    margin-right: -70px;
+}
+
+.pading_lepal_notfcation {
+    padding-top:10px!important;
+}
+
+.table1 {
+    font-family: arial, sans-serif;
+    padding: 2px !important;
+    width: 100%;
+    border: solid 2px #c1c1c1;
+}
+
+
+.tdatt, .th_hed {
+    border: 1px solid #dddddd;
+    text-align: center !important;
+    padding: 4px !important;
+}
+.tdabs, .th_hed {
+    border: 1px solid #dddddd;
+    text-align: center !important;
+    padding: 4px !important;
+}
+.tdoff, .th_hed {
+    border: 1px solid #dddddd;
+    text-align: center !important;
+    padding: 4px !important;
+}
+
+.th_hed {
+}
+
+.tdatt {
+    padding-top: 2% !important;
+    font-weight: bold;
+    color: green
+}
+.tdabs {
+    padding-top: 2% !important;
+    font-weight: bold;
+    color:red
+}
+.tdoff {
+    padding-top: 2% !important;
+    font-weight: bold;
+}
+
+.thatt {
+    color: #287423;
+    padding: 2px !important;
+}
+
+.thabs {
+    padding: 2px !important;
+}
+
+.font_label_tabel {
+    font-size: 18px;
+}
+.font_label_member {
+    font-size: 20px;
+}
