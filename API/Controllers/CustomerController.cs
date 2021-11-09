@@ -31,11 +31,11 @@ namespace API.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public IHttpActionResult GetAll(int CompCode)
+        public IHttpActionResult GetAll(int CompCode ,int BranchCode)
         {
             if (ModelState.IsValid)
             {
-                var Cust = CustomerServices.GetAll().ToList();
+                var Cust = CustomerServices.GetAll(x => x.CompCode == CompCode && x.BranchCode == BranchCode).ToList();
 
                 return Ok(new BaseResponse(Cust));
 

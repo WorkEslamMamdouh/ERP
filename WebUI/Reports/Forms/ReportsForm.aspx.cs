@@ -44,7 +44,7 @@ namespace RS.WebUI.Reports.Forms
 
 
         //string cs = "Data Source=SQL5061.site4now.net; database =db_a7882d_apieltawhed; user id =db_a7882d_apieltawhed_admin; Password=619619Ss619619";
-        string cs = "Data Source= . ; database = POS2021 ; user id = sa ; Password= 619619 ;";
+        string cs = "Data Source= . ; database = ERP ; user id = sa ; Password= 619619 ;";
         //string cs = "Data Source= SQL5077.site4now.net ; database = db_a7b97c_pos ; user id = db_a7b97c_pos_admin ; Password= 619619Ss619619 ;";
 
 

@@ -50,6 +50,9 @@ namespace API.Controllers
             }
             return BadRequest(ModelState);
         }
+
+
+
         [HttpPost, AllowAnonymous]
         public IHttpActionResult InsertInvoiceMasterDetail([FromBody]SlsInvoiceMasterDetails obj)
         {
@@ -109,6 +112,39 @@ namespace API.Controllers
 
         }
 
+
+
+        [HttpGet, AllowAnonymous]
+        public IHttpActionResult GetAllServSalesInvoice(int CompCode, int trtype, int BranchCode, int IsCash, string StartDate, string EndDate, int Status, int? CustId)
+        {
+             
+                string s = "select * from AQVAT_GetSlsInvoiceList where  BranchCode = " + BranchCode + " and CompCode = " + CompCode + "and TrDate >=' " + StartDate + "' and TrDate <= ' " + EndDate + " ' and  TrType = " + trtype;
+                string condition = "";
+                if (CustId != 0 && CustId != null)
+                    condition = condition + " and CustomerId =" + CustId;
+
+                if (Status == 2)
+                    condition = condition + "";
+                else
+                {
+                    condition = condition + " and Status = " + Status;
+                }
+                if (IsCash == 2)
+                    condition = condition + "";
+                else if (IsCash == 0)
+                {
+                    condition = condition + " and IsCash = 'False' ";
+                }
+                else if (IsCash == 1)
+                {
+                    condition = condition + " and IsCash = 'True' ";
+                }
+                string query = s + condition;
+                var res = db.Database.SqlQuery<AQVAT_GetSlsInvoiceList>(query).ToList();
+
+                return Ok(new BaseResponse(res));
+           
+        }
 
 
     }

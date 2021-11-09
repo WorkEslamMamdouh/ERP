@@ -5,6 +5,154 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="POS2021Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AVAT_TR_SlsInvoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrNo" Type="int" />
+          <Property Name="RefNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefTrID" Type="int" />
+          <Property Name="TrDate" Type="smalldatetime" />
+          <Property Name="TrDateH" Type="nvarchar" MaxLength="20" />
+          <Property Name="TrType" Type="int" />
+          <Property Name="IsCash" Type="bit" />
+          <Property Name="SlsInvType" Type="int" />
+          <Property Name="SlsInvSrc" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="SalesmanId" Type="int" />
+          <Property Name="TotalAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatType" Type="int" />
+          <Property Name="DiscountAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPrc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetAfterVat" Type="numeric" Precision="20" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="CashAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CardAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BankTfAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPaidAmount" Type="numeric" Precision="20" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="RemainAmount" Type="numeric" Precision="21" Scale="2" StoreGeneratedPattern="Computed" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsPosted" Type="bit" />
+          <Property Name="VoucherNo" Type="int" />
+          <Property Name="VoucherType" Type="tinyint" />
+          <Property Name="CreatedAt" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="UpdatedAt" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="CompCode" Type="int" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="DocNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocUUID" Type="nvarchar" MaxLength="124" />
+          <Property Name="TrTime" Type="time" Precision="7" />
+          <Property Name="InvoiceTypeCode" Type="int" />
+          <Property Name="InvoiceTransCode" Type="int" />
+          <Property Name="TaxNotes" Type="nvarchar" MaxLength="200" />
+          <Property Name="TaxCurrencyID" Type="int" />
+          <Property Name="InvoiceCurrenyID" Type="int" />
+          <Property Name="ContractNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchaseorderNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GlobalInvoiceCounter" Type="int" />
+          <Property Name="PrevInvoiceHash" Type="varchar" MaxLength="500" />
+          <Property Name="QRCode" Type="varchar" MaxLength="2000" />
+          <Property Name="CryptographicStamp" Type="varchar" MaxLength="2000" />
+          <Property Name="DeliveryDate" Type="smalldatetime" />
+          <Property Name="DeliveryEndDate" Type="smalldatetime" />
+          <Property Name="PaymentMeansTypeCode" Type="int" />
+          <Property Name="CRDBReasoncode" Type="int" />
+          <Property Name="PaymentTerms" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentTermsID" Type="int" />
+          <Property Name="AllowAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowVatNatID" Type="int" />
+          <Property Name="AllowVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="AllowCode" Type="int" />
+          <Property Name="ChargeAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="int" />
+          <Property Name="ChargeVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChargeCode" Type="int" />
+          <Property Name="ItemTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemAllowTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemDiscountTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemVatTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="RoundingAmount" Type="numeric" Precision="19" Scale="2" />
+        </EntityType>
+        <EntityType Name="AVAT_TR_SlsInvoiceItem">
+          <Key>
+            <PropertyRef Name="InvoiceItemID" />
+          </Key>
+          <Property Name="InvoiceItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="UomID" Type="int" />
+          <Property Name="InvoiceSoldQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="SoldQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="Unitprice" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="DiscountPrc" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="DiscountAmount" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="NetUnitPrice" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="ItemTotal" Type="numeric" Precision="37" Scale="10" StoreGeneratedPattern="Computed" />
+          <Property Name="VatPrc" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="VatAmount" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="NetAfterVat" Type="numeric" Precision="38" Scale="10" StoreGeneratedPattern="Computed" />
+          <Property Name="VatApplied" Type="int" />
+          <Property Name="TotRetQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="Serial" Type="int" />
+          <Property Name="AllowAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowancePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowanceBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="AllowCode" Type="int" />
+          <Property Name="BaseQty" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="BaseQtyUomid" Type="int" />
+          <Property Name="BaseQtyPrice" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="BaseQtyDiscount" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="DiscountPrcBase" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="DiscountVatNatID" Type="int" />
+          <Property Name="Discountreason" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiscountCode" Type="int" />
+          <Property Name="ItemNetAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="int" />
+          <Property Name="ChargeVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChargeCode" Type="int" />
+          <Property Name="VatNatID" Type="int" />
+          <Property Name="CC_CODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="Name_Item" Type="nvarchar" MaxLength="50" />
+          <Property Name="Uom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name_Category" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AVAT_TRANS">
+          <Key>
+            <PropertyRef Name="COMP_CODE" />
+            <PropertyRef Name="SYSTEM_CODE" />
+            <PropertyRef Name="TRTYPE" />
+          </Key>
+          <Property Name="COMP_CODE" Type="int" Nullable="false" />
+          <Property Name="SYSTEM_CODE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TRTYPE" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TRDESCA" Type="nvarchar" MaxLength="50" />
+          <Property Name="TRDESCE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SYSTEMDESCA" Type="nvarchar" MaxLength="50" />
+          <Property Name="SYSTEMDESCE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SEC" Type="int" />
+          <Property Name="ISAVAILABLE" Type="bit" />
+        </EntityType>
         <EntityType Name="Catch_Receipt">
           <Key>
             <PropertyRef Name="ID_Receipt" />
@@ -617,13 +765,14 @@
         <EntityType Name="G_USERS">
           <Key>
             <PropertyRef Name="USER_CODE" />
+            <PropertyRef Name="CompCode" />
           </Key>
           <Property Name="USER_CODE" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="ID_Code" Type="int" />
           <Property Name="USER_PASSWORD" Type="nvarchar" MaxLength="20" />
           <Property Name="USER_ACTIVE" Type="bit" Nullable="false" />
           <Property Name="USER_NAME" Type="nvarchar" MaxLength="50" />
-          <Property Name="CompCode" Type="int" />
+          <Property Name="CompCode" Type="int" Nullable="false" />
           <Property Name="REGION_CODE" Type="nvarchar" MaxLength="10" />
           <Property Name="GRP_CODE" Type="int" />
           <Property Name="USER_PASSWORD2" Type="nvarchar" MaxLength="20" />
@@ -658,7 +807,7 @@
           <Property Name="Day_Off" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.HIJRA_CONVERT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.HIJRA_CONVERT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HIJRA_CONVERT">
           <Key>
             <PropertyRef Name="HYEAR" />
@@ -862,7 +1011,256 @@ warning 6002: The table/view 'POS2021.dbo.HIJRA_CONVERT' does not have a primary
           <Property Name="PRODUCT_PRICE" Type="money" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_GetUserBarnchAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.AQVAT_GetService' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AQVAT_GetService">
+          <Key>
+            <PropertyRef Name="Itemid" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="Itemid" Type="int" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="Itm_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Itm_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompCode" Type="int" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedAt" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedAt" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Uom_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Uom_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="VatPrc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatNatID" Type="int" />
+          <Property Name="SrvCategoryID" Type="int" />
+          <Property Name="UnitPrice" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="UomID" Type="int" />
+          <Property Name="UomCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="CAT_CODE" Type="nvarchar" MaxLength="8" />
+          <Property Name="Cat_DescA" Type="nvarchar" MaxLength="50" />
+          <Property Name="cat_DescE" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatNatureCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="VatNatureDescA" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatNatureDescE" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefItemCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="OldItemCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="VndItemCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="IsPurchase" Type="bit" />
+          <Property Name="Expr1" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.AQVAT_GetSlsInvoiceItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AQVAT_GetSlsInvoiceItem">
+          <Key>
+            <PropertyRef Name="InvoiceItemID" />
+          </Key>
+          <Property Name="InvoiceItemID" Type="int" Nullable="false" />
+          <Property Name="InvoiceID" Type="int" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="UomID" Type="int" />
+          <Property Name="SoldQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="Unitprice" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="DiscountPrc" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="DiscountAmount" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="NetUnitPrice" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="ItemTotal" Type="numeric" Precision="37" Scale="10" />
+          <Property Name="VatPrc" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="VatAmount" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="NetAfterVat" Type="numeric" Precision="38" Scale="10" />
+          <Property Name="VatApplied" Type="int" />
+          <Property Name="TotRetQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="it_itemCode" Type="nvarchar" MaxLength="25" />
+          <Property Name="it_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="CompCode" Type="int" />
+          <Property Name="It_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="Uom_Code" Type="nvarchar" MaxLength="25" />
+          <Property Name="Uom_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Uom_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="InvoiceSoldQty" Type="numeric" Precision="18" Scale="5" />
+          <Property Name="Serial" Type="int" />
+          <Property Name="AllowAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowancePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowanceBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="AllowCode" Type="int" />
+          <Property Name="BaseQty" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="BaseQtyUomid" Type="int" />
+          <Property Name="BaseQtyPrice" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="BaseQtyDiscount" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="DiscountPrcBase" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="DiscountVatNatID" Type="int" />
+          <Property Name="Discountreason" Type="nvarchar" MaxLength="200" />
+          <Property Name="DiscountCode" Type="int" />
+          <Property Name="ItemNetAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="int" />
+          <Property Name="ChargeVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChargeCode" Type="int" />
+          <Property Name="VatNatID" Type="int" />
+          <Property Name="CC_CODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="CC_DESCA" Type="nvarchar" MaxLength="100" />
+          <Property Name="CC_DESCE" Type="nvarchar" MaxLength="100" />
+          <Property Name="Cat_DescA" Type="nvarchar" MaxLength="50" />
+          <Property Name="cat_DescE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CAT_CODE" Type="nvarchar" MaxLength="8" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.AQVAT_GetSlsInvoiceList' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AQVAT_GetSlsInvoiceList">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="int" Nullable="false" />
+          <Property Name="TrNo" Type="int" />
+          <Property Name="RefNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="RefTrID" Type="int" />
+          <Property Name="TrDate" Type="smalldatetime" />
+          <Property Name="TrDateH" Type="nvarchar" MaxLength="20" />
+          <Property Name="TrType" Type="int" />
+          <Property Name="IsCash" Type="bit" />
+          <Property Name="SlsInvType" Type="int" />
+          <Property Name="SlsInvSrc" Type="int" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="CustomerMobileNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="SalesmanId" Type="int" />
+          <Property Name="TotalAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="VatType" Type="int" />
+          <Property Name="DiscountAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="DiscountPrc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="NetAfterVat" Type="numeric" Precision="20" Scale="2" />
+          <Property Name="CashAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="CardAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BankTfAmount" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="BankAccount" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalPaidAmount" Type="numeric" Precision="20" Scale="2" />
+          <Property Name="RemainAmount" Type="numeric" Precision="21" Scale="2" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="200" />
+          <Property Name="Status" Type="int" />
+          <Property Name="IsPosted" Type="bit" />
+          <Property Name="VoucherNo" Type="int" />
+          <Property Name="VoucherType" Type="tinyint" />
+          <Property Name="CreatedAt" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="UpdatedAt" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="25" />
+          <Property Name="CompCode" Type="int" />
+          <Property Name="BranchCode" Type="int" />
+          <Property Name="Slsm_Code" Type="nvarchar" MaxLength="25" />
+          <Property Name="Slsm_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Slsm_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="DocNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DocUUID" Type="nvarchar" MaxLength="124" />
+          <Property Name="TrTime" Type="time" Precision="7" />
+          <Property Name="InvoiceTypeCode" Type="int" />
+          <Property Name="InvoiceTransCode" Type="int" />
+          <Property Name="TaxNotes" Type="nvarchar" MaxLength="200" />
+          <Property Name="TaxCurrencyID" Type="int" />
+          <Property Name="InvoiceCurrenyID" Type="int" />
+          <Property Name="ContractNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PurchaseorderNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="GlobalInvoiceCounter" Type="int" />
+          <Property Name="PrevInvoiceHash" Type="varchar" MaxLength="500" />
+          <Property Name="QRCode" Type="varchar" MaxLength="2000" />
+          <Property Name="CryptographicStamp" Type="varchar" MaxLength="2000" />
+          <Property Name="DeliveryDate" Type="smalldatetime" />
+          <Property Name="DeliveryEndDate" Type="smalldatetime" />
+          <Property Name="PaymentMeansTypeCode" Type="int" />
+          <Property Name="CRDBReasoncode" Type="int" />
+          <Property Name="PaymentTerms" Type="nvarchar" MaxLength="100" />
+          <Property Name="PaymentTermsID" Type="int" />
+          <Property Name="AllowAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowVatNatID" Type="int" />
+          <Property Name="AllowVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="AllowAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="AllowReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="AllowCode" Type="int" />
+          <Property Name="ChargeAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="int" />
+          <Property Name="ChargeVatPrc" Type="numeric" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="ChargeCode" Type="int" />
+          <Property Name="ItemTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemAllowTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemDiscountTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="ItemVatTotal" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="RoundingAmount" Type="numeric" Precision="19" Scale="2" />
+          <Property Name="RetInv_TrNo" Type="int" />
+          <Property Name="RetInv_TrDate" Type="smalldatetime" />
+          <Property Name="RetInv_DocNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerCODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="CUSTOMER_NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="NAMEE" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.AQVAT_GetSrvCategory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AQVAT_GetSrvCategory">
+          <Key>
+            <PropertyRef Name="SrvCategoryID" />
+          </Key>
+          <Property Name="DescA" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemFormatFix" Type="nvarchar" MaxLength="25" />
+          <Property Name="ItemFormatSerial" Type="nvarchar" MaxLength="25" />
+          <Property Name="IsPurchase" Type="bit" />
+          <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreatedAt" Type="smalldatetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedAt" Type="smalldatetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatNatID" Type="int" />
+          <Property Name="SrvCategoryID" Type="int" Nullable="false" />
+          <Property Name="COMP_CODE" Type="int" />
+          <Property Name="CAT_CODE" Type="nvarchar" MaxLength="8" />
+          <Property Name="DescE" Type="nvarchar" MaxLength="50" />
+          <Property Name="SALES_ACC_CODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="RETURN_ACC_CODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="DISC_ACC_CODE" Type="nvarchar" MaxLength="20" />
+          <Property Name="ACTUAL_DATE" Type="datetime" />
+          <Property Name="Nature" Type="tinyint" />
+          <Property Name="VatNatureCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="VatNatureDescA" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatNatureDescE" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatPrc" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="sls_Acc_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="sls_Acc_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ret_Acc_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Ret_Acc_DescE" Type="nvarchar" MaxLength="100" />
+          <Property Name="Dis_Acc_DescA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Dis_Acc_DescE" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.AQVat_Srch_VatPurchaseHeader' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AQVat_Srch_VatPurchaseHeader">
+          <Key>
+            <PropertyRef Name="InvoiceHeaderID" />
+          </Key>
+          <Property Name="InvoiceHeaderID" Type="int" Nullable="false" />
+          <Property Name="InvoiceId" Type="int" />
+          <Property Name="Head_DocNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="Invoice_DocNO" Type="nvarchar" MaxLength="50" />
+          <Property Name="VendorID" Type="int" />
+          <Property Name="Vnd_NameA" Type="nvarchar" MaxLength="100" />
+          <Property Name="Vnd_NameE" Type="nvarchar" MaxLength="100" />
+          <Property Name="Inv_TrNO" Type="int" />
+          <Property Name="Inv_TrDate" Type="smalldatetime" />
+          <Property Name="Head_TrDate" Type="smalldatetime" />
+          <Property Name="TOTAL" Type="numeric" Precision="19" Scale="5" />
+          <Property Name="DISCOUNT" Type="numeric" Precision="19" Scale="5" />
+          <Property Name="VatAmount" Type="numeric" Precision="19" Scale="5" />
+          <Property Name="Net" Type="numeric" Precision="19" Scale="5" />
+          <Property Name="CompCode" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.GQ_GetUserBarnchAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_GetUserBarnchAccess">
           <Key>
             <PropertyRef Name="USER_CODE" />
@@ -887,7 +1285,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_GetUserBarnchAccess' does not have 
           <Property Name="PRINT" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_GetUserBranch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_GetUserBranch' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_GetUserBranch">
           <Key>
             <PropertyRef Name="USER_CODE" />
@@ -902,7 +1300,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_GetUserBranch' does not have a prim
           <Property Name="BRA_DESC" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_GetUserModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_GetUserModule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_GetUserModule">
           <Key>
             <PropertyRef Name="USER_CODE" />
@@ -978,7 +1376,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_GetUserModule' does not have a prim
           <Property Name="M_images_enabled" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_GetUserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_GetUserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_GetUserRole">
           <Key>
             <PropertyRef Name="USER_CODE" />
@@ -994,7 +1392,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_GetUserRole' does not have a primar
           <Property Name="IsShowable" Type="bit" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_GetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_GetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_GetUsers">
           <Key>
             <PropertyRef Name="USER_CODE" />
@@ -1036,7 +1434,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_GetUsers' does not have a primary k
           <Property Name="StoreID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_Notifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_Notifications' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_Notifications">
           <Key>
             <PropertyRef Name="SYSTEM_CODE" />
@@ -1059,7 +1457,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_Notifications' does not have a prim
           <Property Name="FIN_YEAR" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.GQ_ReportWebSetting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.GQ_ReportWebSetting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GQ_ReportWebSetting">
           <Key>
             <PropertyRef Name="ReportSettingID" />
@@ -1093,7 +1491,7 @@ warning 6002: The table/view 'POS2021.dbo.GQ_ReportWebSetting' does not have a p
           <Property Name="OutputType" Type="varchar" MaxLength="5" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.I_VW_GetCompStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.I_VW_GetCompStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="I_VW_GetCompStatus">
           <Key>
             <PropertyRef Name="CompCode" />
@@ -1107,7 +1505,7 @@ warning 6002: The table/view 'POS2021.dbo.I_VW_GetCompStatus' does not have a pr
           <Property Name="LoginMsg" Type="varchar" MaxLength="106" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.IQ_Catch_Receipt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.IQ_Catch_Receipt' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="IQ_Catch_Receipt">
           <Key>
             <PropertyRef Name="ID_Receipt" />
@@ -1140,7 +1538,7 @@ warning 6002: The table/view 'POS2021.dbo.IQ_Catch_Receipt' does not have a prim
           <Property Name="USER_ACTIVE" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.IQ_Outlet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.IQ_Outlet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="IQ_Outlet">
           <Key>
             <PropertyRef Name="id" />
@@ -1157,7 +1555,7 @@ warning 6002: The table/view 'POS2021.dbo.IQ_Outlet' does not have a primary key
           <Property Name="Num_Day" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.IQ_Purchases_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.IQ_Purchases_Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="IQ_Purchases_Details">
           <Key>
             <PropertyRef Name="ID" />
@@ -1178,7 +1576,7 @@ warning 6002: The table/view 'POS2021.dbo.IQ_Purchases_Details' does not have a 
           <Property Name="PRODUCT_QET" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.IQ_Purchases_Master' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.IQ_Purchases_Master' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="IQ_Purchases_Master">
           <Key>
             <PropertyRef Name="TrNo" />
@@ -1198,7 +1596,7 @@ warning 6002: The table/view 'POS2021.dbo.IQ_Purchases_Master' does not have a p
           <Property Name="REMARKS" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.ReviewSalesItemInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.ReviewSalesItemInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ReviewSalesItemInfo">
           <Key>
             <PropertyRef Name="ID_DELIVERY" />
@@ -1216,7 +1614,7 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesItemInfo' does not have a p
           <Property Name="PRODUCT_ID" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'ERP.dbo.ReviewSalesMaster' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ReviewSalesMaster">
           <Key>
             <PropertyRef Name="ID_ORDER_Delivery" />
@@ -1539,6 +1937,9 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
           <Parameter Name="StatusFlag" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="POS2021ModelStoreContainer">
+          <EntitySet Name="AVAT_TR_SlsInvoice" EntityType="Self.AVAT_TR_SlsInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AVAT_TR_SlsInvoiceItem" EntityType="Self.AVAT_TR_SlsInvoiceItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AVAT_TRANS" EntityType="Self.AVAT_TRANS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Catch_Receipt" EntityType="Self.Catch_Receipt" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CATEGRES" EntityType="Self.CATEGRES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
@@ -1592,6 +1993,239 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
     [HIJRA_CONVERT].[START_DATE] AS [START_DATE], 
     [HIJRA_CONVERT].[MONTHSTMAP] AS [MONTHSTMAP]
     FROM [dbo].[HIJRA_CONVERT] AS [HIJRA_CONVERT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AQVAT_GetService" EntityType="Self.AQVAT_GetService" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AQVAT_GetService].[Itemid] AS [Itemid], 
+    [AQVAT_GetService].[ItemCode] AS [ItemCode], 
+    [AQVAT_GetService].[Itm_DescA] AS [Itm_DescA], 
+    [AQVAT_GetService].[Itm_DescE] AS [Itm_DescE], 
+    [AQVAT_GetService].[CompCode] AS [CompCode], 
+    [AQVAT_GetService].[Remarks] AS [Remarks], 
+    [AQVAT_GetService].[CreatedAt] AS [CreatedAt], 
+    [AQVAT_GetService].[CreatedBy] AS [CreatedBy], 
+    [AQVAT_GetService].[UpdatedAt] AS [UpdatedAt], 
+    [AQVAT_GetService].[UpdatedBy] AS [UpdatedBy], 
+    [AQVAT_GetService].[Uom_DescA] AS [Uom_DescA], 
+    [AQVAT_GetService].[Uom_DescE] AS [Uom_DescE], 
+    [AQVAT_GetService].[VatPrc] AS [VatPrc], 
+    [AQVAT_GetService].[VatNatID] AS [VatNatID], 
+    [AQVAT_GetService].[SrvCategoryID] AS [SrvCategoryID], 
+    [AQVAT_GetService].[UnitPrice] AS [UnitPrice], 
+    [AQVAT_GetService].[UomID] AS [UomID], 
+    [AQVAT_GetService].[UomCode] AS [UomCode], 
+    [AQVAT_GetService].[CAT_CODE] AS [CAT_CODE], 
+    [AQVAT_GetService].[Cat_DescA] AS [Cat_DescA], 
+    [AQVAT_GetService].[cat_DescE] AS [cat_DescE], 
+    [AQVAT_GetService].[VatNatureCode] AS [VatNatureCode], 
+    [AQVAT_GetService].[VatNatureDescA] AS [VatNatureDescA], 
+    [AQVAT_GetService].[VatNatureDescE] AS [VatNatureDescE], 
+    [AQVAT_GetService].[RefItemCode] AS [RefItemCode], 
+    [AQVAT_GetService].[OldItemCode] AS [OldItemCode], 
+    [AQVAT_GetService].[VndItemCode] AS [VndItemCode], 
+    [AQVAT_GetService].[IsPurchase] AS [IsPurchase], 
+    [AQVAT_GetService].[Expr1] AS [Expr1]
+    FROM [dbo].[AQVAT_GetService] AS [AQVAT_GetService]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AQVAT_GetSlsInvoiceItem" EntityType="Self.AQVAT_GetSlsInvoiceItem" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AQVAT_GetSlsInvoiceItem].[InvoiceItemID] AS [InvoiceItemID], 
+    [AQVAT_GetSlsInvoiceItem].[InvoiceID] AS [InvoiceID], 
+    [AQVAT_GetSlsInvoiceItem].[ItemID] AS [ItemID], 
+    [AQVAT_GetSlsInvoiceItem].[UomID] AS [UomID], 
+    [AQVAT_GetSlsInvoiceItem].[SoldQty] AS [SoldQty], 
+    [AQVAT_GetSlsInvoiceItem].[Unitprice] AS [Unitprice], 
+    [AQVAT_GetSlsInvoiceItem].[DiscountPrc] AS [DiscountPrc], 
+    [AQVAT_GetSlsInvoiceItem].[DiscountAmount] AS [DiscountAmount], 
+    [AQVAT_GetSlsInvoiceItem].[NetUnitPrice] AS [NetUnitPrice], 
+    [AQVAT_GetSlsInvoiceItem].[ItemTotal] AS [ItemTotal], 
+    [AQVAT_GetSlsInvoiceItem].[VatPrc] AS [VatPrc], 
+    [AQVAT_GetSlsInvoiceItem].[VatAmount] AS [VatAmount], 
+    [AQVAT_GetSlsInvoiceItem].[NetAfterVat] AS [NetAfterVat], 
+    [AQVAT_GetSlsInvoiceItem].[VatApplied] AS [VatApplied], 
+    [AQVAT_GetSlsInvoiceItem].[TotRetQty] AS [TotRetQty], 
+    [AQVAT_GetSlsInvoiceItem].[it_itemCode] AS [it_itemCode], 
+    [AQVAT_GetSlsInvoiceItem].[it_DescA] AS [it_DescA], 
+    [AQVAT_GetSlsInvoiceItem].[CompCode] AS [CompCode], 
+    [AQVAT_GetSlsInvoiceItem].[It_DescE] AS [It_DescE], 
+    [AQVAT_GetSlsInvoiceItem].[Uom_Code] AS [Uom_Code], 
+    [AQVAT_GetSlsInvoiceItem].[Uom_DescA] AS [Uom_DescA], 
+    [AQVAT_GetSlsInvoiceItem].[Uom_DescE] AS [Uom_DescE], 
+    [AQVAT_GetSlsInvoiceItem].[InvoiceSoldQty] AS [InvoiceSoldQty], 
+    [AQVAT_GetSlsInvoiceItem].[Serial] AS [Serial], 
+    [AQVAT_GetSlsInvoiceItem].[AllowAmount] AS [AllowAmount], 
+    [AQVAT_GetSlsInvoiceItem].[AllowancePrc] AS [AllowancePrc], 
+    [AQVAT_GetSlsInvoiceItem].[AllowanceBase] AS [AllowanceBase], 
+    [AQVAT_GetSlsInvoiceItem].[AllowReason] AS [AllowReason], 
+    [AQVAT_GetSlsInvoiceItem].[AllowCode] AS [AllowCode], 
+    [AQVAT_GetSlsInvoiceItem].[BaseQty] AS [BaseQty], 
+    [AQVAT_GetSlsInvoiceItem].[BaseQtyUomid] AS [BaseQtyUomid], 
+    [AQVAT_GetSlsInvoiceItem].[BaseQtyPrice] AS [BaseQtyPrice], 
+    [AQVAT_GetSlsInvoiceItem].[BaseQtyDiscount] AS [BaseQtyDiscount], 
+    [AQVAT_GetSlsInvoiceItem].[DiscountPrcBase] AS [DiscountPrcBase], 
+    [AQVAT_GetSlsInvoiceItem].[DiscountVatNatID] AS [DiscountVatNatID], 
+    [AQVAT_GetSlsInvoiceItem].[Discountreason] AS [Discountreason], 
+    [AQVAT_GetSlsInvoiceItem].[DiscountCode] AS [DiscountCode], 
+    [AQVAT_GetSlsInvoiceItem].[ItemNetAmount] AS [ItemNetAmount], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeAmount] AS [ChargeAmount], 
+    [AQVAT_GetSlsInvoiceItem].[ChargePrc] AS [ChargePrc], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeBase] AS [ChargeBase], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeVatNatID] AS [ChargeVatNatID], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeVatPrc] AS [ChargeVatPrc], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeAfterVat] AS [ChargeAfterVat], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeReason] AS [ChargeReason], 
+    [AQVAT_GetSlsInvoiceItem].[ChargeCode] AS [ChargeCode], 
+    [AQVAT_GetSlsInvoiceItem].[VatNatID] AS [VatNatID], 
+    [AQVAT_GetSlsInvoiceItem].[CC_CODE] AS [CC_CODE], 
+    [AQVAT_GetSlsInvoiceItem].[CC_DESCA] AS [CC_DESCA], 
+    [AQVAT_GetSlsInvoiceItem].[CC_DESCE] AS [CC_DESCE], 
+    [AQVAT_GetSlsInvoiceItem].[Cat_DescA] AS [Cat_DescA], 
+    [AQVAT_GetSlsInvoiceItem].[cat_DescE] AS [cat_DescE], 
+    [AQVAT_GetSlsInvoiceItem].[CAT_CODE] AS [CAT_CODE]
+    FROM [dbo].[AQVAT_GetSlsInvoiceItem] AS [AQVAT_GetSlsInvoiceItem]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AQVAT_GetSlsInvoiceList" EntityType="Self.AQVAT_GetSlsInvoiceList" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AQVAT_GetSlsInvoiceList].[InvoiceID] AS [InvoiceID], 
+    [AQVAT_GetSlsInvoiceList].[TrNo] AS [TrNo], 
+    [AQVAT_GetSlsInvoiceList].[RefNO] AS [RefNO], 
+    [AQVAT_GetSlsInvoiceList].[RefTrID] AS [RefTrID], 
+    [AQVAT_GetSlsInvoiceList].[TrDate] AS [TrDate], 
+    [AQVAT_GetSlsInvoiceList].[TrDateH] AS [TrDateH], 
+    [AQVAT_GetSlsInvoiceList].[TrType] AS [TrType], 
+    [AQVAT_GetSlsInvoiceList].[IsCash] AS [IsCash], 
+    [AQVAT_GetSlsInvoiceList].[SlsInvType] AS [SlsInvType], 
+    [AQVAT_GetSlsInvoiceList].[SlsInvSrc] AS [SlsInvSrc], 
+    [AQVAT_GetSlsInvoiceList].[CustomerName] AS [CustomerName], 
+    [AQVAT_GetSlsInvoiceList].[CustomerMobileNo] AS [CustomerMobileNo], 
+    [AQVAT_GetSlsInvoiceList].[SalesmanId] AS [SalesmanId], 
+    [AQVAT_GetSlsInvoiceList].[TotalAmount] AS [TotalAmount], 
+    [AQVAT_GetSlsInvoiceList].[VatAmount] AS [VatAmount], 
+    [AQVAT_GetSlsInvoiceList].[VatType] AS [VatType], 
+    [AQVAT_GetSlsInvoiceList].[DiscountAmount] AS [DiscountAmount], 
+    [AQVAT_GetSlsInvoiceList].[DiscountPrc] AS [DiscountPrc], 
+    [AQVAT_GetSlsInvoiceList].[NetAfterVat] AS [NetAfterVat], 
+    [AQVAT_GetSlsInvoiceList].[CashAmount] AS [CashAmount], 
+    [AQVAT_GetSlsInvoiceList].[CardAmount] AS [CardAmount], 
+    [AQVAT_GetSlsInvoiceList].[BankTfAmount] AS [BankTfAmount], 
+    [AQVAT_GetSlsInvoiceList].[BankAccount] AS [BankAccount], 
+    [AQVAT_GetSlsInvoiceList].[TotalPaidAmount] AS [TotalPaidAmount], 
+    [AQVAT_GetSlsInvoiceList].[RemainAmount] AS [RemainAmount], 
+    [AQVAT_GetSlsInvoiceList].[Remark] AS [Remark], 
+    [AQVAT_GetSlsInvoiceList].[Status] AS [Status], 
+    [AQVAT_GetSlsInvoiceList].[IsPosted] AS [IsPosted], 
+    [AQVAT_GetSlsInvoiceList].[VoucherNo] AS [VoucherNo], 
+    [AQVAT_GetSlsInvoiceList].[VoucherType] AS [VoucherType], 
+    [AQVAT_GetSlsInvoiceList].[CreatedAt] AS [CreatedAt], 
+    [AQVAT_GetSlsInvoiceList].[CreatedBy] AS [CreatedBy], 
+    [AQVAT_GetSlsInvoiceList].[UpdatedAt] AS [UpdatedAt], 
+    [AQVAT_GetSlsInvoiceList].[UpdatedBy] AS [UpdatedBy], 
+    [AQVAT_GetSlsInvoiceList].[CompCode] AS [CompCode], 
+    [AQVAT_GetSlsInvoiceList].[BranchCode] AS [BranchCode], 
+    [AQVAT_GetSlsInvoiceList].[Slsm_Code] AS [Slsm_Code], 
+    [AQVAT_GetSlsInvoiceList].[Slsm_DescA] AS [Slsm_DescA], 
+    [AQVAT_GetSlsInvoiceList].[Slsm_DescE] AS [Slsm_DescE], 
+    [AQVAT_GetSlsInvoiceList].[DocNo] AS [DocNo], 
+    [AQVAT_GetSlsInvoiceList].[DocUUID] AS [DocUUID], 
+    [AQVAT_GetSlsInvoiceList].[TrTime] AS [TrTime], 
+    [AQVAT_GetSlsInvoiceList].[InvoiceTypeCode] AS [InvoiceTypeCode], 
+    [AQVAT_GetSlsInvoiceList].[InvoiceTransCode] AS [InvoiceTransCode], 
+    [AQVAT_GetSlsInvoiceList].[TaxNotes] AS [TaxNotes], 
+    [AQVAT_GetSlsInvoiceList].[TaxCurrencyID] AS [TaxCurrencyID], 
+    [AQVAT_GetSlsInvoiceList].[InvoiceCurrenyID] AS [InvoiceCurrenyID], 
+    [AQVAT_GetSlsInvoiceList].[ContractNo] AS [ContractNo], 
+    [AQVAT_GetSlsInvoiceList].[PurchaseorderNo] AS [PurchaseorderNo], 
+    [AQVAT_GetSlsInvoiceList].[GlobalInvoiceCounter] AS [GlobalInvoiceCounter], 
+    [AQVAT_GetSlsInvoiceList].[PrevInvoiceHash] AS [PrevInvoiceHash], 
+    [AQVAT_GetSlsInvoiceList].[QRCode] AS [QRCode], 
+    [AQVAT_GetSlsInvoiceList].[CryptographicStamp] AS [CryptographicStamp], 
+    [AQVAT_GetSlsInvoiceList].[DeliveryDate] AS [DeliveryDate], 
+    [AQVAT_GetSlsInvoiceList].[DeliveryEndDate] AS [DeliveryEndDate], 
+    [AQVAT_GetSlsInvoiceList].[PaymentMeansTypeCode] AS [PaymentMeansTypeCode], 
+    [AQVAT_GetSlsInvoiceList].[CRDBReasoncode] AS [CRDBReasoncode], 
+    [AQVAT_GetSlsInvoiceList].[PaymentTerms] AS [PaymentTerms], 
+    [AQVAT_GetSlsInvoiceList].[PaymentTermsID] AS [PaymentTermsID], 
+    [AQVAT_GetSlsInvoiceList].[AllowAmount] AS [AllowAmount], 
+    [AQVAT_GetSlsInvoiceList].[AllowPrc] AS [AllowPrc], 
+    [AQVAT_GetSlsInvoiceList].[AllowBase] AS [AllowBase], 
+    [AQVAT_GetSlsInvoiceList].[AllowVatNatID] AS [AllowVatNatID], 
+    [AQVAT_GetSlsInvoiceList].[AllowVatPrc] AS [AllowVatPrc], 
+    [AQVAT_GetSlsInvoiceList].[AllowAfterVat] AS [AllowAfterVat], 
+    [AQVAT_GetSlsInvoiceList].[AllowReason] AS [AllowReason], 
+    [AQVAT_GetSlsInvoiceList].[AllowCode] AS [AllowCode], 
+    [AQVAT_GetSlsInvoiceList].[ChargeAmount] AS [ChargeAmount], 
+    [AQVAT_GetSlsInvoiceList].[ChargePrc] AS [ChargePrc], 
+    [AQVAT_GetSlsInvoiceList].[ChargeBase] AS [ChargeBase], 
+    [AQVAT_GetSlsInvoiceList].[ChargeVatNatID] AS [ChargeVatNatID], 
+    [AQVAT_GetSlsInvoiceList].[ChargeVatPrc] AS [ChargeVatPrc], 
+    [AQVAT_GetSlsInvoiceList].[ChargeAfterVat] AS [ChargeAfterVat], 
+    [AQVAT_GetSlsInvoiceList].[ChargeReason] AS [ChargeReason], 
+    [AQVAT_GetSlsInvoiceList].[ChargeCode] AS [ChargeCode], 
+    [AQVAT_GetSlsInvoiceList].[ItemTotal] AS [ItemTotal], 
+    [AQVAT_GetSlsInvoiceList].[ItemAllowTotal] AS [ItemAllowTotal], 
+    [AQVAT_GetSlsInvoiceList].[ItemDiscountTotal] AS [ItemDiscountTotal], 
+    [AQVAT_GetSlsInvoiceList].[ItemVatTotal] AS [ItemVatTotal], 
+    [AQVAT_GetSlsInvoiceList].[RoundingAmount] AS [RoundingAmount], 
+    [AQVAT_GetSlsInvoiceList].[RetInv_TrNo] AS [RetInv_TrNo], 
+    [AQVAT_GetSlsInvoiceList].[RetInv_TrDate] AS [RetInv_TrDate], 
+    [AQVAT_GetSlsInvoiceList].[RetInv_DocNo] AS [RetInv_DocNo], 
+    [AQVAT_GetSlsInvoiceList].[CustomerCODE] AS [CustomerCODE], 
+    [AQVAT_GetSlsInvoiceList].[CUSTOMER_NAME] AS [CUSTOMER_NAME], 
+    [AQVAT_GetSlsInvoiceList].[NAMEE] AS [NAMEE], 
+    [AQVAT_GetSlsInvoiceList].[CustomerId] AS [CustomerId]
+    FROM [dbo].[AQVAT_GetSlsInvoiceList] AS [AQVAT_GetSlsInvoiceList]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AQVAT_GetSrvCategory" EntityType="Self.AQVAT_GetSrvCategory" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AQVAT_GetSrvCategory].[DescA] AS [DescA], 
+    [AQVAT_GetSrvCategory].[ItemFormatFix] AS [ItemFormatFix], 
+    [AQVAT_GetSrvCategory].[ItemFormatSerial] AS [ItemFormatSerial], 
+    [AQVAT_GetSrvCategory].[IsPurchase] AS [IsPurchase], 
+    [AQVAT_GetSrvCategory].[Remarks] AS [Remarks], 
+    [AQVAT_GetSrvCategory].[CreatedAt] AS [CreatedAt], 
+    [AQVAT_GetSrvCategory].[CreatedBy] AS [CreatedBy], 
+    [AQVAT_GetSrvCategory].[UpdatedAt] AS [UpdatedAt], 
+    [AQVAT_GetSrvCategory].[UpdatedBy] AS [UpdatedBy], 
+    [AQVAT_GetSrvCategory].[VatNatID] AS [VatNatID], 
+    [AQVAT_GetSrvCategory].[SrvCategoryID] AS [SrvCategoryID], 
+    [AQVAT_GetSrvCategory].[COMP_CODE] AS [COMP_CODE], 
+    [AQVAT_GetSrvCategory].[CAT_CODE] AS [CAT_CODE], 
+    [AQVAT_GetSrvCategory].[DescE] AS [DescE], 
+    [AQVAT_GetSrvCategory].[SALES_ACC_CODE] AS [SALES_ACC_CODE], 
+    [AQVAT_GetSrvCategory].[RETURN_ACC_CODE] AS [RETURN_ACC_CODE], 
+    [AQVAT_GetSrvCategory].[DISC_ACC_CODE] AS [DISC_ACC_CODE], 
+    [AQVAT_GetSrvCategory].[ACTUAL_DATE] AS [ACTUAL_DATE], 
+    [AQVAT_GetSrvCategory].[Nature] AS [Nature], 
+    [AQVAT_GetSrvCategory].[VatNatureCode] AS [VatNatureCode], 
+    [AQVAT_GetSrvCategory].[VatNatureDescA] AS [VatNatureDescA], 
+    [AQVAT_GetSrvCategory].[VatNatureDescE] AS [VatNatureDescE], 
+    [AQVAT_GetSrvCategory].[VatPrc] AS [VatPrc], 
+    [AQVAT_GetSrvCategory].[sls_Acc_DescA] AS [sls_Acc_DescA], 
+    [AQVAT_GetSrvCategory].[sls_Acc_DescE] AS [sls_Acc_DescE], 
+    [AQVAT_GetSrvCategory].[Ret_Acc_DescA] AS [Ret_Acc_DescA], 
+    [AQVAT_GetSrvCategory].[Ret_Acc_DescE] AS [Ret_Acc_DescE], 
+    [AQVAT_GetSrvCategory].[Dis_Acc_DescA] AS [Dis_Acc_DescA], 
+    [AQVAT_GetSrvCategory].[Dis_Acc_DescE] AS [Dis_Acc_DescE]
+    FROM [dbo].[AQVAT_GetSrvCategory] AS [AQVAT_GetSrvCategory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AQVat_Srch_VatPurchaseHeader" EntityType="Self.AQVat_Srch_VatPurchaseHeader" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AQVat_Srch_VatPurchaseHeader].[InvoiceHeaderID] AS [InvoiceHeaderID], 
+    [AQVat_Srch_VatPurchaseHeader].[InvoiceId] AS [InvoiceId], 
+    [AQVat_Srch_VatPurchaseHeader].[Head_DocNO] AS [Head_DocNO], 
+    [AQVat_Srch_VatPurchaseHeader].[Invoice_DocNO] AS [Invoice_DocNO], 
+    [AQVat_Srch_VatPurchaseHeader].[VendorID] AS [VendorID], 
+    [AQVat_Srch_VatPurchaseHeader].[Vnd_NameA] AS [Vnd_NameA], 
+    [AQVat_Srch_VatPurchaseHeader].[Vnd_NameE] AS [Vnd_NameE], 
+    [AQVat_Srch_VatPurchaseHeader].[Inv_TrNO] AS [Inv_TrNO], 
+    [AQVat_Srch_VatPurchaseHeader].[Inv_TrDate] AS [Inv_TrDate], 
+    [AQVat_Srch_VatPurchaseHeader].[Head_TrDate] AS [Head_TrDate], 
+    [AQVat_Srch_VatPurchaseHeader].[TOTAL] AS [TOTAL], 
+    [AQVat_Srch_VatPurchaseHeader].[DISCOUNT] AS [DISCOUNT], 
+    [AQVat_Srch_VatPurchaseHeader].[VatAmount] AS [VatAmount], 
+    [AQVat_Srch_VatPurchaseHeader].[Net] AS [Net], 
+    [AQVat_Srch_VatPurchaseHeader].[CompCode] AS [CompCode]
+    FROM [dbo].[AQVat_Srch_VatPurchaseHeader] AS [AQVat_Srch_VatPurchaseHeader]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="GQ_GetUserBarnchAccess" EntityType="Self.GQ_GetUserBarnchAccess" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -3305,6 +3939,14 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
             <Parameter Name="ToDate" Mode="In" Type="DateTime" />
           </FunctionImport>
           <EntitySet Name="G_USERS" EntityType="POS2021Model.G_USERS" />
+          <EntitySet Name="AVAT_TR_SlsInvoice" EntityType="POS2021Model.AVAT_TR_SlsInvoice" />
+          <EntitySet Name="AVAT_TRANS" EntityType="POS2021Model.AVAT_TRANS" />
+          <EntitySet Name="AQVAT_GetService" EntityType="POS2021Model.AQVAT_GetService" />
+          <EntitySet Name="AQVAT_GetSlsInvoiceItem" EntityType="POS2021Model.AQVAT_GetSlsInvoiceItem" />
+          <EntitySet Name="AQVAT_GetSrvCategory" EntityType="POS2021Model.AQVAT_GetSrvCategory" />
+          <EntitySet Name="AQVat_Srch_VatPurchaseHeader" EntityType="POS2021Model.AQVat_Srch_VatPurchaseHeader" />
+          <EntitySet Name="AVAT_TR_SlsInvoiceItem" EntityType="POS2021Model.AVAT_TR_SlsInvoiceItem" />
+          <EntitySet Name="AQVAT_GetSlsInvoiceList" EntityType="POS2021Model.AQVAT_GetSlsInvoiceList" />
         </EntityContainer>
         <ComplexType Name="Get_Settings_Report_Result">
           <Property Type="Int32" Name="ID_Report" Nullable="false" />
@@ -3444,7 +4086,7 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
           <Property Name="USER_PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="USER_ACTIVE" Type="Boolean" Nullable="false" />
           <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CompCode" Type="Int32" />
+          <Property Name="CompCode" Type="Int32" Nullable="false" />
           <Property Name="REGION_CODE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="GRP_CODE" Type="Int32" />
           <Property Name="USER_PASSWORD2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -3477,6 +4119,393 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
           <Property Name="End_Data" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Start_Data" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Day_Off" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AVAT_TR_SlsInvoice">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrNo" Type="Int32" />
+          <Property Name="RefNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefTrID" Type="Int32" />
+          <Property Name="TrDate" Type="DateTime" Precision="0" />
+          <Property Name="TrDateH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TrType" Type="Int32" />
+          <Property Name="IsCash" Type="Boolean" />
+          <Property Name="SlsInvType" Type="Int32" />
+          <Property Name="SlsInvSrc" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SalesmanId" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatType" Type="Int32" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPrc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetAfterVat" Type="Decimal" Precision="20" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="CashAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CardAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BankTfAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPaidAmount" Type="Decimal" Precision="20" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RemainAmount" Type="Decimal" Precision="21" Scale="2" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsPosted" Type="Boolean" />
+          <Property Name="VoucherNo" Type="Int32" />
+          <Property Name="VoucherType" Type="Byte" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CompCode" Type="Int32" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="DocNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocUUID" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="TrTime" Type="Time" Precision="7" />
+          <Property Name="InvoiceTypeCode" Type="Int32" />
+          <Property Name="InvoiceTransCode" Type="Int32" />
+          <Property Name="TaxNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCurrencyID" Type="Int32" />
+          <Property Name="InvoiceCurrenyID" Type="Int32" />
+          <Property Name="ContractNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseorderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GlobalInvoiceCounter" Type="Int32" />
+          <Property Name="PrevInvoiceHash" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="QRCode" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="CryptographicStamp" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="DeliveryEndDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentMeansTypeCode" Type="Int32" />
+          <Property Name="CRDBReasoncode" Type="Int32" />
+          <Property Name="PaymentTerms" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTermsID" Type="Int32" />
+          <Property Name="AllowAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowVatNatID" Type="Int32" />
+          <Property Name="AllowVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllowCode" Type="Int32" />
+          <Property Name="ChargeAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="Int32" />
+          <Property Name="ChargeVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChargeCode" Type="Int32" />
+          <Property Name="ItemTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemAllowTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemDiscountTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemVatTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="RoundingAmount" Type="Decimal" Precision="19" Scale="2" />
+        </EntityType>
+        <EntityType Name="AVAT_TRANS">
+          <Key>
+            <PropertyRef Name="COMP_CODE" />
+            <PropertyRef Name="SYSTEM_CODE" />
+            <PropertyRef Name="TRTYPE" />
+          </Key>
+          <Property Name="COMP_CODE" Type="Int32" Nullable="false" />
+          <Property Name="SYSTEM_CODE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TRTYPE" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TRDESCA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TRDESCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SYSTEMDESCA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SYSTEMDESCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SEC" Type="Int32" />
+          <Property Name="ISAVAILABLE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="AQVAT_GetService">
+          <Key>
+            <PropertyRef Name="Itemid" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="Itemid" Type="Int32" Nullable="false" />
+          <Property Name="ItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Itm_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Itm_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompCode" Type="Int32" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Uom_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Uom_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="VatPrc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatNatID" Type="Int32" />
+          <Property Name="SrvCategoryID" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="UomID" Type="Int32" />
+          <Property Name="UomCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CAT_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="Cat_DescA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cat_DescE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatureCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatureDescA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatureDescE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="OldItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="VndItemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IsPurchase" Type="Boolean" />
+          <Property Name="Expr1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AQVAT_GetSlsInvoiceItem">
+          <Key>
+            <PropertyRef Name="InvoiceItemID" />
+          </Key>
+          <Property Name="InvoiceItemID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="UomID" Type="Int32" />
+          <Property Name="SoldQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Unitprice" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DiscountPrc" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="NetUnitPrice" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="ItemTotal" Type="Decimal" Precision="37" Scale="10" />
+          <Property Name="VatPrc" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="VatAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="NetAfterVat" Type="Decimal" Precision="38" Scale="10" />
+          <Property Name="VatApplied" Type="Int32" />
+          <Property Name="TotRetQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="it_itemCode" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="it_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CompCode" Type="Int32" />
+          <Property Name="It_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Uom_Code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Uom_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Uom_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InvoiceSoldQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Serial" Type="Int32" />
+          <Property Name="AllowAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowancePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowanceBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllowCode" Type="Int32" />
+          <Property Name="BaseQty" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BaseQtyUomid" Type="Int32" />
+          <Property Name="BaseQtyPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BaseQtyDiscount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DiscountPrcBase" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="DiscountVatNatID" Type="Int32" />
+          <Property Name="Discountreason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountCode" Type="Int32" />
+          <Property Name="ItemNetAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="Int32" />
+          <Property Name="ChargeVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChargeCode" Type="Int32" />
+          <Property Name="VatNatID" Type="Int32" />
+          <Property Name="CC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CC_DESCA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CC_DESCE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Cat_DescA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cat_DescE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CAT_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AQVAT_GetSrvCategory">
+          <Key>
+            <PropertyRef Name="SrvCategoryID" />
+          </Key>
+          <Property Name="DescA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemFormatFix" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ItemFormatSerial" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="IsPurchase" Type="Boolean" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatID" Type="Int32" />
+          <Property Name="SrvCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="COMP_CODE" Type="Int32" />
+          <Property Name="CAT_CODE" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="DescE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SALES_ACC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="RETURN_ACC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DISC_ACC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ACTUAL_DATE" Type="DateTime" Precision="3" />
+          <Property Name="Nature" Type="Byte" />
+          <Property Name="VatNatureCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatureDescA" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatNatureDescE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatPrc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sls_Acc_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sls_Acc_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ret_Acc_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Ret_Acc_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dis_Acc_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dis_Acc_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AQVat_Srch_VatPurchaseHeader">
+          <Key>
+            <PropertyRef Name="InvoiceHeaderID" />
+          </Key>
+          <Property Name="InvoiceHeaderID" Type="Int32" Nullable="false" />
+          <Property Name="InvoiceId" Type="Int32" />
+          <Property Name="Head_DocNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice_DocNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VendorID" Type="Int32" />
+          <Property Name="Vnd_NameA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vnd_NameE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Inv_TrNO" Type="Int32" />
+          <Property Name="Inv_TrDate" Type="DateTime" Precision="0" />
+          <Property Name="Head_TrDate" Type="DateTime" Precision="0" />
+          <Property Name="TOTAL" Type="Decimal" Precision="19" Scale="5" />
+          <Property Name="DISCOUNT" Type="Decimal" Precision="19" Scale="5" />
+          <Property Name="VatAmount" Type="Decimal" Precision="19" Scale="5" />
+          <Property Name="Net" Type="Decimal" Precision="19" Scale="5" />
+          <Property Name="CompCode" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AVAT_TR_SlsInvoiceItem">
+          <Key>
+            <PropertyRef Name="InvoiceItemID" />
+          </Key>
+          <Property Name="InvoiceItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceID" Type="Int32" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="UomID" Type="Int32" />
+          <Property Name="InvoiceSoldQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="SoldQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Unitprice" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DiscountPrc" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="NetUnitPrice" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="ItemTotal" Type="Decimal" Precision="37" Scale="10" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="VatPrc" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="VatAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="NetAfterVat" Type="Decimal" Precision="38" Scale="10" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="VatApplied" Type="Int32" />
+          <Property Name="TotRetQty" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="Serial" Type="Int32" />
+          <Property Name="AllowAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowancePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowanceBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllowCode" Type="Int32" />
+          <Property Name="BaseQty" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BaseQtyUomid" Type="Int32" />
+          <Property Name="BaseQtyPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BaseQtyDiscount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DiscountPrcBase" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="DiscountVatNatID" Type="Int32" />
+          <Property Name="Discountreason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DiscountCode" Type="Int32" />
+          <Property Name="ItemNetAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="Int32" />
+          <Property Name="ChargeVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChargeCode" Type="Int32" />
+          <Property Name="VatNatID" Type="Int32" />
+          <Property Name="CC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Item" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Uom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name_Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="AQVAT_GetSlsInvoiceList">
+          <Key>
+            <PropertyRef Name="InvoiceID" />
+          </Key>
+          <Property Name="InvoiceID" Type="Int32" Nullable="false" />
+          <Property Name="TrNo" Type="Int32" />
+          <Property Name="RefNO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RefTrID" Type="Int32" />
+          <Property Name="TrDate" Type="DateTime" Precision="0" />
+          <Property Name="TrDateH" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TrType" Type="Int32" />
+          <Property Name="IsCash" Type="Boolean" />
+          <Property Name="SlsInvType" Type="Int32" />
+          <Property Name="SlsInvSrc" Type="Int32" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerMobileNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SalesmanId" Type="Int32" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VatType" Type="Int32" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DiscountPrc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NetAfterVat" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="CashAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CardAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BankTfAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="BankAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPaidAmount" Type="Decimal" Precision="20" Scale="2" />
+          <Property Name="RemainAmount" Type="Decimal" Precision="21" Scale="2" />
+          <Property Name="Remark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="IsPosted" Type="Boolean" />
+          <Property Name="VoucherNo" Type="Int32" />
+          <Property Name="VoucherType" Type="Byte" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CompCode" Type="Int32" />
+          <Property Name="BranchCode" Type="Int32" />
+          <Property Name="Slsm_Code" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Slsm_DescA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Slsm_DescE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DocNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DocUUID" Type="String" MaxLength="124" FixedLength="false" Unicode="true" />
+          <Property Name="TrTime" Type="Time" Precision="7" />
+          <Property Name="InvoiceTypeCode" Type="Int32" />
+          <Property Name="InvoiceTransCode" Type="Int32" />
+          <Property Name="TaxNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCurrencyID" Type="Int32" />
+          <Property Name="InvoiceCurrenyID" Type="Int32" />
+          <Property Name="ContractNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PurchaseorderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GlobalInvoiceCounter" Type="Int32" />
+          <Property Name="PrevInvoiceHash" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="QRCode" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="CryptographicStamp" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryDate" Type="DateTime" Precision="0" />
+          <Property Name="DeliveryEndDate" Type="DateTime" Precision="0" />
+          <Property Name="PaymentMeansTypeCode" Type="Int32" />
+          <Property Name="CRDBReasoncode" Type="Int32" />
+          <Property Name="PaymentTerms" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PaymentTermsID" Type="Int32" />
+          <Property Name="AllowAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowVatNatID" Type="Int32" />
+          <Property Name="AllowVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="AllowReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="AllowCode" Type="Int32" />
+          <Property Name="ChargeAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargePrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeBase" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeVatNatID" Type="Int32" />
+          <Property Name="ChargeVatPrc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ChargeAfterVat" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ChargeReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ChargeCode" Type="Int32" />
+          <Property Name="ItemTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemAllowTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemDiscountTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="ItemVatTotal" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="RoundingAmount" Type="Decimal" Precision="19" Scale="2" />
+          <Property Name="RetInv_TrNo" Type="Int32" />
+          <Property Name="RetInv_TrDate" Type="DateTime" Precision="0" />
+          <Property Name="RetInv_DocNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCODE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NAMEE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerId" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -4887,6 +5916,398 @@ warning 6002: The table/view 'POS2021.dbo.ReviewSalesMaster' does not have a pri
                 <ScalarProperty Name="USER_PASSWORD" ColumnName="USER_PASSWORD" />
                 <ScalarProperty Name="ID_Code" ColumnName="ID_Code" />
                 <ScalarProperty Name="USER_CODE" ColumnName="USER_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AVAT_TR_SlsInvoice">
+            <EntityTypeMapping TypeName="POS2021Model.AVAT_TR_SlsInvoice">
+              <MappingFragment StoreEntitySet="AVAT_TR_SlsInvoice">
+                <ScalarProperty Name="RoundingAmount" ColumnName="RoundingAmount" />
+                <ScalarProperty Name="ItemVatTotal" ColumnName="ItemVatTotal" />
+                <ScalarProperty Name="ItemDiscountTotal" ColumnName="ItemDiscountTotal" />
+                <ScalarProperty Name="ItemAllowTotal" ColumnName="ItemAllowTotal" />
+                <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+                <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+                <ScalarProperty Name="ChargeReason" ColumnName="ChargeReason" />
+                <ScalarProperty Name="ChargeAfterVat" ColumnName="ChargeAfterVat" />
+                <ScalarProperty Name="ChargeVatPrc" ColumnName="ChargeVatPrc" />
+                <ScalarProperty Name="ChargeVatNatID" ColumnName="ChargeVatNatID" />
+                <ScalarProperty Name="ChargeBase" ColumnName="ChargeBase" />
+                <ScalarProperty Name="ChargePrc" ColumnName="ChargePrc" />
+                <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+                <ScalarProperty Name="AllowCode" ColumnName="AllowCode" />
+                <ScalarProperty Name="AllowReason" ColumnName="AllowReason" />
+                <ScalarProperty Name="AllowAfterVat" ColumnName="AllowAfterVat" />
+                <ScalarProperty Name="AllowVatPrc" ColumnName="AllowVatPrc" />
+                <ScalarProperty Name="AllowVatNatID" ColumnName="AllowVatNatID" />
+                <ScalarProperty Name="AllowBase" ColumnName="AllowBase" />
+                <ScalarProperty Name="AllowPrc" ColumnName="AllowPrc" />
+                <ScalarProperty Name="AllowAmount" ColumnName="AllowAmount" />
+                <ScalarProperty Name="PaymentTermsID" ColumnName="PaymentTermsID" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="CRDBReasoncode" ColumnName="CRDBReasoncode" />
+                <ScalarProperty Name="PaymentMeansTypeCode" ColumnName="PaymentMeansTypeCode" />
+                <ScalarProperty Name="DeliveryEndDate" ColumnName="DeliveryEndDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="CryptographicStamp" ColumnName="CryptographicStamp" />
+                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="PrevInvoiceHash" ColumnName="PrevInvoiceHash" />
+                <ScalarProperty Name="GlobalInvoiceCounter" ColumnName="GlobalInvoiceCounter" />
+                <ScalarProperty Name="PurchaseorderNo" ColumnName="PurchaseorderNo" />
+                <ScalarProperty Name="ContractNo" ColumnName="ContractNo" />
+                <ScalarProperty Name="InvoiceCurrenyID" ColumnName="InvoiceCurrenyID" />
+                <ScalarProperty Name="TaxCurrencyID" ColumnName="TaxCurrencyID" />
+                <ScalarProperty Name="TaxNotes" ColumnName="TaxNotes" />
+                <ScalarProperty Name="InvoiceTransCode" ColumnName="InvoiceTransCode" />
+                <ScalarProperty Name="InvoiceTypeCode" ColumnName="InvoiceTypeCode" />
+                <ScalarProperty Name="TrTime" ColumnName="TrTime" />
+                <ScalarProperty Name="DocUUID" ColumnName="DocUUID" />
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RemainAmount" ColumnName="RemainAmount" />
+                <ScalarProperty Name="TotalPaidAmount" ColumnName="TotalPaidAmount" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankTfAmount" ColumnName="BankTfAmount" />
+                <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+                <ScalarProperty Name="CashAmount" ColumnName="CashAmount" />
+                <ScalarProperty Name="NetAfterVat" ColumnName="NetAfterVat" />
+                <ScalarProperty Name="DiscountPrc" ColumnName="DiscountPrc" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="VatType" ColumnName="VatType" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
+                <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="SlsInvSrc" ColumnName="SlsInvSrc" />
+                <ScalarProperty Name="SlsInvType" ColumnName="SlsInvType" />
+                <ScalarProperty Name="IsCash" ColumnName="IsCash" />
+                <ScalarProperty Name="TrType" ColumnName="TrType" />
+                <ScalarProperty Name="TrDateH" ColumnName="TrDateH" />
+                <ScalarProperty Name="TrDate" ColumnName="TrDate" />
+                <ScalarProperty Name="RefTrID" ColumnName="RefTrID" />
+                <ScalarProperty Name="RefNO" ColumnName="RefNO" />
+                <ScalarProperty Name="TrNo" ColumnName="TrNo" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AVAT_TRANS">
+            <EntityTypeMapping TypeName="POS2021Model.AVAT_TRANS">
+              <MappingFragment StoreEntitySet="AVAT_TRANS">
+                <ScalarProperty Name="ISAVAILABLE" ColumnName="ISAVAILABLE" />
+                <ScalarProperty Name="SEC" ColumnName="SEC" />
+                <ScalarProperty Name="SYSTEMDESCE" ColumnName="SYSTEMDESCE" />
+                <ScalarProperty Name="SYSTEMDESCA" ColumnName="SYSTEMDESCA" />
+                <ScalarProperty Name="TRDESCE" ColumnName="TRDESCE" />
+                <ScalarProperty Name="TRDESCA" ColumnName="TRDESCA" />
+                <ScalarProperty Name="TRTYPE" ColumnName="TRTYPE" />
+                <ScalarProperty Name="SYSTEM_CODE" ColumnName="SYSTEM_CODE" />
+                <ScalarProperty Name="COMP_CODE" ColumnName="COMP_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AQVAT_GetService">
+            <EntityTypeMapping TypeName="POS2021Model.AQVAT_GetService">
+              <MappingFragment StoreEntitySet="AQVAT_GetService">
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+                <ScalarProperty Name="VndItemCode" ColumnName="VndItemCode" />
+                <ScalarProperty Name="OldItemCode" ColumnName="OldItemCode" />
+                <ScalarProperty Name="RefItemCode" ColumnName="RefItemCode" />
+                <ScalarProperty Name="VatNatureDescE" ColumnName="VatNatureDescE" />
+                <ScalarProperty Name="VatNatureDescA" ColumnName="VatNatureDescA" />
+                <ScalarProperty Name="VatNatureCode" ColumnName="VatNatureCode" />
+                <ScalarProperty Name="cat_DescE" ColumnName="cat_DescE" />
+                <ScalarProperty Name="Cat_DescA" ColumnName="Cat_DescA" />
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="UomCode" ColumnName="UomCode" />
+                <ScalarProperty Name="UomID" ColumnName="UomID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="SrvCategoryID" ColumnName="SrvCategoryID" />
+                <ScalarProperty Name="VatNatID" ColumnName="VatNatID" />
+                <ScalarProperty Name="VatPrc" ColumnName="VatPrc" />
+                <ScalarProperty Name="Uom_DescE" ColumnName="Uom_DescE" />
+                <ScalarProperty Name="Uom_DescA" ColumnName="Uom_DescA" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+                <ScalarProperty Name="Itm_DescE" ColumnName="Itm_DescE" />
+                <ScalarProperty Name="Itm_DescA" ColumnName="Itm_DescA" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AQVAT_GetSlsInvoiceItem">
+            <EntityTypeMapping TypeName="POS2021Model.AQVAT_GetSlsInvoiceItem">
+              <MappingFragment StoreEntitySet="AQVAT_GetSlsInvoiceItem">
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="cat_DescE" ColumnName="cat_DescE" />
+                <ScalarProperty Name="Cat_DescA" ColumnName="Cat_DescA" />
+                <ScalarProperty Name="CC_DESCE" ColumnName="CC_DESCE" />
+                <ScalarProperty Name="CC_DESCA" ColumnName="CC_DESCA" />
+                <ScalarProperty Name="CC_CODE" ColumnName="CC_CODE" />
+                <ScalarProperty Name="VatNatID" ColumnName="VatNatID" />
+                <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+                <ScalarProperty Name="ChargeReason" ColumnName="ChargeReason" />
+                <ScalarProperty Name="ChargeAfterVat" ColumnName="ChargeAfterVat" />
+                <ScalarProperty Name="ChargeVatPrc" ColumnName="ChargeVatPrc" />
+                <ScalarProperty Name="ChargeVatNatID" ColumnName="ChargeVatNatID" />
+                <ScalarProperty Name="ChargeBase" ColumnName="ChargeBase" />
+                <ScalarProperty Name="ChargePrc" ColumnName="ChargePrc" />
+                <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+                <ScalarProperty Name="ItemNetAmount" ColumnName="ItemNetAmount" />
+                <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+                <ScalarProperty Name="Discountreason" ColumnName="Discountreason" />
+                <ScalarProperty Name="DiscountVatNatID" ColumnName="DiscountVatNatID" />
+                <ScalarProperty Name="DiscountPrcBase" ColumnName="DiscountPrcBase" />
+                <ScalarProperty Name="BaseQtyDiscount" ColumnName="BaseQtyDiscount" />
+                <ScalarProperty Name="BaseQtyPrice" ColumnName="BaseQtyPrice" />
+                <ScalarProperty Name="BaseQtyUomid" ColumnName="BaseQtyUomid" />
+                <ScalarProperty Name="BaseQty" ColumnName="BaseQty" />
+                <ScalarProperty Name="AllowCode" ColumnName="AllowCode" />
+                <ScalarProperty Name="AllowReason" ColumnName="AllowReason" />
+                <ScalarProperty Name="AllowanceBase" ColumnName="AllowanceBase" />
+                <ScalarProperty Name="AllowancePrc" ColumnName="AllowancePrc" />
+                <ScalarProperty Name="AllowAmount" ColumnName="AllowAmount" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="InvoiceSoldQty" ColumnName="InvoiceSoldQty" />
+                <ScalarProperty Name="Uom_DescE" ColumnName="Uom_DescE" />
+                <ScalarProperty Name="Uom_DescA" ColumnName="Uom_DescA" />
+                <ScalarProperty Name="Uom_Code" ColumnName="Uom_Code" />
+                <ScalarProperty Name="It_DescE" ColumnName="It_DescE" />
+                <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+                <ScalarProperty Name="it_DescA" ColumnName="it_DescA" />
+                <ScalarProperty Name="it_itemCode" ColumnName="it_itemCode" />
+                <ScalarProperty Name="TotRetQty" ColumnName="TotRetQty" />
+                <ScalarProperty Name="VatApplied" ColumnName="VatApplied" />
+                <ScalarProperty Name="NetAfterVat" ColumnName="NetAfterVat" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="VatPrc" ColumnName="VatPrc" />
+                <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+                <ScalarProperty Name="NetUnitPrice" ColumnName="NetUnitPrice" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountPrc" ColumnName="DiscountPrc" />
+                <ScalarProperty Name="Unitprice" ColumnName="Unitprice" />
+                <ScalarProperty Name="SoldQty" ColumnName="SoldQty" />
+                <ScalarProperty Name="UomID" ColumnName="UomID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvoiceItemID" ColumnName="InvoiceItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AQVAT_GetSrvCategory">
+            <EntityTypeMapping TypeName="POS2021Model.AQVAT_GetSrvCategory">
+              <MappingFragment StoreEntitySet="AQVAT_GetSrvCategory">
+                <ScalarProperty Name="Dis_Acc_DescE" ColumnName="Dis_Acc_DescE" />
+                <ScalarProperty Name="Dis_Acc_DescA" ColumnName="Dis_Acc_DescA" />
+                <ScalarProperty Name="Ret_Acc_DescE" ColumnName="Ret_Acc_DescE" />
+                <ScalarProperty Name="Ret_Acc_DescA" ColumnName="Ret_Acc_DescA" />
+                <ScalarProperty Name="sls_Acc_DescE" ColumnName="sls_Acc_DescE" />
+                <ScalarProperty Name="sls_Acc_DescA" ColumnName="sls_Acc_DescA" />
+                <ScalarProperty Name="VatPrc" ColumnName="VatPrc" />
+                <ScalarProperty Name="VatNatureDescE" ColumnName="VatNatureDescE" />
+                <ScalarProperty Name="VatNatureDescA" ColumnName="VatNatureDescA" />
+                <ScalarProperty Name="VatNatureCode" ColumnName="VatNatureCode" />
+                <ScalarProperty Name="Nature" ColumnName="Nature" />
+                <ScalarProperty Name="ACTUAL_DATE" ColumnName="ACTUAL_DATE" />
+                <ScalarProperty Name="DISC_ACC_CODE" ColumnName="DISC_ACC_CODE" />
+                <ScalarProperty Name="RETURN_ACC_CODE" ColumnName="RETURN_ACC_CODE" />
+                <ScalarProperty Name="SALES_ACC_CODE" ColumnName="SALES_ACC_CODE" />
+                <ScalarProperty Name="DescE" ColumnName="DescE" />
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+                <ScalarProperty Name="COMP_CODE" ColumnName="COMP_CODE" />
+                <ScalarProperty Name="SrvCategoryID" ColumnName="SrvCategoryID" />
+                <ScalarProperty Name="VatNatID" ColumnName="VatNatID" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IsPurchase" ColumnName="IsPurchase" />
+                <ScalarProperty Name="ItemFormatSerial" ColumnName="ItemFormatSerial" />
+                <ScalarProperty Name="ItemFormatFix" ColumnName="ItemFormatFix" />
+                <ScalarProperty Name="DescA" ColumnName="DescA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AQVat_Srch_VatPurchaseHeader">
+            <EntityTypeMapping TypeName="POS2021Model.AQVat_Srch_VatPurchaseHeader">
+              <MappingFragment StoreEntitySet="AQVat_Srch_VatPurchaseHeader">
+                <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+                <ScalarProperty Name="TOTAL" ColumnName="TOTAL" />
+                <ScalarProperty Name="Head_TrDate" ColumnName="Head_TrDate" />
+                <ScalarProperty Name="Inv_TrDate" ColumnName="Inv_TrDate" />
+                <ScalarProperty Name="Inv_TrNO" ColumnName="Inv_TrNO" />
+                <ScalarProperty Name="Vnd_NameE" ColumnName="Vnd_NameE" />
+                <ScalarProperty Name="Vnd_NameA" ColumnName="Vnd_NameA" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="Invoice_DocNO" ColumnName="Invoice_DocNO" />
+                <ScalarProperty Name="Head_DocNO" ColumnName="Head_DocNO" />
+                <ScalarProperty Name="InvoiceId" ColumnName="InvoiceId" />
+                <ScalarProperty Name="InvoiceHeaderID" ColumnName="InvoiceHeaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AVAT_TR_SlsInvoiceItem">
+            <EntityTypeMapping TypeName="POS2021Model.AVAT_TR_SlsInvoiceItem">
+              <MappingFragment StoreEntitySet="AVAT_TR_SlsInvoiceItem">
+                <ScalarProperty Name="Name_Category" ColumnName="Name_Category" />
+                <ScalarProperty Name="Uom" ColumnName="Uom" />
+                <ScalarProperty Name="Name_Item" ColumnName="Name_Item" />
+                <ScalarProperty Name="CC_CODE" ColumnName="CC_CODE" />
+                <ScalarProperty Name="VatNatID" ColumnName="VatNatID" />
+                <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+                <ScalarProperty Name="ChargeReason" ColumnName="ChargeReason" />
+                <ScalarProperty Name="ChargeAfterVat" ColumnName="ChargeAfterVat" />
+                <ScalarProperty Name="ChargeVatPrc" ColumnName="ChargeVatPrc" />
+                <ScalarProperty Name="ChargeVatNatID" ColumnName="ChargeVatNatID" />
+                <ScalarProperty Name="ChargeBase" ColumnName="ChargeBase" />
+                <ScalarProperty Name="ChargePrc" ColumnName="ChargePrc" />
+                <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+                <ScalarProperty Name="ItemNetAmount" ColumnName="ItemNetAmount" />
+                <ScalarProperty Name="DiscountCode" ColumnName="DiscountCode" />
+                <ScalarProperty Name="Discountreason" ColumnName="Discountreason" />
+                <ScalarProperty Name="DiscountVatNatID" ColumnName="DiscountVatNatID" />
+                <ScalarProperty Name="DiscountPrcBase" ColumnName="DiscountPrcBase" />
+                <ScalarProperty Name="BaseQtyDiscount" ColumnName="BaseQtyDiscount" />
+                <ScalarProperty Name="BaseQtyPrice" ColumnName="BaseQtyPrice" />
+                <ScalarProperty Name="BaseQtyUomid" ColumnName="BaseQtyUomid" />
+                <ScalarProperty Name="BaseQty" ColumnName="BaseQty" />
+                <ScalarProperty Name="AllowCode" ColumnName="AllowCode" />
+                <ScalarProperty Name="AllowReason" ColumnName="AllowReason" />
+                <ScalarProperty Name="AllowanceBase" ColumnName="AllowanceBase" />
+                <ScalarProperty Name="AllowancePrc" ColumnName="AllowancePrc" />
+                <ScalarProperty Name="AllowAmount" ColumnName="AllowAmount" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="TotRetQty" ColumnName="TotRetQty" />
+                <ScalarProperty Name="VatApplied" ColumnName="VatApplied" />
+                <ScalarProperty Name="NetAfterVat" ColumnName="NetAfterVat" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="VatPrc" ColumnName="VatPrc" />
+                <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+                <ScalarProperty Name="NetUnitPrice" ColumnName="NetUnitPrice" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="DiscountPrc" ColumnName="DiscountPrc" />
+                <ScalarProperty Name="Unitprice" ColumnName="Unitprice" />
+                <ScalarProperty Name="SoldQty" ColumnName="SoldQty" />
+                <ScalarProperty Name="InvoiceSoldQty" ColumnName="InvoiceSoldQty" />
+                <ScalarProperty Name="UomID" ColumnName="UomID" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+                <ScalarProperty Name="InvoiceItemID" ColumnName="InvoiceItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AQVAT_GetSlsInvoiceList">
+            <EntityTypeMapping TypeName="POS2021Model.AQVAT_GetSlsInvoiceList">
+              <MappingFragment StoreEntitySet="AQVAT_GetSlsInvoiceList">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="NAMEE" ColumnName="NAMEE" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="CustomerCODE" ColumnName="CustomerCODE" />
+                <ScalarProperty Name="RetInv_DocNo" ColumnName="RetInv_DocNo" />
+                <ScalarProperty Name="RetInv_TrDate" ColumnName="RetInv_TrDate" />
+                <ScalarProperty Name="RetInv_TrNo" ColumnName="RetInv_TrNo" />
+                <ScalarProperty Name="RoundingAmount" ColumnName="RoundingAmount" />
+                <ScalarProperty Name="ItemVatTotal" ColumnName="ItemVatTotal" />
+                <ScalarProperty Name="ItemDiscountTotal" ColumnName="ItemDiscountTotal" />
+                <ScalarProperty Name="ItemAllowTotal" ColumnName="ItemAllowTotal" />
+                <ScalarProperty Name="ItemTotal" ColumnName="ItemTotal" />
+                <ScalarProperty Name="ChargeCode" ColumnName="ChargeCode" />
+                <ScalarProperty Name="ChargeReason" ColumnName="ChargeReason" />
+                <ScalarProperty Name="ChargeAfterVat" ColumnName="ChargeAfterVat" />
+                <ScalarProperty Name="ChargeVatPrc" ColumnName="ChargeVatPrc" />
+                <ScalarProperty Name="ChargeVatNatID" ColumnName="ChargeVatNatID" />
+                <ScalarProperty Name="ChargeBase" ColumnName="ChargeBase" />
+                <ScalarProperty Name="ChargePrc" ColumnName="ChargePrc" />
+                <ScalarProperty Name="ChargeAmount" ColumnName="ChargeAmount" />
+                <ScalarProperty Name="AllowCode" ColumnName="AllowCode" />
+                <ScalarProperty Name="AllowReason" ColumnName="AllowReason" />
+                <ScalarProperty Name="AllowAfterVat" ColumnName="AllowAfterVat" />
+                <ScalarProperty Name="AllowVatPrc" ColumnName="AllowVatPrc" />
+                <ScalarProperty Name="AllowVatNatID" ColumnName="AllowVatNatID" />
+                <ScalarProperty Name="AllowBase" ColumnName="AllowBase" />
+                <ScalarProperty Name="AllowPrc" ColumnName="AllowPrc" />
+                <ScalarProperty Name="AllowAmount" ColumnName="AllowAmount" />
+                <ScalarProperty Name="PaymentTermsID" ColumnName="PaymentTermsID" />
+                <ScalarProperty Name="PaymentTerms" ColumnName="PaymentTerms" />
+                <ScalarProperty Name="CRDBReasoncode" ColumnName="CRDBReasoncode" />
+                <ScalarProperty Name="PaymentMeansTypeCode" ColumnName="PaymentMeansTypeCode" />
+                <ScalarProperty Name="DeliveryEndDate" ColumnName="DeliveryEndDate" />
+                <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+                <ScalarProperty Name="CryptographicStamp" ColumnName="CryptographicStamp" />
+                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="PrevInvoiceHash" ColumnName="PrevInvoiceHash" />
+                <ScalarProperty Name="GlobalInvoiceCounter" ColumnName="GlobalInvoiceCounter" />
+                <ScalarProperty Name="PurchaseorderNo" ColumnName="PurchaseorderNo" />
+                <ScalarProperty Name="ContractNo" ColumnName="ContractNo" />
+                <ScalarProperty Name="InvoiceCurrenyID" ColumnName="InvoiceCurrenyID" />
+                <ScalarProperty Name="TaxCurrencyID" ColumnName="TaxCurrencyID" />
+                <ScalarProperty Name="TaxNotes" ColumnName="TaxNotes" />
+                <ScalarProperty Name="InvoiceTransCode" ColumnName="InvoiceTransCode" />
+                <ScalarProperty Name="InvoiceTypeCode" ColumnName="InvoiceTypeCode" />
+                <ScalarProperty Name="TrTime" ColumnName="TrTime" />
+                <ScalarProperty Name="DocUUID" ColumnName="DocUUID" />
+                <ScalarProperty Name="DocNo" ColumnName="DocNo" />
+                <ScalarProperty Name="Slsm_DescE" ColumnName="Slsm_DescE" />
+                <ScalarProperty Name="Slsm_DescA" ColumnName="Slsm_DescA" />
+                <ScalarProperty Name="Slsm_Code" ColumnName="Slsm_Code" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="CompCode" ColumnName="CompCode" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="VoucherType" ColumnName="VoucherType" />
+                <ScalarProperty Name="VoucherNo" ColumnName="VoucherNo" />
+                <ScalarProperty Name="IsPosted" ColumnName="IsPosted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="RemainAmount" ColumnName="RemainAmount" />
+                <ScalarProperty Name="TotalPaidAmount" ColumnName="TotalPaidAmount" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="BankTfAmount" ColumnName="BankTfAmount" />
+                <ScalarProperty Name="CardAmount" ColumnName="CardAmount" />
+                <ScalarProperty Name="CashAmount" ColumnName="CashAmount" />
+                <ScalarProperty Name="NetAfterVat" ColumnName="NetAfterVat" />
+                <ScalarProperty Name="DiscountPrc" ColumnName="DiscountPrc" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+                <ScalarProperty Name="VatType" ColumnName="VatType" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="SalesmanId" ColumnName="SalesmanId" />
+                <ScalarProperty Name="CustomerMobileNo" ColumnName="CustomerMobileNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SlsInvSrc" ColumnName="SlsInvSrc" />
+                <ScalarProperty Name="SlsInvType" ColumnName="SlsInvType" />
+                <ScalarProperty Name="IsCash" ColumnName="IsCash" />
+                <ScalarProperty Name="TrType" ColumnName="TrType" />
+                <ScalarProperty Name="TrDateH" ColumnName="TrDateH" />
+                <ScalarProperty Name="TrDate" ColumnName="TrDate" />
+                <ScalarProperty Name="RefTrID" ColumnName="RefTrID" />
+                <ScalarProperty Name="RefNO" ColumnName="RefNO" />
+                <ScalarProperty Name="TrNo" ColumnName="TrNo" />
+                <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

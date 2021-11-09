@@ -19,7 +19,7 @@ namespace Inv.DAL.Domain
         public string USER_PASSWORD { get; set; }
         public bool USER_ACTIVE { get; set; }
         public string USER_NAME { get; set; }
-        public Nullable<int> CompCode { get; set; }
+        public int CompCode { get; set; }
         public string REGION_CODE { get; set; }
         public Nullable<int> GRP_CODE { get; set; }
         public string USER_PASSWORD2 { get; set; }

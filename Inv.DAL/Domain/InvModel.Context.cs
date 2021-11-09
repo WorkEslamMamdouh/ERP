@@ -89,6 +89,14 @@ namespace Inv.DAL.Domain
         public virtual DbSet<Catch_Receipt> Catch_Receipt { get; set; }
         public virtual DbSet<IQ_Catch_Receipt> IQ_Catch_Receipt { get; set; }
         public virtual DbSet<G_USERS> G_USERS { get; set; }
+        public virtual DbSet<AVAT_TR_SlsInvoice> AVAT_TR_SlsInvoice { get; set; }
+        public virtual DbSet<AVAT_TRANS> AVAT_TRANS { get; set; }
+        public virtual DbSet<AQVAT_GetService> AQVAT_GetService { get; set; }
+        public virtual DbSet<AQVAT_GetSlsInvoiceItem> AQVAT_GetSlsInvoiceItem { get; set; }
+        public virtual DbSet<AQVAT_GetSrvCategory> AQVAT_GetSrvCategory { get; set; }
+        public virtual DbSet<AQVat_Srch_VatPurchaseHeader> AQVat_Srch_VatPurchaseHeader { get; set; }
+        public virtual DbSet<AVAT_TR_SlsInvoiceItem> AVAT_TR_SlsInvoiceItem { get; set; }
+        public virtual DbSet<AQVAT_GetSlsInvoiceList> AQVAT_GetSlsInvoiceList { get; set; }
     
         [DbFunction("InvEntities", "GFun_Companies")]
         public virtual IQueryable<GFun_Companies_Result> GFun_Companies(string userCode)
