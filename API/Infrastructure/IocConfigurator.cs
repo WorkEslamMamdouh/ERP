@@ -27,9 +27,10 @@ using Inv.BLL.Services.Outletpirce;
 using Inv.BLL.Services.Stok_ORDER;
 using Inv.BLL.Services.Purchases;
 using Inv.BLL.Services.familly_Cate;
-using Inv.BLL.Services.Vendor;
-using Inv.BLL.Services.Vendor;
-using Inv.BLL.Services.SlsTrSales;
+using Inv.BLL.Services.Vendor; 
+using Inv.BLL.Services.SlsTrSales; 
+using Inv.BLL.Services.ServiceTRInvoice;
+using Inv.BLL.Services.ServSlsInvoiceItems;
 
 namespace Inv.API.Infrastructure
 {
@@ -51,9 +52,10 @@ namespace Inv.API.Infrastructure
             container.RegisterType<IG_SUB_SYSTEMSService, G_SUB_SYSTEMSService>();
             container.RegisterType<IG_USER_BRANCHService, G_USER_BRANCHService>();
             container.RegisterType<IGCompanyService, GCompanyService>();
-            container.RegisterType<IG_AlertControlService, G_AlertControlService>();
+            container.RegisterType<IG_AlertControlService, G_AlertControlService>(); 
 
-            //---------------------------------------------------------------------------------------------------------
+            container.RegisterType<IServiceTRInvoiceService, ServiceTRInvoiceService>();
+            container.RegisterType<IServSlsInvoiceItemsService, ServSlsInvoiceItemsService>(); 
             container.RegisterType<IVendorServices, VendorServices>();
             container.RegisterType<IItemServices, ItemServices>();
             container.RegisterType<ICategoryServices, CategoryServices>();

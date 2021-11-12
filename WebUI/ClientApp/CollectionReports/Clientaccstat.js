@@ -295,50 +295,50 @@ var Clientaccstat;
         rp.RepType = OutType; //output report as View
         rp.FromDate = DateFormatRep(txtDateFrom.value);
         rp.ToDate = DateFormatRep(txtDateTo.value);
-        if ($("#txt_ID_APP_Category").val() == "Null") {
+        if ($("#txt_ID_APP_Category").val() == "Null") { //-------------جميع الفئات
             rp.CatId = -1;
         }
         else {
             rp.CatId = Number($("#txt_ID_APP_Category").val());
         }
-        if ($("#txt_ID_APP_Group").val() == "Null") {
+        if ($("#txt_ID_APP_Group").val() == "Null") { //-------------جميع المجموعات
             rp.Groupid = -1;
         }
         else {
             rp.Groupid = Number($("#txt_ID_APP_Group").val());
         }
-        if ($("#ddlSalesman").val() == "Null") {
+        if ($("#ddlSalesman").val() == "Null") { //-------------جميع المناديب 
             rp.SalesmanID = -1;
         }
         else {
             rp.SalesmanID = Number($("#ddlSalesman").val());
         }
-        if ($("#ddlCustomer").val() == "null") {
+        if ($("#ddlCustomer").val() == "null") { //-------------جميع العملاء 
             rp.CustomerID = -1;
         }
         else {
             rp.CustomerID = Number($("#ddlCustomer").val());
         }
-        if (Number($("#txt_ID_APP_Type").val()) == 3) {
+        if (Number($("#txt_ID_APP_Type").val()) == 3) { //-------------غير منفذ///الجميع
             rp.Status = 3;
         }
-        if (Number($("#txt_ID_APP_Type").val()) == 1) {
+        if (Number($("#txt_ID_APP_Type").val()) == 1) { //------------- منفذ
             rp.Status = 1;
         }
-        if ($("#txt_indebtedness").val() == ">") {
+        if ($("#txt_indebtedness").val() == ">") { //******عليه مديونيه
             rp.BalType = 1;
         }
-        if ($("#txt_indebtedness").val() == "<") {
+        if ($("#txt_indebtedness").val() == "<") { //******ليه مديونيه
             rp.BalType = 2;
         }
-        if ($("#txt_indebtedness").val() == "=") {
+        if ($("#txt_indebtedness").val() == "=") { //******صفري
             rp.BalType = 3;
         }
-        if ($("#txt_indebtedness").val() == "All") {
+        if ($("#txt_indebtedness").val() == "All") { //******الجميع
             rp.BalType = 0;
         }
         //  Rd_detail
-        if (Rddetails.checked == true) {
+        if (Rddetails.checked == true) { //******  تقرير تفصيلي  
             rp.check = 1;
             Ajax.Callsync({
                 url: Url.Action("IProc_Rpt_AccCustomerSummary", "GeneralReports"),
@@ -350,7 +350,7 @@ var Clientaccstat;
                 }
             });
         }
-        else {
+        else { //******  تقرير ملخص   
             rp.check = 2;
             Ajax.Callsync({
                 url: Url.Action("IProc_Rpt_AccCustomerDetail", "GeneralReports"),

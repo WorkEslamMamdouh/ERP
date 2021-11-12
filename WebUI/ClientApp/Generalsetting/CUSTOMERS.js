@@ -105,6 +105,15 @@ var CUSTOMERS;
                     for (var i = 0; i < CustomerDetails.length; i++) {
                         CustomerDetails[i].Name_STATUS = CustomerDetails[i].STATUS == false ? 'غير فعال' : 'فعال';
                         CustomerDetails[i].NameIsCreditCustomer = CustomerDetails[i].IsCreditCustomer == false ? 'أجل' : 'نقدي';
+                        //Credit = Number(CustomerDetails[i].Openbalance - CustomerDetails[i].CreditLimit);
+                        //if (Credit < 0) {
+                        //    CustomerDetails[i].Debit = (Credit * -1);
+                        //    CustomerDetails[i].DebitFC = 0;
+                        //}
+                        //else {
+                        //    CustomerDetails[i].DebitFC = Credit;
+                        //    CustomerDetails[i].Debit = 0;
+                        //}
                     }
                     InitializeGrid();
                     ReportGrid.DataSource = CustomerDetails;

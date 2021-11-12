@@ -53,7 +53,7 @@ namespace API.Controllers
 
 
 
-        [HttpPost, AllowAnonymous]
+        [HttpGet, AllowAnonymous]
         public IHttpActionResult InsertInvoiceMasterDetail([FromBody]SlsInvoiceMasterDetails obj)
         {
 

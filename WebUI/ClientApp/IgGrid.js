@@ -1,4 +1,4 @@
-var IgGrid = (function () {
+var IgGrid = /** @class */ (function () {
     function IgGrid() {
         this.Features = new Array();
         this.DataSource = new Array();

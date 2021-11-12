@@ -1,4 +1,4 @@
-var AjaxCaller = (function () {
+var AjaxCaller = /** @class */ (function () {
     function AjaxCaller() {
     }
     Object.defineProperty(AjaxCaller.prototype, "_url", {

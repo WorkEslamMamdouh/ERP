@@ -8103,6 +8103,9 @@ class AVAT_TR_SlsInvoiceItem extends SecurityClass {
         this.VatNatID = 0;
         this.CC_CODE = "";
         this.StatusFlag = "";
+        this.Name_Item = "";
+        this.Uom = "";
+        this.Name_Category = "";
     }
     public InvoiceItemID: number;
     public InvoiceID: number;
@@ -8146,6 +8149,9 @@ class AVAT_TR_SlsInvoiceItem extends SecurityClass {
     public VatNatID: number;
     public CC_CODE: string;
     public StatusFlag: string;
+    public Name_Item: string;
+    public Uom: string;
+    public Name_Category: string;
 }
 
 class AQVAT_GetSlsInvoiceItem extends SecurityClass {

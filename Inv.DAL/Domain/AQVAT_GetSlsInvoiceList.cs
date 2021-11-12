@@ -17,7 +17,6 @@ namespace Inv.DAL.Domain
         public int InvoiceID { get; set; }
         public Nullable<int> TrNo { get; set; }
         public string RefNO { get; set; }
-        public Nullable<int> RefTrID { get; set; }
         public Nullable<System.DateTime> TrDate { get; set; }
         public string TrDateH { get; set; }
         public Nullable<int> TrType { get; set; }
@@ -94,12 +93,10 @@ namespace Inv.DAL.Domain
         public Nullable<decimal> ItemDiscountTotal { get; set; }
         public Nullable<decimal> ItemVatTotal { get; set; }
         public Nullable<decimal> RoundingAmount { get; set; }
-        public Nullable<int> RetInv_TrNo { get; set; }
-        public Nullable<System.DateTime> RetInv_TrDate { get; set; }
-        public string RetInv_DocNo { get; set; }
         public string CustomerCODE { get; set; }
         public string CUSTOMER_NAME { get; set; }
         public string NAMEE { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> RefTrID { get; set; }
     }
 }

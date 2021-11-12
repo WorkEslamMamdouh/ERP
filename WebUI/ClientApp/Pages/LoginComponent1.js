@@ -48,6 +48,8 @@ var LoginComponent;
         }
         else {
             txtYear.value = "2021";
+            //txtYear.value = SharedWork.Session.CurrentYear;
+            //cmbLanguage.value = SharedWork.Session.Language;
         }
     }
     LoginComponent.InitalizeComponent = InitalizeComponent;
@@ -157,12 +159,12 @@ var LoginComponent;
                         hLoggedName.innerText = user.USER_CODE;
                         GoToCompanySelect();
                     }
-                    else {
+                    else { // Error in user or pass or active 
                         txtUserName.style.borderColor = "red";
                         txtUserPassword.style.borderColor = "red";
                     }
                 }
-                else {
+                else { // Error in API 
                     alert(res.ErrorMessage);
                     return;
                 }
@@ -227,8 +229,51 @@ var LoginComponent;
                                         }
                                     }
                                 });
+                                //}
+                                //else {
+                                //    MessageBox.Showwithoutclick(CompanyStatus.LoginMsg, ""); 
+                                //    //setTimeout(function ()
+                                //    { 
+                                //        $.ajax({
+                                //            type: "GET",
+                                //            url: sys.apiUrl("I_Control", "GetAll"),
+                                //            data: { Compcode: compCode },
+                                //            async: false,
+                                //            success: (d) => {
+                                //                let res = d as BaseResponse;
+                                //                if (res.IsSuccess) {
+                                //                    var CompanyService = res.Response as I_Control;
+                                //                    if (CompanyService != null) { 
+                                //                        //debugger; 
+                                //                        SystemEnv.I_Control = CompanyService;
+                                //                        SystemEnv.CompCode = compCode;
+                                //                        SystemEnv.BranchCode = braCode;
+                                //                        SystemEnv.CompanyName = company.CompanyNameE;
+                                //                        SystemEnv.CompanyNameAr = company.CompanyNameA;
+                                //                        SystemEnv.CurrentYear = txtYear.value;
+                                //                        SystemEnv.IsBiLingual = true;
+                                //                        SystemEnv.Language = cmbLanguage.value;
+                                //                        SystemEnv.ScreenLanguage = cmbLanguage.value;
+                                //                        SystemEnv.SystemCode = 'I';
+                                //                        SystemEnv.SubSystemCode = 'I';
+                                //                        SystemEnv.UserCode = txtUserName.value;
+                                //                        SystemEnv.StartDate = '01/01/2021';
+                                //                        SystemEnv.EndDate = '31/12/2021';
+                                //                        //SystemEnv.CurrentYear = "2021";
+                                //                        document.cookie = "Inv1_systemProperties=" + JSON.stringify(SystemEnv).toString() + ";expires=Fri, 31 Dec 2030 23:59:59 GMT;path=/";
+                                //                        OnLogged();
+                                //                    } else {
+                                //                        let msg = SystemEnv.ScreenLanguage  == "ar" ? "غير مصرح لك الدخول للفصل الدراسي" : "You are not allowed to enter the semester";
+                                //                        MessageBox.Show(msg, "");
+                                //                    }
+                                //                }
+                                //            }
+                                //        }); 
+                                //    }
+                                //    //, 1000);
+                                //}
                             }
-                            else {
+                            else /*if (status == 3)*/ {
                                 MessageBox.Show(CompanyStatus.LoginMsg, "", function () {
                                     window.location.href = "/Login/LoginIndex";
                                 });
@@ -283,5 +328,5 @@ var LoginComponent;
         });
     }
 })(LoginComponent || (LoginComponent = {}));
-//# sourceMappingURL=LoginComponent.js.map 
+//# sourceMappingURL=LoginComponent.js.map
 //# sourceMappingURL=LoginComponent1.js.map

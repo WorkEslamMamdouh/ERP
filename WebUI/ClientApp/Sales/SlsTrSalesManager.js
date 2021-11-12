@@ -427,6 +427,8 @@ var SlsTrSalesManager;
                 TaxCount += Number($("#txtTax" + i).val());
                 TaxCount = Number(TaxCount.toFixed(2).toString());
                 NetCount += Number($("#txtTotAfterTax" + i).val());
+                //NetCount = Number(NetCount.toFixed(2).toString());
+                //NetCount = (Number(NetCount.toFixed(2)) - Number(txtDiscountValue.value));
             }
         }
         txtItemCount.value = CountItems.toString();

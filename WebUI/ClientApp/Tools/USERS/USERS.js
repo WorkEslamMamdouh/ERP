@@ -795,7 +795,7 @@ var USERS;
                 Master.G_RoleUsers.push(ModelRoleUsers);
             }
         }
-        if (Master.G_USERS.USER_TYPE == 0) {
+        if (Master.G_USERS.USER_TYPE == 0) { // Reserve
             Master.G_USERS.USER_TYPE = Number(drpuserType_2.value);
         }
         if (chk_IsActive.checked)
@@ -962,6 +962,9 @@ var USERS;
             $("#Ch_RoleActive").addClass("display_none");
             Roleetailsf = new Array();
             DisableControls();
+            //Roleetailsf = new Array<G_Role>();
+            //DisableControls();
+            //GridDoubleClick();
         }
         else {
             $('#div_Data').html("");

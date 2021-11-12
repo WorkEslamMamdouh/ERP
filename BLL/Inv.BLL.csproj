@@ -64,6 +64,10 @@
     <Compile Include="Services\Outletpirce\OutletpirceServices.cs" />
     <Compile Include="Services\Purchases\IPurchases_MasterServices.cs" />
     <Compile Include="Services\Purchases\Purchases_MasterServices.cs" />
+    <Compile Include="Services\ServiceTRInvoice\IServiceTRInvoiceService.cs" />
+    <Compile Include="Services\ServiceTRInvoice\ServiceTRInvoiceService.cs" />
+    <Compile Include="Services\ServSlsInvoiceItems\IServSlsInvoiceItemsService.cs" />
+    <Compile Include="Services\ServSlsInvoiceItems\ServSlsInvoiceItemsService.cs" />
     <Compile Include="Services\SlsTrSales\ISlsTrSalesServices.cs" />
     <Compile Include="Services\SlsTrSales\SlsTrSalesServices.cs" />
     <Compile Include="Services\Stok_ORDER\IStok_ORDERServices.cs" />

@@ -263,6 +263,7 @@
     <Compile Include="Controllers\Outletpirce.cs" />
     <Compile Include="Controllers\PurchasesController.cs" />
     <Compile Include="Controllers\ReviewSales.cs" />
+    <Compile Include="Controllers\ServTrSalesController.cs" />
     <Compile Include="Controllers\Shared\G_RoleController.cs" />
     <Compile Include="Controllers\Shared\G_RoleUsersController.cs" />
     <Compile Include="Controllers\Shared\I_ControlController.cs" />
@@ -283,9 +284,11 @@
     <Compile Include="Models\CustomEntities\SystemEnvironment.cs" />
     <Compile Include="Models\CustomEntities\SystemParameters.cs" />
     <Compile Include="Models\CustomEntities\UserPrivilege.cs" />
+    <Compile Include="Models\CustomModel\AQ_ServSlsInvoiceMasterDetails.cs" />
     <Compile Include="Models\CustomModel\CompanyLoginStatus.cs" />
     <Compile Include="Models\CustomModel\MasterDetailsUserRoles.cs" />
     <Compile Include="Models\CustomModel\PurchasesMasterDetails.cs" />
+    <Compile Include="Models\CustomModel\ServSlsInvoiceMasterDetails.cs" />
     <Compile Include="Models\CustomModel\SlsInvoiceMasterDetails.cs" />
     <Compile Include="Models\CustomModel\SlsMasterDetails.cs" />
     <Compile Include="Models\ResponseResult.cs" />

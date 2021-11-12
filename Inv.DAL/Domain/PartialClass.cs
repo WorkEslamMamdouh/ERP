@@ -87,7 +87,9 @@ namespace Inv.DAL.Domain
     public partial class G_USER_BRANCH : UpdateFlagClass
     {
     }
-
+    public partial class AVAT_TR_SlsInvoiceItem : SecurityandUpdateFlagClass
+    {
+    }
     public partial class G_STORE : SecurityandUpdateFlagClass
     {
     }

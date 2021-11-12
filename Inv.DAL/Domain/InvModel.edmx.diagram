@@ -66,14 +66,14 @@
         <EntityTypeShape EntityType="POS2021Model.CUSTOMER" Width="1.5" PointX="19.375" PointY="23.75" />
         <EntityTypeShape EntityType="POS2021Model.Catch_Receipt" Width="1.5" PointX="15.375" PointY="24.75" />
         <EntityTypeShape EntityType="POS2021Model.IQ_Catch_Receipt" Width="1.5" PointX="25.375" PointY="0.75" />
-        <EntityTypeShape EntityType="POS2021Model.G_USERS" Width="1.5" PointX="3.375" PointY="19.75" />
-        <EntityTypeShape EntityType="POS2021Model.AVAT_TR_SlsInvoice" Width="1.5" PointX="25.75" PointY="7.75" />
         <EntityTypeShape EntityType="POS2021Model.AVAT_TRANS" Width="1.5" PointX="27.75" PointY="0.75" />
         <EntityTypeShape EntityType="POS2021Model.AQVAT_GetService" Width="1.5" PointX="0.75" PointY="27.75" />
         <EntityTypeShape EntityType="POS2021Model.AQVAT_GetSlsInvoiceItem" Width="1.5" PointX="27.75" PointY="4.75" />
         <EntityTypeShape EntityType="POS2021Model.AQVAT_GetSrvCategory" Width="1.5" PointX="27.75" PointY="16.75" />
         <EntityTypeShape EntityType="POS2021Model.AQVat_Srch_VatPurchaseHeader" Width="1.5" PointX="21.75" PointY="27.75" />
-        <EntityTypeShape EntityType="POS2021Model.AVAT_TR_SlsInvoiceItem" Width="1.5" PointX="25.375" PointY="24.75" />
+        <EntityTypeShape EntityType="POS2021Model.G_USERS" Width="1.5" PointX="3.375" PointY="19.75" />
+        <EntityTypeShape EntityType="POS2021Model.AVAT_TR_SlsInvoice" Width="1.5" PointX="25.375" PointY="24.75" />
+        <EntityTypeShape EntityType="POS2021Model.AVAT_TR_SlsInvoiceItem" Width="1.5" PointX="27.375" PointY="24.75" />
         <EntityTypeShape EntityType="POS2021Model.AQVAT_GetSlsInvoiceList" Width="1.5" PointX="11.375" PointY="27.75" />
       </Diagram>
     </edmx:Diagrams>

@@ -6,12 +6,12 @@ function FilterText(str, settings) {
         result = FilterTextFunctions.ToNumeric(result);
     return result.trim();
 }
-var FilterTextSettings = (function () {
+var FilterTextSettings = /** @class */ (function () {
     function FilterTextSettings() {
     }
     return FilterTextSettings;
 }());
-var FilterTextFunctions = (function () {
+var FilterTextFunctions = /** @class */ (function () {
     function FilterTextFunctions() {
     }
     /**
