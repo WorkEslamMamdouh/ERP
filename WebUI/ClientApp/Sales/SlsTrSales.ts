@@ -33,7 +33,7 @@ namespace SlsTrServices {
     var AQ_ServSlsInvoiceDetails: Array<AQVAT_GetSlsInvoiceList> = new Array<AQVAT_GetSlsInvoiceList>();
     var SearchDetails: Array<AQVAT_GetSlsInvoiceList> = new Array<AQVAT_GetSlsInvoiceList>();
     var Selecteditem: Array<AQVAT_GetSlsInvoiceList> = new Array<AQVAT_GetSlsInvoiceList>();
-    var SlsInvoiceItemsDetails: Array<AQVAT_GetSlsInvoiceItem> = new Array<AQVAT_GetSlsInvoiceItem>();
+    var SlsInvoiceItemsDetails: Array<AVAT_TR_SlsInvoiceItem> = new Array<AVAT_TR_SlsInvoiceItem>();
     var CategorDetails: Array<AVAT_D_SrvCategory> = new Array<AVAT_D_SrvCategory>();
     
     //Models
@@ -43,7 +43,7 @@ namespace SlsTrServices {
     var MasterDetailsModel: ServSlsInvoiceMasterDetails = new ServSlsInvoiceMasterDetails();  
     var invoiceItemSingleModel: AVAT_TR_SlsInvoiceItem = new AVAT_TR_SlsInvoiceItem();      
     var ServicesDetails: Array<AQVAT_GetService> = new Array<AQVAT_GetService>();
-    var HeaderWithDetailModel: AQ_ServSlsInvoiceMasterDetails = new AQ_ServSlsInvoiceMasterDetails();
+    var HeaderWithDetailModel: Array<AVAT_TR_SlsInvoiceItem> = new Array<AVAT_TR_SlsInvoiceItem>();        
     //TextBoxes
     var txtStartDate: HTMLInputElement;
     var txtEndDate: HTMLInputElement;
@@ -499,7 +499,8 @@ namespace SlsTrServices {
             $("#txtServiceCode" + i).removeAttr("disabled");
             $("#txtCostCntrNum" + i).removeAttr("disabled");
             $("#txtRemarks" + i).removeAttr("disabled");
-
+            $("#txtServiceName" + i).removeAttr("disabled");
+            $("#ddlUOM" + i).removeAttr("disabled");
             $("#txtQuantity" + i).removeAttr("disabled");
             $("#txtPrice" + i).removeAttr("disabled");
             $("#txtDiscountPrc" + i).removeAttr("disabled");
@@ -755,9 +756,10 @@ namespace SlsTrServices {
             lblInvoiceNumber.value = InvoiceStatisticsModel[0].TrNo.toString();
             txtDocNum.value = InvoiceStatisticsModel[0].DocNo.toString();
             txtInvoiceDate.value = DateFormat(InvoiceStatisticsModel[0].TrDate.toString());
-            txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
-
-            txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
+            //txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
+            $('#txtCustomerName').val(InvoiceStatisticsModel[0].Cus_NameA)
+            $('#txtCustomerCode').val(InvoiceStatisticsModel[0].Cus_Code)
+            //txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
             txtDiscountValue.value = InvoiceStatisticsModel[0].RoundingAmount.toFixed(2);     
             //$('#txtWorkOrderNo').val(InvoiceStatisticsModel[0].WorkOrderNo)
             //$('#txtWorkOrderType').val(InvoiceStatisticsModel[0].WorkOrderType)
@@ -793,7 +795,7 @@ namespace SlsTrServices {
             $('#txtUpdatedAt').prop("value", InvoiceStatisticsModel[0].UpdatedAt);
         }
 
-        SlsInvoiceItemsDetails = new Array<AQVAT_GetSlsInvoiceItem>();
+        SlsInvoiceItemsDetails = new Array <AVAT_TR_SlsInvoiceItem>();
         Ajax.Callsync({
             type: "Get",
             url: sys.apiUrl("ServTrSales", "GetServSalesInvByID"),
@@ -801,13 +803,13 @@ namespace SlsTrServices {
             success: (d) => {
                 let result = d as BaseResponse;
                 if (result.IsSuccess) {
-                    HeaderWithDetailModel = result.Response as AQ_ServSlsInvoiceMasterDetails;
+                    HeaderWithDetailModel = result.Response as Array <AVAT_TR_SlsInvoiceItem> ;
 
                 }
             }
         });
          
-        SlsInvoiceItemsDetails = HeaderWithDetailModel.AQVAT_GetSlsInvoiceItem.filter(s => s.InvoiceID == GlobalinvoiceID);
+        SlsInvoiceItemsDetails = HeaderWithDetailModel.filter(s => s.InvoiceID == GlobalinvoiceID);
          
         for (let i = 0; i < SlsInvoiceItemsDetails.length; i++) {
             BuildControls(i);
@@ -1154,8 +1156,9 @@ namespace SlsTrServices {
             $("#btnSearchCostCenter" + cnt).attr("disabled", "disabled");
             $("#btnSearchService" + cnt).attr("disabled", "disabled");
             $("#txtServiceCode" + cnt).attr("disabled", "disabled");
-            $("#txtCostCntrNum" + cnt).attr("disabled", "disabled");
-            $("#txtRemarks" + cnt).attr("disabled", "disabled");
+            $("#txtServiceName" + cnt).attr("disabled", "disabled");
+            $("#ddlUOM" + cnt).attr("disabled", "disabled");
+            $("#txtRemarks" + cnt).attr("disabled", "disabled");    
 
             $("#txtSerial" + cnt).attr("disabled", "disabled");
             $("#txtTax_Rate" + cnt).attr("disabled", "disabled");
@@ -1176,12 +1179,13 @@ namespace SlsTrServices {
             $("#btn_minus" + cnt).attr("disabled", "disabled");
 
             //bind Data
-
+            debugger
             $("#txt_StatusFlag" + cnt).val("");
-            $("#txtServiceName" + cnt).prop("value", (lang == "ar" ? SlsInvoiceItemsDetails[cnt].it_DescA : SlsInvoiceItemsDetails[cnt].It_DescE));
-            $("#txtCostCntrName" + cnt).prop("value", (lang == "ar" ? SlsInvoiceItemsDetails[cnt].CC_DESCA : SlsInvoiceItemsDetails[cnt].CC_DESCE));
-            $("#txtServiceCode" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].it_itemCode);
-            $("#txtCostCntrNum" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].CC_CODE);
+            $("#txtServiceName" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Name_Item);
+            $("#txtServiceCode" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Name_Category);    
+            $("#ddlUOM" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].UomID);
+            $("#txtCustomerName").val(SlsInvoiceItemsDetails[0].AllowReason);   
+            $("#txtCustomerCode").val(SlsInvoiceItemsDetails[0].CC_CODE);   
             //$("#txtRemarks" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Remarks);
 
             $("#txtSerial" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Serial);
@@ -1217,6 +1221,8 @@ namespace SlsTrServices {
             $("#txtCostCntrNum" + RecNo).val("99");
             $("#txtRemarks" + RecNo).val("99");
             $("#txtServiceCode" + RecNo).val("99");
+            $("#txtServiceName" + RecNo).val("99");
+            $("#ddlUOM" + RecNo).val("99");
             $("#txtQuantity" + RecNo).val("99");
             $("#txtPrice" + RecNo).val("199");
             $("#txtDiscountPrc" + RecNo).val("199");
@@ -1248,7 +1254,8 @@ namespace SlsTrServices {
             $("#txtCostCntrNum" + CountGrid).removeAttr("disabled");
             $("#txtRemarks" + CountGrid).removeAttr("disabled");
             $("#txtServiceCode" + CountGrid).removeAttr("disabled");
-
+            $("#txtServiceName" + CountGrid).attr("disabled", "disabled");
+            $("#ddlUOM" + CountGrid).attr("disabled", "disabled");
             $("#btnServiceSearch" + CountGrid).removeAttr("disabled");
             $("#btnSearchCostCenter" + CountGrid).removeAttr("disabled");
 
@@ -1370,15 +1377,17 @@ namespace SlsTrServices {
             return true;
         } else {
             if ($("#txtServiceCode" + rowcount).val() == "") {
-                DisplayMassage(" برجاء ادخال الخدمة", "Please enter the service", MessageType.Error);
+                DisplayMassage(" برجاء ادخال الصنف", "Please enter the item", MessageType.Error);
                 Errorinput($("#txtServiceCode" + rowcount));
                 return false
-            }
-            else if ($("#txtCostCntrNum" + rowcount).val() == "") {
-                DisplayMassage(" برجاء ادخال مركز التكلفة", "Please enter Cost Center", MessageType.Error);
-                Errorinput($("#txtCostCntrNum" + rowcount));
+            }    
+            if ($("#txtServiceName" + rowcount).val() == "") {
+                DisplayMassage(" برجاء ادخال الصنف", "Please enter the name of item", MessageType.Error);
+                Errorinput($("#txtServiceName" + rowcount));
                 return false
             }
+
+            
             else if (Qty == 0) {
                 DisplayMassage(" برجاء ادخال الكمية المباعة", "Please enter the Quantity sold", MessageType.Error);
                 Errorinput($("#txtQuantity" + rowcount));
@@ -1406,7 +1415,7 @@ namespace SlsTrServices {
         var CustCode = txtCustomerCode.value;
         //var custObj = CustDetails.filter(s => s.CustomerCODE == CustCode);
         //InvoiceModel.CustomerId = custObj[0].CustomerId;
-        InvoiceModel.CustomerId = CustomerId;
+        InvoiceModel.CustomerId = CustomerId;    
         InvoiceModel.CompCode = Number(compcode);
         InvoiceModel.BranchCode = Number(BranchCode);
         //InvoiceModel.InvoiceCurrenyID = Currency;              
@@ -1479,8 +1488,10 @@ namespace SlsTrServices {
                 invoiceItemSingleModel.VatAmount = Number($("#txtTax" + i).val());
                 invoiceItemSingleModel.ItemNetAmount = Number($("#txtTotAfterTax" + i).val());
                 invoiceItemSingleModel.ItemTotal = (Number(invoiceItemSingleModel.Unitprice) * Number(invoiceItemSingleModel.SoldQty));
-                invoiceItemSingleModel.TotRetQty = Number($("#txtReturnQuantity" + i).val());
+                invoiceItemSingleModel.TotRetQty = Number($("#txtCustomerCode" + i).val());
                 invoiceItemSingleModel.StatusFlag = StatusFlag.toString();
+                invoiceItemSingleModel.CC_CODE = $("#txtCustomerCode").val();
+                invoiceItemSingleModel.AllowReason = $("#txtCustomerName").val();
                 InvoiceItemsDetailsModel.push(invoiceItemSingleModel);
 
 
@@ -1505,6 +1516,8 @@ namespace SlsTrServices {
                 invoiceItemSingleModel.ItemTotal = (Number(invoiceItemSingleModel.Unitprice) * Number(invoiceItemSingleModel.SoldQty));
                 invoiceItemSingleModel.TotRetQty = Number($("#txtReturnQuantity" + i).val());
                 invoiceItemSingleModel.StatusFlag = StatusFlag.toString();
+                invoiceItemSingleModel.CC_CODE = $("#txtCustomerCode").val();
+                invoiceItemSingleModel.AllowReason = $("#txtCustomerName").val();
                 InvoiceItemsDetailsModel.push(invoiceItemSingleModel);
 
             }
@@ -1574,8 +1587,7 @@ namespace SlsTrServices {
                 let result = d as BaseResponse;
                 if (result.IsSuccess == true) {
                     // 
-                    let res = result.Response as AVAT_TR_SlsInvoice;
-                    alert(res.InvoiceID);
+                    let res = result.Response as AVAT_TR_SlsInvoice;   
                     GlobalinvoiceID = res.InvoiceID;
                     FlagAfterInsertOrUpdate = true;
 

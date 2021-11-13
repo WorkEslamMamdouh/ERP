@@ -265,13 +265,15 @@ namespace Inv.API.Controllers
             if (ModelState.IsValid && UserControl.CheckUser(Token, UserCode))
             {
 
-                var res2 = db.AQVAT_GetSlsInvoiceItem.Where(s => s.InvoiceID == InvoiceID).ToList();
-                var res = db.AQVAT_GetSlsInvoiceList.Where(s => s.InvoiceID == InvoiceID).ToList();
-                
-                AQ_ServSlsInvoiceMasterDetails model = new AQ_ServSlsInvoiceMasterDetails();
-                model.AQVAT_GetSlsInvoiceList = res;
-                model.AQVAT_GetSlsInvoiceItem = res2;
-                return Ok(new BaseResponse(model));
+                var Query = "select * from AVAT_TR_SlsInvoiceItem where InvoiceID = " + InvoiceID + "";
+                var res = db.Database.SqlQuery<AVAT_TR_SlsInvoiceItem> (Query).ToList();
+                //var res2 = db.AQVAT_GetSlsInvoiceItem.Where(s => s.InvoiceID == InvoiceID).ToList();
+                //var res = db.AQVAT_GetSlsInvoiceList.Where(s => s.InvoiceID == InvoiceID).ToList();
+
+                //AQ_ServSlsInvoiceMasterDetails model = new AQ_ServSlsInvoiceMasterDetails();
+                //model.AQVAT_GetSlsInvoiceList = res;
+                //model.AQVAT_GetSlsInvoiceItem = res2;
+                return Ok(new BaseResponse(res));
             }
             return BadRequest(ModelState);
         }

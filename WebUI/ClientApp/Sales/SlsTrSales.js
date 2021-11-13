@@ -40,7 +40,7 @@ var SlsTrServices;
     var MasterDetailsModel = new ServSlsInvoiceMasterDetails();
     var invoiceItemSingleModel = new AVAT_TR_SlsInvoiceItem();
     var ServicesDetails = new Array();
-    var HeaderWithDetailModel = new AQ_ServSlsInvoiceMasterDetails();
+    var HeaderWithDetailModel = new Array();
     //TextBoxes
     var txtStartDate;
     var txtEndDate;
@@ -451,6 +451,8 @@ var SlsTrServices;
             $("#txtServiceCode" + i).removeAttr("disabled");
             $("#txtCostCntrNum" + i).removeAttr("disabled");
             $("#txtRemarks" + i).removeAttr("disabled");
+            $("#txtServiceName" + i).removeAttr("disabled");
+            $("#ddlUOM" + i).removeAttr("disabled");
             $("#txtQuantity" + i).removeAttr("disabled");
             $("#txtPrice" + i).removeAttr("disabled");
             $("#txtDiscountPrc" + i).removeAttr("disabled");
@@ -681,8 +683,10 @@ var SlsTrServices;
             lblInvoiceNumber.value = InvoiceStatisticsModel[0].TrNo.toString();
             txtDocNum.value = InvoiceStatisticsModel[0].DocNo.toString();
             txtInvoiceDate.value = DateFormat(InvoiceStatisticsModel[0].TrDate.toString());
-            txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
-            txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
+            //txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
+            $('#txtCustomerName').val(InvoiceStatisticsModel[0].Cus_NameA);
+            $('#txtCustomerCode').val(InvoiceStatisticsModel[0].Cus_Code);
+            //txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
             txtDiscountValue.value = InvoiceStatisticsModel[0].RoundingAmount.toFixed(2);
             //$('#txtWorkOrderNo').val(InvoiceStatisticsModel[0].WorkOrderNo)
             //$('#txtWorkOrderType').val(InvoiceStatisticsModel[0].WorkOrderType)
@@ -721,7 +725,7 @@ var SlsTrServices;
                 }
             }
         });
-        SlsInvoiceItemsDetails = HeaderWithDetailModel.AQVAT_GetSlsInvoiceItem.filter(function (s) { return s.InvoiceID == GlobalinvoiceID; });
+        SlsInvoiceItemsDetails = HeaderWithDetailModel.filter(function (s) { return s.InvoiceID == GlobalinvoiceID; });
         for (var i = 0; i < SlsInvoiceItemsDetails.length; i++) {
             BuildControls(i);
         }
@@ -955,7 +959,8 @@ var SlsTrServices;
             $("#btnSearchCostCenter" + cnt).attr("disabled", "disabled");
             $("#btnSearchService" + cnt).attr("disabled", "disabled");
             $("#txtServiceCode" + cnt).attr("disabled", "disabled");
-            $("#txtCostCntrNum" + cnt).attr("disabled", "disabled");
+            $("#txtServiceName" + cnt).attr("disabled", "disabled");
+            $("#ddlUOM" + cnt).attr("disabled", "disabled");
             $("#txtRemarks" + cnt).attr("disabled", "disabled");
             $("#txtSerial" + cnt).attr("disabled", "disabled");
             $("#txtTax_Rate" + cnt).attr("disabled", "disabled");
@@ -972,11 +977,13 @@ var SlsTrServices;
             $("#btn_minus" + cnt).addClass("display_none");
             $("#btn_minus" + cnt).attr("disabled", "disabled");
             //bind Data
+            debugger;
             $("#txt_StatusFlag" + cnt).val("");
-            $("#txtServiceName" + cnt).prop("value", (lang == "ar" ? SlsInvoiceItemsDetails[cnt].it_DescA : SlsInvoiceItemsDetails[cnt].It_DescE));
-            $("#txtCostCntrName" + cnt).prop("value", (lang == "ar" ? SlsInvoiceItemsDetails[cnt].CC_DESCA : SlsInvoiceItemsDetails[cnt].CC_DESCE));
-            $("#txtServiceCode" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].it_itemCode);
-            $("#txtCostCntrNum" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].CC_CODE);
+            $("#txtServiceName" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Name_Item);
+            $("#txtServiceCode" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Name_Category);
+            $("#ddlUOM" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].UomID);
+            $("#txtCustomerName").val(SlsInvoiceItemsDetails[0].AllowReason);
+            $("#txtCustomerCode").val(SlsInvoiceItemsDetails[0].CC_CODE);
             //$("#txtRemarks" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Remarks);
             $("#txtSerial" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].Serial);
             //*******new 26-10
@@ -1010,6 +1017,8 @@ var SlsTrServices;
             $("#txtCostCntrNum" + RecNo).val("99");
             $("#txtRemarks" + RecNo).val("99");
             $("#txtServiceCode" + RecNo).val("99");
+            $("#txtServiceName" + RecNo).val("99");
+            $("#ddlUOM" + RecNo).val("99");
             $("#txtQuantity" + RecNo).val("99");
             $("#txtPrice" + RecNo).val("199");
             $("#txtDiscountPrc" + RecNo).val("199");
@@ -1040,6 +1049,8 @@ var SlsTrServices;
             $("#txtCostCntrNum" + CountGrid).removeAttr("disabled");
             $("#txtRemarks" + CountGrid).removeAttr("disabled");
             $("#txtServiceCode" + CountGrid).removeAttr("disabled");
+            $("#txtServiceName" + CountGrid).attr("disabled", "disabled");
+            $("#ddlUOM" + CountGrid).attr("disabled", "disabled");
             $("#btnServiceSearch" + CountGrid).removeAttr("disabled");
             $("#btnSearchCostCenter" + CountGrid).removeAttr("disabled");
             $("#txtQuantity" + CountGrid).removeAttr("disabled");
@@ -1147,13 +1158,13 @@ var SlsTrServices;
         }
         else {
             if ($("#txtServiceCode" + rowcount).val() == "") {
-                DisplayMassage(" برجاء ادخال الخدمة", "Please enter the service", MessageType.Error);
+                DisplayMassage(" برجاء ادخال الصنف", "Please enter the item", MessageType.Error);
                 Errorinput($("#txtServiceCode" + rowcount));
                 return false;
             }
-            else if ($("#txtCostCntrNum" + rowcount).val() == "") {
-                DisplayMassage(" برجاء ادخال مركز التكلفة", "Please enter Cost Center", MessageType.Error);
-                Errorinput($("#txtCostCntrNum" + rowcount));
+            if ($("#txtServiceName" + rowcount).val() == "") {
+                DisplayMassage(" برجاء ادخال الصنف", "Please enter the name of item", MessageType.Error);
+                Errorinput($("#txtServiceName" + rowcount));
                 return false;
             }
             else if (Qty == 0) {
@@ -1248,8 +1259,10 @@ var SlsTrServices;
                 invoiceItemSingleModel.VatAmount = Number($("#txtTax" + i).val());
                 invoiceItemSingleModel.ItemNetAmount = Number($("#txtTotAfterTax" + i).val());
                 invoiceItemSingleModel.ItemTotal = (Number(invoiceItemSingleModel.Unitprice) * Number(invoiceItemSingleModel.SoldQty));
-                invoiceItemSingleModel.TotRetQty = Number($("#txtReturnQuantity" + i).val());
+                invoiceItemSingleModel.TotRetQty = Number($("#txtCustomerCode" + i).val());
                 invoiceItemSingleModel.StatusFlag = StatusFlag.toString();
+                invoiceItemSingleModel.CC_CODE = $("#txtCustomerCode").val();
+                invoiceItemSingleModel.AllowReason = $("#txtCustomerName").val();
                 InvoiceItemsDetailsModel.push(invoiceItemSingleModel);
             }
             if (StatusFlag == "u") {
@@ -1272,6 +1285,8 @@ var SlsTrServices;
                 invoiceItemSingleModel.ItemTotal = (Number(invoiceItemSingleModel.Unitprice) * Number(invoiceItemSingleModel.SoldQty));
                 invoiceItemSingleModel.TotRetQty = Number($("#txtReturnQuantity" + i).val());
                 invoiceItemSingleModel.StatusFlag = StatusFlag.toString();
+                invoiceItemSingleModel.CC_CODE = $("#txtCustomerCode").val();
+                invoiceItemSingleModel.AllowReason = $("#txtCustomerName").val();
                 InvoiceItemsDetailsModel.push(invoiceItemSingleModel);
             }
             if (StatusFlag == "d") {
@@ -1339,7 +1354,6 @@ var SlsTrServices;
                 if (result.IsSuccess == true) {
                     // 
                     var res = result.Response;
-                    alert(res.InvoiceID);
                     GlobalinvoiceID = res.InvoiceID;
                     FlagAfterInsertOrUpdate = true;
                     InitializeGrid();
