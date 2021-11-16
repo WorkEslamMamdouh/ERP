@@ -1,8 +1,8 @@
 $(document).ready(function () {
-    SlsTrServices.InitalizeComponent();
+    SlsTrSalesReturn.InitalizeComponent();
 });
-var SlsTrServices;
-(function (SlsTrServices) {
+var SlsTrSalesReturn;
+(function (SlsTrSalesReturn) {
     //system varables
     var SysSession = GetSystemSession();
     var compcode;
@@ -131,7 +131,7 @@ var SlsTrServices;
         //GetAllServices();
         //GetAllCostCenters();
     }
-    SlsTrServices.InitalizeComponent = InitalizeComponent;
+    SlsTrSalesReturn.InitalizeComponent = InitalizeComponent;
     function InitalizeControls() {
         btnPrint = document.getElementById("btnPrint");
         // Drop down lists
@@ -1447,5 +1447,5 @@ var SlsTrServices;
             }
         });
     }
-})(SlsTrServices || (SlsTrServices = {}));
+})(SlsTrSalesReturn || (SlsTrSalesReturn = {}));
 //# sourceMappingURL=SlsTrSalesReturn.js.map

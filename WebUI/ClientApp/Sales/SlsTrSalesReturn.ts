@@ -1,8 +1,8 @@
 ﻿$(document).ready(() => {
 
-    SlsTrServices.InitalizeComponent();
+    SlsTrSalesReturn.InitalizeComponent();
 })
-namespace SlsTrServices {
+namespace SlsTrSalesReturn {
     //system varables
     var SysSession: SystemSession = GetSystemSession();
     var compcode: Number;
