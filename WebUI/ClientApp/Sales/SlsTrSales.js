@@ -598,7 +598,7 @@ var SlsTrServices;
             { title: res.App_Number, name: "InvoiceID", type: "text", width: "2%", visible: false },
             { title: res.App_Number, name: "TrNo", type: "text", width: "13%" },
             { title: res.App_date, name: "TrDate", type: "text", width: "20%" },
-            { title: res.App_Cutomer, name: (lang == "ar" ? "Cus_NameA" : "Cus_NameE"), type: "text", width: "25%" },
+            { title: res.App_Cutomer, name: "CustomerName", type: "text", width: "25%" },
             { title: res.App_total, name: "TotalAmount", type: "text", width: "15%" },
             { title: res.App_Tax, name: "VatAmount", type: "text", width: "12%" },
             { title: res.App_Net, name: "NetAfterVat", type: "text", width: "13%" },
@@ -683,11 +683,11 @@ var SlsTrServices;
             lblInvoiceNumber.value = InvoiceStatisticsModel[0].TrNo.toString();
             txtDocNum.value = InvoiceStatisticsModel[0].DocNo.toString();
             txtInvoiceDate.value = DateFormat(InvoiceStatisticsModel[0].TrDate.toString());
-            //txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
             $('#txtCustomerName').val(InvoiceStatisticsModel[0].Cus_NameA);
             $('#txtCustomerCode').val(InvoiceStatisticsModel[0].Cus_Code);
-            //txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
             txtDiscountValue.value = InvoiceStatisticsModel[0].RoundingAmount.toFixed(2);
+            //txtCustomerName.value = lang == "ar" ? InvoiceStatisticsModel[0].Cus_NameA.toString() : InvoiceStatisticsModel[0].Cus_NameE.toString();
+            //txtCustomerCode.value = InvoiceStatisticsModel[0].Cus_Code.toString();
             //$('#txtWorkOrderNo').val(InvoiceStatisticsModel[0].WorkOrderNo)
             //$('#txtWorkOrderType').val(InvoiceStatisticsModel[0].WorkOrderType)
             //txtDiscountValue.value = InvoiceStatisticsModel[0].DiscountAmount.toFixed(2);
@@ -804,8 +804,8 @@ var SlsTrServices;
             '<input id="txtTax' + cnt + '" type="Number" class="form-control input-sm right2"/></div>' +
             '<div class="col-lg-1 col-md-1 col-sm-1 col-xl-1 col-xs-1 p-0">' +
             '<input id="txtTotAfterTax' + cnt + '" type="text" class="form-control input-sm right2" disabled /></div>' +
-            '<div class="col-lg-4 col-md-1 col-sm-1 col-xl-1 col-xs-1 p-0">' +
-            '<input id="txtRemarks' + cnt + '" type="text" class="form-control input-sm right2 EditCont" disabled /></div></div>' +
+            //'<div class="col-lg-4 col-md-1 col-sm-1 col-xl-1 col-xs-1 p-0">' +
+            //'<input id="txtRemarks' + cnt + '" type="text" class="form-control input-sm right2 EditCont" disabled /></div></div>' +
             '</div></div></div>' +
             '<input id="txt_StatusFlag' + cnt + '" name = " " type = "hidden" class="form-control input-sm"/><input id="txt_ID' + cnt + '" name = " " type = "hidden" class="form-control input-sm" />';
         $("#div_Data").append(html);
@@ -996,7 +996,7 @@ var SlsTrServices;
             $("#txtDiscountAmount" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].DiscountAmount);
             $("#txtNetUnitPrice" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].NetUnitPrice);
             $("#txtTax_Rate" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].VatPrc);
-            $("#txtReturnQuantity" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].TotRetQty);
+            $("#txtReturnQuantity" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].TotRetQty == null ? 0 : SlsInvoiceItemsDetails[cnt].TotRetQty);
             $("#txtTotal" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].ItemTotal);
             $("#txtTax" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].VatAmount.toFixed(2));
             $("#txtTotAfterTax" + cnt).prop("value", SlsInvoiceItemsDetails[cnt].NetAfterVat.toFixed(2));
@@ -1049,8 +1049,8 @@ var SlsTrServices;
             $("#txtCostCntrNum" + CountGrid).removeAttr("disabled");
             $("#txtRemarks" + CountGrid).removeAttr("disabled");
             $("#txtServiceCode" + CountGrid).removeAttr("disabled");
-            $("#txtServiceName" + CountGrid).attr("disabled", "disabled");
-            $("#ddlUOM" + CountGrid).attr("disabled", "disabled");
+            //$("#txtTotAfterTax" + CountGrid).attr("disabled", "disabled");
+            //$("#ddlUOM" + CountGrid).attr("disabled", "disabled");
             $("#btnServiceSearch" + CountGrid).removeAttr("disabled");
             $("#btnSearchCostCenter" + CountGrid).removeAttr("disabled");
             $("#txtQuantity" + CountGrid).removeAttr("disabled");
@@ -1194,6 +1194,8 @@ var SlsTrServices;
         var CustCode = txtCustomerCode.value;
         //var custObj = CustDetails.filter(s => s.CustomerCODE == CustCode);
         //InvoiceModel.CustomerId = custObj[0].CustomerId;
+        InvoiceModel.CustomerId = CustomerId;
+        InvoiceModel.CustomerName = txtCustomerName.value;
         InvoiceModel.CustomerId = CustomerId;
         InvoiceModel.CompCode = Number(compcode);
         InvoiceModel.BranchCode = Number(BranchCode);
